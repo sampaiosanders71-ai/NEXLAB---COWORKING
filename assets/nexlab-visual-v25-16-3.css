@@ -195,3 +195,12 @@ body[data-nexlab-page='marketing'].nexlab-filters-open .nexlab-marketing-filter-
   body[data-nexlab-page='marketing'] .nexlab-month-button{min-width:8.5rem !important;font-size:.95rem !important;}
   body[data-nexlab-page='marketing'] .nexlab-filter-toggle{border-radius:17px;margin-top:12px;}
 }
+
+/* Correção v25.16.3.1: proteger foto de perfil/avatar contra regras de marca */
+img[alt*='perfil' i], img[alt*='foto' i], img[alt*='avatar' i], img[class*='avatar' i], img[class*='profile' i], img[class*='user' i]{
+  object-fit: cover;
+}
+#mobile-sidebar img:not(.nexlab-sidebar-logo),
+aside#mobile-sidebar img:not(.nexlab-sidebar-logo){
+  max-width: none;
+}

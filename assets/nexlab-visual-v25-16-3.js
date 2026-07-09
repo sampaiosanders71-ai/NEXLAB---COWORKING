@@ -42,19 +42,38 @@
   function isSidebar(el){
     return !!el?.closest?.('#mobile-sidebar, aside#mobile-sidebar, aside, [id*="sidebar" i], [class*="sidebar" i]');
   }
-  function scoreImage(img){
-    const rect = img.getBoundingClientRect ? img.getBoundingClientRect() : {width:0,height:0};
+  function imageMetrics(img){
+    const rect = img.getBoundingClientRect ? img.getBoundingClientRect() : {width:0,height:0,top:0,left:0};
     const w = rect.width || img.naturalWidth || img.width || 0;
     const h = rect.height || img.naturalHeight || img.height || 0;
-    return w*h;
+    return {rect,w,h,ratio:w && h ? w/h : 0};
+  }
+  function isProfileImage(img){
+    const combined = `${img.alt||''} ${img.src||''} ${img.className||''} ${img.getAttribute('aria-label')||''}`;
+    if(/avatar|profile|perfil|foto|photo|picture|user|usuario|usuário|account|conta/i.test(combined)) return true;
+    const {w,h,ratio} = imageMetrics(img);
+    const parentText = (img.closest('button,a,div,header,footer')?.textContent || '').toLowerCase();
+    if(w <= 96 && h <= 96 && ratio > .72 && ratio < 1.28 && !/nexlab|conecte|organize|realize|logo|brand/i.test(parentText)) return true;
+    return false;
+  }
+  function isBrandLogoImage(img){
+    if(isProfileImage(img)) return false;
+    const combined = `${img.alt||''} ${img.src||''} ${img.className||''}`;
+    if(/nexlab|brand\/nexlab|icons\/nexlab|logo|brand/i.test(combined)) return true;
+    const sidebar = img.closest?.('#mobile-sidebar, aside#mobile-sidebar, aside, [id*="sidebar" i], [class*="sidebar" i]');
+    if(sidebar){
+      const sm = imageMetrics(sidebar).rect;
+      const im = imageMetrics(img).rect;
+      const nearTop = !sm.height || !im.top || (im.top - sm.top) < 180;
+      const parentText = (img.closest('div,a,header')?.textContent || '').toLowerCase();
+      return nearTop && /nexlab|conecte|organize|realize/i.test(parentText);
+    }
+    return false;
   }
   function applyLogos(){
     document.querySelectorAll('img').forEach(img => {
-      const alt = img.alt || '';
-      const src = img.getAttribute('src') || '';
+      if(!isBrandLogoImage(img)) return;
       const cls = img.getAttribute('class') || '';
-      const looksLogo = /nexlab|logo|brand/i.test(alt + ' ' + src + ' ' + cls);
-      if(!looksLogo && !isSidebar(img)) return;
       const inSidebar = isSidebar(img);
       const isSmallSymbol = /(^|\s)(w-16|h-16|w-14|h-14|w-12|h-12)(\s|$)/.test(cls) && !/w-auto/.test(cls);
       img.alt = 'NEXLAB';
@@ -68,22 +87,6 @@
         img.style.height = 'auto';
         img.style.maxWidth = '82%';
       }
-    });
-
-    const sidebars = Array.from(document.querySelectorAll('#mobile-sidebar, aside#mobile-sidebar, aside, [id*="sidebar" i], [class*="sidebar" i]'))
-      .filter(el => /dashboard|marketing|saúde|saude/i.test(el.textContent || ''));
-    sidebars.forEach(sidebar => {
-      const imgs = Array.from(sidebar.querySelectorAll('img'));
-      if(!imgs.length) return;
-      const target = imgs.sort((a,b)=>scoreImage(b)-scoreImage(a))[0];
-      target.alt = 'NEXLAB';
-      target.src = BRAND.dark;
-      target.removeAttribute('srcset');
-      target.classList.add('nexlab-sidebar-logo');
-      target.style.objectFit = 'contain';
-      target.style.width = '158px';
-      target.style.height = 'auto';
-      target.style.maxWidth = '82%';
     });
   }
 
@@ -242,5 +245,5 @@
     requestAnimationFrame(run);
   }
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true}); else run();
-  new MutationObserver(schedule).observe(document.getElementById('root') || document.body, {childList:true, subtree:true, attributes:true});
+  new MutationObserver(schedule).observe(document.getElementById('root') || document.body, {childList:true, subtree:true});
 })();

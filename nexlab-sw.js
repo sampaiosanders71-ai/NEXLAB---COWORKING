@@ -1,4 +1,4 @@
-const CACHE_NAME = "nexlab-v25-16-3-shell";
+const CACHE_NAME = "nexlab-v25-16-3-1-shell";
 const SHELL_FILES = [
   "./",
   "./manifest.webmanifest",
