@@ -1,0 +1,20 @@
+# NEXLAB v25.16.3 — publicação GitHub Pages
+
+Envie o conteúdo desta pasta para a raiz do repositório GitHub Pages.
+
+Arquivos principais:
+- index.html
+- manifest.webmanifest
+- nexlab-sw.js
+- assets/
+- brand/
+- icons/
+
+Atualizações incluídas:
+- nome visível: NEXLAB
+- versão interna: 25.16.3
+- identidade visual clara com dashboard destacado
+- sidebar escuro com item ativo em degradê laranja
+- logo atualizada no sidebar e marca
+- Marketing com mês central sincronizado e filtros recolhíveis
+- PWA e cache atualizados
