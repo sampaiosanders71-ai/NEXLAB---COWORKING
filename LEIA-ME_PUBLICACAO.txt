@@ -1,19 +1,18 @@
-NEXLAB v25.17.7 — Correção da Agenda duplicada
+NEXLAB v25.17.8 — Opção de apagar notificações
 
 O que mudou nesta versão:
-- Corrigida a duplicidade da tabela no módulo Agenda.
-- A tabela mensal adicionada ao Marketing não aparece mais dentro da Agenda.
-- A identificação visual de página agora diferencia Agenda e Marketing corretamente.
-- Mantidas todas as alterações anteriores aprovadas.
+- Adicionado botão “Apagar” em cada notificação da Central de Notificações.
+- Adicionado botão “Apagar” para notificações selecionadas.
+- Criada função SQL segura para apagar apenas notificações do próprio usuário autenticado.
+- Mantidas as ações existentes: marcar como lida, marcar como não lida, arquivar e restaurar.
 
 Preservado:
-- Marketing com navegação antiga, filtros recolhíveis e tabela mensal estilo Agenda;
 - base oficial sem notificações por e-mail;
-- login por e-mail e recuperação de senha;
-- permissões, RLS, Supabase, Web Push/PWA e demais módulos.
+- Marketing com navegação antiga, filtros e tabela estilo Agenda;
+- Agenda corrigida sem duplicidade;
+- permissões, RLS geral, login, PWA e demais módulos.
 
-Como publicar:
-1. Extraia este ZIP.
-2. Publique todo o conteúdo no host do NEXLAB.
-3. Limpe cache/Service Worker caso o navegador carregue versão antiga.
-4. Teste o módulo Agenda e o módulo Marketing.
+Publicação:
+1. Extraia este ZIP e publique os arquivos no host do NEXLAB.
+2. Execute o SQL `supabase_v25_17_8_apagar_notificacoes.sql` no Supabase SQL Editor.
+3. Limpe cache/Service Worker se o navegador continuar carregando versão anterior.

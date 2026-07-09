@@ -1,1 +1,30 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>NEXLAB v25.17.7 — Changelog</title><style>body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:#f5f7fb;color:#0E1F3D}main{max-width:900px;margin:0 auto;padding:40px 20px}.card{background:#fff;border:1px solid #e5eaf2;border-radius:24px;padding:28px;box-shadow:0 16px 40px rgba(14,31,61,.08)}h1{margin:0 0 8px;font-size:2rem}.muted{color:#64748b;line-height:1.6}.item{border-top:1px solid #edf1f7;padding:18px 0}.item:first-of-type{border-top:0}strong{display:block;margin-bottom:6px}p{margin:0}a{color:#ff6b00;font-weight:800}</style></head><body><main><section class="card"><h1>NEXLAB v25.17.7</h1><p class="muted">Correção da tabela duplicada no módulo Agenda.</p><article class="item"><strong>1. Agenda sem duplicidade</strong><p>Removida a tabela duplicada exibida indevidamente no módulo Agenda.</p></article><article class="item"><strong>2. Marketing preservado</strong><p>A tabela mensal estilo Agenda permanece apenas no módulo Marketing.</p></article><article class="item"><strong>3. Escopo limitado</strong><p>A alteração não modifica Supabase, permissões, login, notificações internas ou regras de negócio.</p></article><p class="muted"><a href="./index.html">Voltar ao app</a></p></section></main></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NEXLAB v25.17.8 — Changelog</title>
+<style>
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:#f5f7fb;color:#0E1F3D}
+main{max-width:900px;margin:0 auto;padding:40px 20px}
+.card{background:#fff;border:1px solid #e5eaf2;border-radius:24px;padding:28px;box-shadow:0 16px 40px rgba(14,31,61,.08)}
+h1{margin:0 0 8px;font-size:2rem}.muted{color:#64748b;line-height:1.6}
+.item{border-top:1px solid #edf1f7;padding:18px 0}.item:first-of-type{border-top:0}
+strong{display:block;margin-bottom:6px}p{margin:0}
+a{color:#ff6b00;font-weight:800}
+code{background:#f1f5f9;padding:2px 6px;border-radius:8px}
+</style>
+</head>
+<body>
+<main>
+<section class="card">
+<h1>NEXLAB v25.17.8</h1>
+<p class="muted">Opção de apagar notificações adicionada.</p>
+<article class="item"><strong>1. Apagar notificações</strong><p>A Central de Notificações agora possui botão “Apagar” por item e por seleção múltipla.</p></article>
+<article class="item"><strong>2. Segurança</strong><p>A exclusão usa RPC própria para apagar apenas notificações do usuário autenticado.</p></article>
+<article class="item"><strong>3. SQL necessário</strong><p>Execute <code>supabase_v25_17_8_apagar_notificacoes.sql</code> no Supabase SQL Editor.</p></article>
+<p class="muted"><a href="./index.html">Voltar ao app</a></p>
+</section>
+</main>
+</body>
+</html>

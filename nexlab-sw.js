@@ -1,15 +1,15 @@
-const CACHE_NAME = "nexlab-v25-17-7-shell-email-removed-r1";
-const RUNTIME_CACHE = "nexlab-v25-17-7-runtime-r1";
+const CACHE_NAME = "nexlab-v25-17-8-shell-email-removed-r1";
+const RUNTIME_CACHE = "nexlab-v25-17-8-runtime-r1";
 const SHELL_FILES = [
   "./",
   "./index.html",
   "./offline.html",
   "./changelog.html",
   "./publicacao.html",
-  "./assets/nexlab-bootstrap-v25-17-7.js?v=brand-r21",
+  "./assets/nexlab-bootstrap-v25-17-8.js?v=brand-r21",
   "./manifest.webmanifest?v=brand-r21",
-  "./assets/nexlab-visual-v25-17-7.css?v=brand-r21",
-  "./assets/nexlab-visual-v25-17-7.js?v=brand-r21",
+  "./assets/nexlab-visual-v25-17-8.css?v=brand-r21",
+  "./assets/nexlab-visual-v25-17-8.js?v=brand-r21",
   "./icons/nexlab-192.png?v=brand-r21",
   "./icons/nexlab-512.png?v=brand-r21",
   "./icons/nexlab-maskable-192.png?v=brand-r21",

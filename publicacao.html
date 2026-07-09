@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0E1F3D" />
-  <title>NEXLAB — Checklist de publicação v25.17.7</title>
+  <title>NEXLAB — Checklist de publicação v25.17.8</title>
   <style>
     :root{--navy:#0E1F3D;--blue:#0A6BFF;--orange:#FF8A00;--green:#8ED11A;--muted:#64748B;--bg:#F5F6F8;--border:rgba(14,31,61,.10);--danger:#991b1b}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(135deg,#F8FAFC,#EEF4FF);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--navy);padding:26px}main{width:min(980px,100%);margin:0 auto}.hero{background:#fff;border:1px solid var(--border);border-radius:30px;padding:24px;box-shadow:0 20px 60px rgba(2,8,23,.12);display:flex;align-items:center;justify-content:space-between;gap:18px}.hero img{width:160px;max-width:42%;height:auto}.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;font-weight:950;color:var(--muted);margin:0 0 8px}h1{margin:0;font-size:1.65rem;letter-spacing:-.035em}.lead{margin:.55rem 0 0;color:var(--muted);font-size:.88rem;line-height:1.55;max-width:680px}.status{margin-top:16px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.status div{background:#fff;border:1px solid var(--border);border-radius:20px;padding:14px}.status span{display:block;color:var(--muted);font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;font-weight:950}.status strong{display:block;margin-top:4px;font-size:.86rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}.item{background:#fff;border:1px solid var(--border);border-radius:22px;padding:18px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:flex-start}.num{width:38px;height:38px;border-radius:14px;display:grid;place-items:center;background:#eff6ff;color:var(--blue);font-size:.78rem;font-weight:950}.item strong{display:block;font-size:.95rem;margin-bottom:6px}.item p{margin:0;color:var(--muted);font-size:.82rem;line-height:1.5}.item label{margin-top:12px;display:flex;align-items:center;gap:.5rem;color:#334155;font-size:.78rem;font-weight:900}input{accent-color:var(--blue)}.alert{margin-top:16px;background:#fff7ed;border:1px solid rgba(253,186,116,.85);color:#9a3412;border-radius:20px;padding:16px;font-size:.82rem;line-height:1.55}.danger{background:#fef2f2;border-color:rgba(239,68,68,.22);color:var(--danger)}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}a,button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:14px;padding:0 15px;text-decoration:none;font-size:.8rem;font-weight:950;cursor:pointer}button{border:0}.primary{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}.secondary{background:#fff;color:var(--navy);border:1px solid var(--border)}.copy{background:#f1f5f9;color:#334155}@media(max-width:760px){body{padding:16px}.hero{align-items:flex-start;flex-direction:column}.hero img{max-width:72%;width:172px}.status,.grid{grid-template-columns:1fr}.item{grid-template-columns:1fr}.actions{display:grid}}
   </style>
@@ -12,12 +12,13 @@
 <body>
   <main>
     <section class="hero">
-      <div><p class="kicker">NEXLAB v25.17.7</p><h1>Checklist de publicação final</h1><p class="lead">Use esta página antes de liberar o app para uso real. O objetivo é evitar publicação com cache antigo, falha de permissão, problema no Supabase ou erro em celular.</p></div>
+      <div><p class="kicker">NEXLAB v25.17.8</p><h1>Checklist de publicação final</h1><p class="lead">Use esta página antes de liberar o app para uso real. O objetivo é evitar publicação com cache antigo, falha de permissão, problema no Supabase ou erro em celular.</p></div>
       <img src="./brand/nexlab-logo-light.png?v=brand-r21" alt="NEXLAB" />
     <article class="item"><div class="num">10</div><div><strong>Conferir módulo de Agenda</strong><p>Confirmar que existe apenas uma tabela de visualização no módulo Agenda.</p><label><input type="checkbox" /> Conferido</label></div></article>
+      <article class="item"><div class="num">10</div><div><strong>Apagar notificações</strong><p>Executar o SQL da v25.17.8 e testar o botão “Apagar” por notificação e por seleção múltipla.</p><label><input type="checkbox" /> Conferido</label></div></article>
 </section>
     <section class="status" aria-label="Resumo da publicação">
-      <div><span>Versão</span><strong>25.17.7</strong></div>
+      <div><span>Versão</span><strong>25.17.8</strong></div>
       <div><span>Cache</span><strong>brand-r21</strong></div>
       <div><span>Publicação</span><strong>GitHub Pages</strong></div>
       <div><span>Obrigatório</span><strong>HTTPS</strong></div>
@@ -39,7 +40,7 @@
   <script>
     function copyChecklist(){
       const text=[
-        'Checklist de publicação final — NEXLAB v25.17.7',
+        'Checklist de publicação final — NEXLAB v25.17.8',
         '1. Versão e arquivos na raiz.',
         '2. Supabase conectado: login, sessão, perfil e módulos.',
         '3. RLS e permissões por perfil.',
