@@ -1,0 +1,23 @@
+NEXLAB v25.17.11 — Navegação estável entre módulos
+
+O que mudou nesta versão:
+- Adicionada estabilização global ao trocar módulos pela Sidebar.
+- Impedido clique rápido repetido durante a troca de aba.
+- Adicionado carregamento único e curto ao abrir módulo.
+- Adicionada limpeza de loaders presos na Sidebar.
+- Adicionado aviso de timeout se um módulo ficar preso em carregamento.
+- O objetivo é evitar que o app precise ser reiniciado ao alternar módulos.
+
+Preservado:
+- Marketing resetado da v25.17.10;
+- opção de apagar notificações da v25.17.8;
+- Agenda sem duplicidade;
+- Supabase, permissões, login e regras de negócio;
+- base sem notificações por e-mail.
+
+Publicação:
+1. Extraia este ZIP.
+2. Publique todo o conteúdo no host do NEXLAB.
+3. Limpe cache/Service Worker no navegador.
+4. Teste alternando rapidamente entre Dashboard, Equipes, Marketing, Agenda e Notificações.
+5. Se ainda não executou, execute o SQL da v25.17.8 para apagar notificações.
