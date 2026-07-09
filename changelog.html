@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0E1F3D" />
+  <title>NEXLAB — Changelog v25.17.0</title>
+  <style>
+    :root{--navy:#0E1F3D;--blue:#0A6BFF;--orange:#FF8A00;--muted:#64748B;--bg:#F5F6F8;}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(135deg,#F8FAFC,#EEF4FF);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--navy);padding:26px}main{width:min(860px,100%);margin:0 auto}.hero{background:#fff;border:1px solid rgba(14,31,61,.10);border-radius:28px;padding:24px;box-shadow:0 20px 60px rgba(2,8,23,.12);display:flex;align-items:center;justify-content:space-between;gap:18px}.hero img{width:160px;max-width:40%;height:auto}.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;font-weight:950;color:var(--muted);margin:0 0 8px}h1{margin:0;font-size:1.55rem;letter-spacing:-.03em}.grid{display:grid;gap:12px;margin-top:16px}.item{background:#fff;border:1px solid rgba(14,31,61,.10);border-radius:20px;padding:18px}.item strong{display:block;font-size:.92rem;margin-bottom:6px}.item p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.55}.actions{display:flex;gap:10px;margin-top:16px}a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:14px;padding:0 15px;text-decoration:none;font-size:.8rem;font-weight:950}.primary{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}.secondary{background:#fff;color:var(--navy);border:1px solid rgba(14,31,61,.10)}@media(max-width:620px){body{padding:16px}.hero{align-items:flex-start;flex-direction:column}.hero img{max-width:70%;width:170px}.actions{display:grid}}
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div><p class="kicker">NEXLAB v25.17.0</p><h1>Changelog e publicação da versão</h1></div>
+      <img src="./brand/nexlab-logo-light.png?v=brand-r13" alt="NEXLAB" />
+    </section>
+    <section class="grid" aria-label="Mudanças da versão">
+      <article class="item"><strong>1. Canal de e-mail removido</strong><p>A Central de Notificações não exibe mais card, botões, filtros, testes administrativos ou campos de modelo ligados ao envio por e-mail.</p></article>
+      <article class="item"><strong>2. Notificações preservadas</strong><p>Foram mantidas as notificações internas do app e o Web Push/PWA. Login, recuperação de senha e e-mail cadastral continuam funcionando pelo Supabase Auth.</p></article>
+      <article class="item"><strong>3. Histórico técnico ajustado</strong><p>O histórico de entregas no app passa a trabalhar somente com entregas Web Push, evitando confusão com filas antigas de e-mail.</p></article>
+      <article class="item"><strong>4. Checklist e cache atualizados</strong><p>Manifest, Service Worker, cache, changelog, checklist de publicação e README foram atualizados para v25.17.0 / brand-r13.</p></article>
+      <article class="item"><strong>5. SQL auxiliar incluído</strong><p>Incluído script para desativar preferências, templates e filas antigas de notificações por e-mail no Supabase, sem alterar login por e-mail.</p></article>
+      <article class="item"><strong>Base preservada</strong><p>Mantidas as melhorias anteriores: conexão, modal padrão, loaders, offline, onboarding, Sidebar institucional, PWA e proteção contra clique duplicado.</p></article>
+    </section>
+    <div class="actions"><a class="primary" href="./">Voltar ao app</a><a class="secondary" href="./publicacao.html">Checklist de publicação</a><a class="secondary" href="./offline.html">Ver tela offline</a></div>
+  </main>
+</body>
+</html>
