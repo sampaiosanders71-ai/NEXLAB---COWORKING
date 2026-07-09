@@ -1,45 +1,19 @@
-# NEXLAB v25.17.0 — publicação GitHub Pages
+NEXLAB v25.17.6 — Marketing antigo com tabela estilo Agenda
 
-Base: v25.16.11.
-Objetivo desta versão: remover do app o canal de notificações por e-mail e manter apenas notificações internas + Web Push/PWA.
+O que mudou nesta versão:
+- Mantida a navegação antiga do Marketing restaurada na v25.17.5.
+- Adicionada tabela mensal estilo Agenda para visualização de campanhas/publicações por data.
+- A tabela tenta preencher itens do próprio conteúdo renderizado no Marketing quando houver datas.
+- O registro de informações de Marketing permanece com os mesmos campos operacionais:
+  titulo, descricao, tipo, canal, status, data, link, responsavel_id e created_at.
 
-## O que mudou
+Preservado:
+- base oficial sem notificações por e-mail;
+- login por e-mail e recuperação de senha;
+- permissões, RLS, Supabase, Web Push/PWA e demais módulos.
 
-- Removido o card de canal por e-mail da Central de Notificações.
-- Removido o botão de ativar/desativar e-mails por tipo de notificação.
-- Removido filtro de histórico por canal de e-mail.
-- Removido teste administrativo de envio por e-mail.
-- Removido campo de assunto de e-mail dos modelos de notificação.
-- Histórico técnico passa a considerar apenas entregas Web Push no app.
-- Versionamento atualizado para v25.17.0 / brand-r13.
-
-## O que foi preservado
-
-- Login e recuperação de senha por e-mail do Supabase Auth.
-- E-mail cadastral/institucional do usuário.
-- Notificações internas no app.
-- Web Push/PWA.
-- Permissões, RLS, RPCs, exportações, offline, changelog e checklist de publicação.
-
-## Arquivos principais
-
-- index.html
-- manifest.webmanifest
-- nexlab-sw.js
-- offline.html
-- changelog.html
-- publicacao.html
-- assets/index-CKPsxFpP.js
-- assets/index-B1u8eynw.css
-- assets/nexlab-bootstrap-v25-17-0.js
-- assets/nexlab-visual-v25-17-0.css
-- assets/nexlab-visual-v25-17-0.js
-- supabase_v25_17_0_remover_email_notificacoes.sql
-
-## Atenção Supabase
-
-O ZIP altera o app/front-end. Se a sua base já possui preferências, filas ou templates antigos de notificação por e-mail, execute o SQL incluído:
-
-supabase_v25_17_0_remover_email_notificacoes.sql
-
-Ele não remove login por e-mail. Ele apenas desativa registros antigos do canal de notificações por e-mail.
+Como publicar:
+1. Extraia este ZIP.
+2. Publique todo o conteúdo no host do NEXLAB.
+3. Limpe cache/Service Worker caso o navegador carregue versão antiga.
+4. Teste o módulo Marketing: navegação, filtros, tabela mensal e registro de campanhas.
