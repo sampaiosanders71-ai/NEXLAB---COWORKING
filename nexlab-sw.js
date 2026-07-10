@@ -1,24 +1,24 @@
-const CACHE_NAME = "nexlab-v25-17-11-shell-email-removed-r1";
-const RUNTIME_CACHE = "nexlab-v25-17-11-runtime-r1";
+const CACHE_NAME = "nexlab-v25-17-13-shell-email-removed-r1";
+const RUNTIME_CACHE = "nexlab-v25-17-13-runtime-r1";
 const SHELL_FILES = [
   "./",
   "./index.html",
   "./offline.html",
   "./changelog.html",
   "./publicacao.html",
-  "./assets/nexlab-bootstrap-v25-17-11.js?v=brand-r24",
-  "./manifest.webmanifest?v=brand-r24",
-  "./assets/nexlab-visual-v25-17-11.css?v=brand-r24",
-  "./assets/nexlab-visual-v25-17-11.js?v=brand-r24",
-  "./icons/nexlab-192.png?v=brand-r24",
-  "./icons/nexlab-512.png?v=brand-r24",
-  "./icons/nexlab-maskable-192.png?v=brand-r24",
-  "./icons/nexlab-maskable-512.png?v=brand-r24",
-  "./icons/apple-touch-icon.png?v=brand-r24",
-  "./icons/nexlab-favicon-rounded.png?v=brand-r24",
-  "./brand/nexlab-logo-light.png?v=brand-r24",
-  "./brand/nexlab-logo-dark.png?v=brand-r24",
-  "./brand/nexlab-icon.png?v=brand-r24"
+  "./assets/nexlab-bootstrap-v25-17-13.js?v=brand-r26",
+  "./manifest.webmanifest?v=brand-r26",
+  "./assets/nexlab-visual-v25-17-13.css?v=brand-r26",
+  "./assets/nexlab-visual-v25-17-13.js?v=brand-r26",
+  "./icons/nexlab-192.png?v=brand-r26",
+  "./icons/nexlab-512.png?v=brand-r26",
+  "./icons/nexlab-maskable-192.png?v=brand-r26",
+  "./icons/nexlab-maskable-512.png?v=brand-r26",
+  "./icons/apple-touch-icon.png?v=brand-r26",
+  "./icons/nexlab-favicon-rounded.png?v=brand-r26",
+  "./brand/nexlab-logo-light.png?v=brand-r26",
+  "./brand/nexlab-logo-dark.png?v=brand-r26",
+  "./brand/nexlab-icon.png?v=brand-r26"
 ];
 const ALLOWED_TABS = new Set([
   "dashboard", "pendencias", "agenda", "notificacoes", "participantes",
@@ -99,8 +99,8 @@ self.addEventListener("push", (event) => {
   const targetTab = ALLOWED_TABS.has(requestedTab) ? requestedTab : "notificacoes";
   const options = {
     body: String(payload.body || "Você recebeu uma nova notificação.").slice(0, 500),
-    icon: "./icons/nexlab-192.png?v=brand-r24",
-    badge: "./icons/nexlab-192.png?v=brand-r24",
+    icon: "./icons/nexlab-192.png?v=brand-r26",
+    badge: "./icons/nexlab-192.png?v=brand-r26",
     tag: String(payload.tag || `nexlab-${Date.now()}`).slice(0, 160),
     renotify: false,
     data: { targetTab },
