@@ -1,20 +1,19 @@
-NEXLAB v25.17.14 — Correção do ícone instalado
+NEXLAB v26.3 — Desempenho
 
-Corrigido:
-- Ícone do app/PWA com quadrado preto ao redor.
+Principais alterações:
+- ativos WebP;
+- preconnect com Supabase;
+- module preload;
+- cache limitado e adaptativo;
+- renderização progressiva;
+- modo econômico para aparelhos mais fracos;
+- métricas de desempenho.
 
-Arquivos ajustados:
-- manifest.webmanifest
-- brand/nexlab-icon.png
-- icons/nexlab-192.png
-- icons/nexlab-512.png
-- icons/nexlab-maskable-192.png
-- icons/nexlab-maskable-512.png
-- icons/apple-touch-icon.png
-- icons/nexlab-favicon-rounded.png
+Publicação:
+1. Apague os arquivos antigos do GitHub Pages.
+2. Envie todo o conteúdo deste ZIP mantendo as pastas.
+3. Limpe cache e Service Worker.
+4. Feche e abra novamente o app instalado.
+5. Teste login, troca de módulos, imagens e exportações.
 
-Importante:
-Depois de publicar:
-1. Limpe o cache do navegador.
-2. Desinstale o app instalado antigo.
-3. Instale novamente o app.
+Nenhum SQL novo é necessário.

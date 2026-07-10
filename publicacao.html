@@ -1,62 +1,13 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0E1F3D" />
-  <title>NEXLAB — Checklist de publicação v25.17.13</title>
-  <style>
-    :root{--navy:#0E1F3D;--blue:#0A6BFF;--orange:#FF8A00;--green:#8ED11A;--muted:#64748B;--bg:#F5F6F8;--border:rgba(14,31,61,.10);--danger:#991b1b}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(135deg,#F8FAFC,#EEF4FF);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--navy);padding:26px}main{width:min(980px,100%);margin:0 auto}.hero{background:#fff;border:1px solid var(--border);border-radius:30px;padding:24px;box-shadow:0 20px 60px rgba(2,8,23,.12);display:flex;align-items:center;justify-content:space-between;gap:18px}.hero img{width:160px;max-width:42%;height:auto}.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;font-weight:950;color:var(--muted);margin:0 0 8px}h1{margin:0;font-size:1.65rem;letter-spacing:-.035em}.lead{margin:.55rem 0 0;color:var(--muted);font-size:.88rem;line-height:1.55;max-width:680px}.status{margin-top:16px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.status div{background:#fff;border:1px solid var(--border);border-radius:20px;padding:14px}.status span{display:block;color:var(--muted);font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;font-weight:950}.status strong{display:block;margin-top:4px;font-size:.86rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}.item{background:#fff;border:1px solid var(--border);border-radius:22px;padding:18px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:flex-start}.num{width:38px;height:38px;border-radius:14px;display:grid;place-items:center;background:#eff6ff;color:var(--blue);font-size:.78rem;font-weight:950}.item strong{display:block;font-size:.95rem;margin-bottom:6px}.item p{margin:0;color:var(--muted);font-size:.82rem;line-height:1.5}.item label{margin-top:12px;display:flex;align-items:center;gap:.5rem;color:#334155;font-size:.78rem;font-weight:900}input{accent-color:var(--blue)}.alert{margin-top:16px;background:#fff7ed;border:1px solid rgba(253,186,116,.85);color:#9a3412;border-radius:20px;padding:16px;font-size:.82rem;line-height:1.55}.danger{background:#fef2f2;border-color:rgba(239,68,68,.22);color:var(--danger)}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}a,button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:14px;padding:0 15px;text-decoration:none;font-size:.8rem;font-weight:950;cursor:pointer}button{border:0}.primary{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}.secondary{background:#fff;color:var(--navy);border:1px solid var(--border)}.copy{background:#f1f5f9;color:#334155}@media(max-width:760px){body{padding:16px}.hero{align-items:flex-start;flex-direction:column}.hero img{max-width:72%;width:172px}.status,.grid{grid-template-columns:1fr}.item{grid-template-columns:1fr}.actions{display:grid}}
-  </style>
-</head>
-<body>
-  <main>
-    <section class="hero">
-      <div><p class="kicker">NEXLAB v25.17.13</p><h1>Checklist de publicação final</h1><p class="lead">Use esta página antes de liberar o app para uso real. O objetivo é evitar publicação com cache antigo, falha de permissão, problema no Supabase ou erro em celular.</p></div>
-      <img src="./brand/nexlab-logo-light.png?v=brand-r26" alt="NEXLAB" />
-    <article class="item"><div class="num">10</div><div><strong>Conferir módulo de Agenda</strong><p>Confirmar que existe apenas uma tabela de visualização no módulo Agenda.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">10</div><div><strong>Apagar notificações</strong><p>Executar o SQL da v25.17.13 e testar o botão “Apagar” por notificação e por seleção múltipla.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">11</div><div><strong>Bug visual do Marketing</strong><p>Conferir se existe apenas uma área principal de visualização no Marketing, sem tabela extra acima do módulo.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">12</div><div><strong>Marketing resetado</strong><p>Testar adicionar, editar, remover, filtros, lista, pendências e tabela mensal estilo Agenda.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">13</div><div><strong>Navegação estável</strong><p>Testar alternância rápida entre módulos e confirmar que loaders não ficam presos na Sidebar.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">14</div><div><strong>Marketing compacto</strong><p>Conferir se o Marketing ficou menor visualmente e se o texto laranja abaixo do mês foi removido.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">15</div><div><strong>Subtítulos removidos</strong><p>Conferir se o Marketing e os cabeçalhos dos módulos não exibem subtítulos desnecessários.</p><label><input type="checkbox" /> Conferido</label></div></article>
-</section>
-    <section class="status" aria-label="Resumo da publicação">
-      <div><span>Versão</span><strong>25.17.13</strong></div>
-      <div><span>Cache</span><strong>brand-r26</strong></div>
-      <div><span>Publicação</span><strong>GitHub Pages</strong></div>
-      <div><span>Obrigatório</span><strong>HTTPS</strong></div>
-    </section>
-    <section class="grid" aria-label="Itens de verificação">
-      <article class="item"><div class="num">01</div><div><strong>Versão e arquivos</strong><p>Confirmar se `index.html`, `manifest.webmanifest`, `nexlab-sw.js`, `offline.html`, `changelog.html` e `publicacao.html` estão na raiz do projeto publicado.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">02</div><div><strong>Supabase conectado</strong><p>Entrar com usuário real, confirmar sessão, carregamento do perfil e resposta dos módulos principais sem tela travada.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">03</div><div><strong>RLS e permissões</strong><p>Testar Administrador, Coordenador, Bolsista, Coworking Júnior, cadastro pendente e usuário inativo. O que não pode aparecer não deve aparecer.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">04</div><div><strong>Edge Functions e RPCs</strong><p>Validar exclusão protegida, notificações internas, Web Push, exportações, logs, permissões e qualquer ação administrativa crítica.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">05</div><div><strong>PWA, cache e offline</strong><p>Publicar em HTTPS, instalar no celular, testar atualização do app, tela offline e retorno de conexão.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">06</div><div><strong>Teste mobile</strong><p>Conferir login, Sidebar, botões, modais, loader, rolagem, toque, contraste, logo e visual em Android/iOS.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">07</div><div><strong>Fluxos reais</strong><p>Criar, editar, aprovar, rejeitar, arquivar, restaurar, exportar e cancelar registros reais de teste.</p><label><input type="checkbox" /> Conferido</label></div></article>
-      <article class="item"><div class="num">08</div><div><strong>Remoção de e-mail</strong><p>Confirmar que a Central de Notificações não exibe canal, filtro, teste ou modelo de envio por e-mail. Executar o SQL auxiliar no Supabase, se houver dados antigos.</p><label><input type="checkbox" /> Conferido</label></div></article><article class="item"><div class="num">09</div><div><strong>Evidência final</strong><p>Registrar print ou anotação dos testes por perfil antes de considerar a versão estável.</p><label><input type="checkbox" /> Conferido</label></div></article>
-    </section>
-    <div class="alert danger"><strong>Regra dura:</strong> se login, permissões, cache, PWA, offline ou ações administrativas falharem, não publique como versão final. Corrija primeiro.</div>
-    <div class="alert"><strong>Depois de publicar:</strong> abra o app em janela anônima, instale no celular e teste novamente. Cache antigo é uma das maiores causas de falso bug em PWA.</div>
-    <div class="actions"><a class="primary" href="./">Voltar ao app</a><a class="secondary" href="./changelog.html">Ver changelog</a><a class="secondary" href="./offline.html">Ver offline</a><button class="copy" type="button" onclick="copyChecklist()">Copiar checklist</button></div>
-  </main>
-  <script>
-    function copyChecklist(){
-      const text=[
-        'Checklist de publicação final — NEXLAB v25.17.13',
-        '1. Versão e arquivos na raiz.',
-        '2. Supabase conectado: login, sessão, perfil e módulos.',
-        '3. RLS e permissões por perfil.',
-        '4. Edge Functions e RPCs críticas.',
-        '5. PWA/cache/offline em HTTPS.',
-        '6. Teste mobile Android/iOS.',
-        '7. Fluxos reais de criar, editar, aprovar, excluir e exportar.',
-        '8. Evidência final dos testes.'
-      ].join('\n');
-      navigator.clipboard?.writeText(text).then(()=>alert('Checklist copiado.')).catch(()=>alert(text));
-    }
-  </script>
-</body>
-</html>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXLAB v26.3 — Checklist</title><style>
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:#f5f7fb;color:#0E1F3D}main{max-width:900px;margin:auto;padding:40px 20px}.card{background:#fff;border:1px solid #e2e8f0;border-radius:26px;padding:28px}label{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #eef2f7;font-weight:750}
+</style></head><body><main><section class="card"><h1>Checklist — v26.3</h1>
+<label><input type="checkbox"> Logos e ícone interno aparecem corretamente</label>
+<label><input type="checkbox"> Login e Dashboard abrem normalmente</label>
+<label><input type="checkbox"> Troca entre módulos permanece estável</label>
+<label><input type="checkbox"> Imagens de perfil e anexos carregam</label>
+<label><input type="checkbox"> Relatórios PDF/XLSX continuam funcionando</label>
+<label><input type="checkbox"> App instalado abre após limpeza do cache</label>
+<label><input type="checkbox"> Modo offline mantém o shell do app</label>
+<label><input type="checkbox"> Nenhum SQL novo foi aplicado</label>
+</section></main></body></html>
