@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXLAB v26.4 — Relatório</title>
+<style>
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:#f5f7fb;color:#0E1F3D}
+main{max-width:980px;margin:auto;padding:38px 20px 60px}
+header,.card{background:#fff;border:1px solid #e2e8f0;border-radius:26px;padding:26px;box-shadow:0 12px 32px rgba(14,31,61,.06)}
+h1{margin:0 0 8px}header p,.card p,.card li{color:#64748b;line-height:1.55}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}
+.card h2{font-size:1.05rem;margin:0 0 8px}.warn{border-color:#fed7aa;background:#fffaf5}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>NEXLAB v26.4</h1><p>Endurecimento do Supabase, auditoria de RLS/RPCs, índices e integridade dos dados.</p></header>
+<section class="grid">
+<article class="card"><h2>RLS e policies</h2><p>O diagnóstico identifica tabelas sem RLS, sem policies ou com configuração incompleta.</p></article>
+<article class="card"><h2>RPCs protegidas</h2><p>Funções administrativas deixam de aceitar execução anônima e recebem search_path fixo.</p></article>
+<article class="card"><h2>Perfis protegidos</h2><p>Alterações diretas na tabela profiles são bloqueadas. A gestão permanece pelas RPCs controladas.</p></article>
+<article class="card"><h2>Índices</h2><p>Consultas frequentes de notificações, projetos, reservas, Marketing e logs recebem índices idempotentes.</p></article>
+<article class="card"><h2>Duplicidades</h2><p>Índices únicos são criados somente quando não existem duplicidades nos dados atuais.</p></article>
+<article class="card"><h2>Saúde do Sistema</h2><p>A auditoria v26.4 aparece diretamente para o Administrador.</p></article>
+<article class="card warn"><h2>Policies não são inventadas</h2><p>Tabelas sem policies são apenas sinalizadas. As regras devem respeitar a matriz real de perfis.</p></article>
+<article class="card"><h2>Migration</h2><p>Execute supabase_v26_4_seguranca_integridade.sql no SQL Editor.</p></article>
+</section>
+</main>
+</body>
+</html>
