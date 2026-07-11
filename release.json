@@ -1,0 +1,34 @@
+{
+  "name": "NEXLAB",
+  "version": "26.8.0",
+  "revision": "equipes-final",
+  "channel": "stable",
+  "title": "Gestão de Equipes completa — histórico, notificações e vínculos",
+  "built_at": "2026-07-11T18:38:13-03:00",
+  "requires_sql": true,
+  "sql_migration": "supabase_v26_8_0_equipes_etapa_3.sql",
+  "previous_revision": "equipes-etapa-2",
+  "scope": "v26.8.0 final — pontos 9, 10 e 11",
+  "runtime": {
+    "export_vendor": "assets/nexlab-export-vendor-v26-7-5-7.js",
+    "export_vendor_preloaded": false,
+    "realtime_cache_invalidation": true,
+    "stale_response_cache_guard": true,
+    "team_history_realtime": true,
+    "team_links_realtime": true
+  },
+  "publication": {
+    "replace_all_files": false,
+    "clear_service_worker": true,
+    "test_homologation": true
+  },
+  "changes": [
+    "Linha do tempo funcional por equipe com autor, data, descrição e metadados das alterações.",
+    "Notificações automáticas para inclusão, remoção, mudança de função, transferência de responsabilidade, arquivamento e restauração.",
+    "Vínculos gerenciáveis entre equipes e projetos, eventos ou reuniões.",
+    "Sincronização automática dos vínculos já existentes em projetos e reuniões.",
+    "Detalhes da equipe ampliados com seções de vínculos e histórico.",
+    "Tabelas team_history e team_links protegidas por RLS e incluídas no Supabase Realtime.",
+    "Auditoria de segurança ampliada para criação e remoção de vínculos de equipe."
+  ]
+}
