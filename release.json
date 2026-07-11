@@ -1,0 +1,21 @@
+{
+  "name": "NEXLAB",
+  "version": "26.7.5",
+  "channel": "stable",
+  "title": "Retenção automática, dependências reprodutíveis e auditoria HTML completa",
+  "built_at": "2026-07-10T16:55:00-03:00",
+  "requires_sql": true,
+  "sql_file": "supabase/supabase_v26_7_5_retencao_automatica.sql",
+  "sql_prerequisite": "supabase/supabase_v26_7_4_observabilidade_seguranca.sql",
+  "previous_version": "26.7.4",
+  "retention": {
+    "days": 90,
+    "schedule_utc": "17 6 * * *",
+    "job_name": "nexlab-observability-retention-v26-7-5"
+  },
+  "publication": {
+    "replace_all_files": true,
+    "clear_service_worker": true,
+    "test_homologation": true
+  }
+}

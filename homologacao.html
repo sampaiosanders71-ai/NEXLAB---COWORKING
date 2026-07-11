@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0E1F3D">
+<title>NEXLAB v26.7.5 — Homologação</title>
+<style>
+:root{font-family:Inter,system-ui,Arial,sans-serif;color:#0E1F3D;background:#f5f7fb}
+*{box-sizing:border-box}body{margin:0;min-height:100vh}main{max-width:1080px;margin:auto;padding:32px 18px 60px}
+header,.card{background:#fff;border:1px solid #e2e8f0;border-radius:24px;box-shadow:0 12px 32px rgba(14,31,61,.06)}
+header{padding:26px}h1{margin:0 0 7px;font-size:clamp(1.6rem,5vw,2.3rem)}header p,.muted{color:#64748b;line-height:1.55}
+.notice{margin-top:14px;padding:12px 14px;border:1px solid #c4b5fd;border-radius:14px;background:#f5f3ff;color:#5b21b6;font-weight:800;font-size:.78rem}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}button,a.btn{min-height:44px;border:0;border-radius:13px;padding:0 15px;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:.76rem;text-decoration:none;cursor:pointer}
+.primary{background:#0E1F3D;color:#fff}.secondary{background:#eef2ff;color:#3730a3}.danger{background:#fff1f2;color:#be123c;border:1px solid #fecdd3}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.card{padding:18px}.card h2{margin:0 0 10px;font-size:1rem}
+.results{display:grid;gap:8px}.result{padding:11px 12px;border-radius:13px;border:1px solid #e2e8f0;background:#f8fafc}.result strong{display:block;font-size:.78rem}.result span{display:block;margin-top:3px;color:#64748b;font-size:.7rem;line-height:1.4}.result.pass{border-color:#bbf7d0;background:#f0fdf4}.result.fail{border-color:#fecaca;background:#fef2f2}.result.warn{border-color:#fed7aa;background:#fff7ed}
+.profile{display:grid;gap:9px}.check{display:flex;align-items:flex-start;gap:9px;padding:10px;border:1px solid #e2e8f0;border-radius:12px}.check input{width:20px;height:20px;flex:none}.check span{font-size:.76rem;line-height:1.45}.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.meta div{padding:11px;border-radius:13px;background:#f8fafc}.meta span{display:block;color:#64748b;font-size:.64rem;text-transform:uppercase;font-weight:900}.meta strong{display:block;margin-top:4px;font-size:.82rem;overflow-wrap:anywhere}
+footer{margin-top:20px;text-align:center;color:#64748b;font-size:.7rem}@media(max-width:760px){.grid{grid-template-columns:1fr}.meta{grid-template-columns:1fr}.toolbar>*{width:100%}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>NEXLAB v26.7.5 — Homologação</h1>
+<p>Diagnóstico técnico e checklist funcional. Esta página não cria, altera nem apaga registros no Supabase.</p>
+<div class="notice">Para uma homologação real, use projeto Supabase e URL separados da produção. Esta página testa o pacote publicado, não isola o banco de dados.</div>
+<div class="toolbar">
+<button class="primary" id="run-tests" type="button">Executar testes técnicos</button>
+<button class="secondary" id="export-results" type="button">Exportar resultado</button>
+<button class="danger" id="clear-checklist" type="button">Limpar checklist</button>
+<a class="btn secondary" href="./index.html">Abrir o app</a>
+</div>
+</header>
+<section class="grid">
+<article class="card"><h2>Ambiente</h2><div class="meta" id="environment"></div></article>
+<article class="card"><h2>Testes automáticos</h2><div class="results" id="results"><p class="muted">Clique em “Executar testes técnicos”.</p></div></article>
+<article class="card"><h2>Perfis e permissões</h2><div class="profile" data-group="profiles"></div></article>
+<article class="card"><h2>Fluxos principais</h2><div class="profile" data-group="flows"></div></article>
+<article class="card"><h2>Mobile, PWA e acessibilidade</h2><div class="profile" data-group="mobile"></div></article>
+<article class="card"><h2>Publicação</h2><div class="profile" data-group="publish"></div></article>
+</section>
+<footer>Os checklists ficam salvos somente neste navegador.</footer>
+</main>
+<script>
+const VERSION='26.7.5';
+const STORAGE_KEY='nexlab:homologacao:v26.7.5';
+const groups={
+profiles:[
+'ADM acessa Usuários, Permissões, Saúde do Sistema e Central de Atividades.',
+'Coordenador acessa somente módulos autorizados pela matriz.',
+'Bolsista não acessa áreas exclusivas de ADM.',
+'Coworking Júnior mantém o acesso básico configurado.',
+'Usuário pendente fica limitado a Dashboard, Perfil e Notificações.'
+],
+flows:[
+'Login e recuperação de senha funcionam.',
+'Criação, edição e exclusão de projeto respeitam permissões.',
+'Reserva detecta conflitos e mantém participantes.',
+'Marketing adiciona, edita, remove, filtra e navega no calendário.',
+'Notificações sincronizam sino, Central e Realtime.',
+'Relatórios PDF e XLSX são gerados corretamente.'
+],
+mobile:[
+'Menu móvel abre, fecha e devolve o foco.',
+'Tabelas e Agenda permitem rolagem horizontal.',
+'Modais não ultrapassam a tela e mantêm o foco.',
+'PWA instala, atualiza e abre sem fundo preto no ícone.',
+'Modo offline exibe o shell e o aviso correto.',
+'Navegação por teclado e link “Pular para o conteúdo” funcionam.'
+],
+publish:[
+'GitHub Pages terminou com deployment verde.',
+'Nenhuma alteração foi enviada enquanto outro deployment estava ativo.',
+'Cache e Service Worker anteriores foram limpos.',
+'Migration v26.4.1 está aplicada no Supabase.',
+'Auditoria v26.4 foi executada na Saúde do Sistema.',
+'Backup ou ponto de restauração foi confirmado antes da publicação.'
+]};
+function loadState(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')}catch{return {}}}
+function saveState(state){localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}
+function renderChecklists(){const state=loadState();for(const [group,items] of Object.entries(groups)){const host=document.querySelector(`[data-group="${group}"]`);host.replaceChildren();items.forEach((text,index)=>{const label=document.createElement('label');label.className='check';const input=document.createElement('input');input.type='checkbox';input.checked=Boolean(state[`${group}:${index}`]);input.addEventListener('change',()=>{const next=loadState();next[`${group}:${index}`]=input.checked;saveState(next)});const span=document.createElement('span');span.textContent=text;label.append(input,span);host.appendChild(label)})}}
+function renderEnvironment(){const host=document.getElementById('environment');const data=[['Versão',VERSION],['URL',location.href],['Online',navigator.onLine?'Sim':'Não'],['PWA instalado',matchMedia('(display-mode: standalone)').matches?'Sim':'Não'],['Service Worker','serviceWorker'in navigator?'Suportado':'Indisponível'],['Viewport',`${innerWidth} × ${innerHeight}`]];host.replaceChildren(...data.map(([label,value])=>{const div=document.createElement('div');const span=document.createElement('span');span.textContent=label;const strong=document.createElement('strong');strong.textContent=value;div.append(span,strong);return div}))}
+async function fetchText(path){const response=await fetch(path,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);return response.text()}
+async function runTests(){const host=document.getElementById('results');host.innerHTML='<p class="muted">Executando...</p>';const tests=[];async function test(name,fn){try{const detail=await fn();tests.push({name,status:'pass',detail:String(detail||'Aprovado')})}catch(error){tests.push({name,status:'fail',detail:error.message||String(error)})}}
+await test('index.html e versão',async()=>{const text=await fetchText('./index.html');if(!text.includes('content="26.7.5"'))throw new Error('Versão 26.7.5 não encontrada.');return 'Versão 26.7.5 confirmada.'});
+await test('Manifesto PWA',async()=>{const response=await fetch('./manifest.webmanifest',{cache:'no-store'});const data=await response.json();if(data.name!=='NEXLAB'||!Array.isArray(data.icons)||data.icons.length<4)throw new Error('Manifesto incompleto.');return `${data.icons.length} ícones declarados.`});
+await test('Service Worker',async()=>{const text=await fetchText('./nexlab-sw.js');if(!text.includes('nexlab-v26-7-5-shell-r1'))throw new Error('Cache da v26.7.5 não encontrado.');return 'Cache v26.7.5 identificado.'});
+await test('Ativos críticos',async()=>{const files=['./assets/index-CKPsxFpP.js','./assets/index-B1u8eynw.css','./assets/nexlab-bootstrap-v26-7.js','./assets/nexlab-visual-v26-7.css','./assets/nexlab-visual-v26-7.js','./icons/nexlab-192.png'];for(const file of files){const response=await fetch(file,{cache:'no-store'});if(!response.ok)throw new Error(`${file}: HTTP ${response.status}`)}return `${files.length} arquivos disponíveis.`});
+await test('Política de segurança',async()=>{const text=await fetchText('./index.html');if(!text.includes('Content-Security-Policy'))throw new Error('CSP ausente.');return 'CSP declarada no documento.'});
+await test('Recursos do navegador',async()=>{const missing=[];if(!('fetch'in window))missing.push('fetch');if(!('Promise'in window))missing.push('Promise');if(!('serviceWorker'in navigator))missing.push('Service Worker');if(missing.length)throw new Error(`Ausentes: ${missing.join(', ')}`);return 'Recursos mínimos disponíveis.'});
+window.__NEXLAB_HOMOLOGATION_RESULT__={version:VERSION,url:location.href,tests,checklist:loadState(),capturedAt:new Date().toISOString()};host.replaceChildren(...tests.map(item=>{const div=document.createElement('div');div.className=`result ${item.status}`;const strong=document.createElement('strong');strong.textContent=item.name;const span=document.createElement('span');span.textContent=item.detail;div.append(strong,span);return div}))}
+function exportResults(){const result=window.__NEXLAB_HOMOLOGATION_RESULT__||{version:VERSION,url:location.href,tests:[],checklist:loadState(),capturedAt:new Date().toISOString()};result.checklist=loadState();const blob=new Blob([JSON.stringify(result,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`nexlab-homologacao-v26.7.5-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url)}
+document.getElementById('run-tests').addEventListener('click',runTests);document.getElementById('export-results').addEventListener('click',exportResults);document.getElementById('clear-checklist').addEventListener('click',()=>{localStorage.removeItem(STORAGE_KEY);renderChecklists()});renderEnvironment();renderChecklists();
+</script>
+</body>
+</html>

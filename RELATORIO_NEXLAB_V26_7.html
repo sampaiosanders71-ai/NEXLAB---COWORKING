@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXLAB v26.7.5 — Relatório de estabilização</title>
+<style>
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:#f5f7fb;color:#0E1F3D}
+main{max-width:980px;margin:auto;padding:38px 20px 60px}
+header,.card{background:#fff;border:1px solid #e2e8f0;border-radius:26px;padding:26px;box-shadow:0 12px 32px rgba(14,31,61,.06)}
+h1{margin:0 0 8px}header p,.card p{color:#64748b;line-height:1.55}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}
+.card h2{font-size:1.05rem;margin:0 0 8px}.warn{border-color:#fed7aa;background:#fffaf5}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>NEXLAB v26.7.5</h1><p>Retenção automática, dependências reprodutíveis e validação completa das referências HTML.</p></header>
+<section class="grid">
+<article class="card"><h2>Erros do cliente</h2><p>Erros não tratados, falhas de módulo e carregamentos parciais podem ser registrados no Supabase.</p></article>
+<article class="card"><h2>Privacidade</h2><p>Metadados são limitados a campos técnicos e sanitizados no cliente e no banco.</p></article>
+<article class="card"><h2>Retenção automática</h2><p>O Supabase Cron mantém 90 dias de logs e executa a limpeza diariamente às 06:17 UTC.</p></article>
+<article class="card"><h2>Dependências travadas</h2><p>Playwright 1.53.0 está fixado no package-lock.json e o GitHub Actions usa npm ci.</p></article>
+<article class="card"><h2>Integridade HTML</h2><p>O teste estático verifica referências locais de todas as sete páginas HTML do pacote.</p></article>
+<article class="card"><h2>Saúde do Sistema</h2><p>ADM visualiza volume, críticos, usuários afetados e módulos com mais eventos.</p></article>
+<article class="card"><h2>Smoke test</h2><p>Workflow opcional verifica diariamente a versão publicada quando a URL é configurada.</p></article>
+<article class="card warn"><h2>SQL obrigatório</h2><p>Execute primeiro a migration v26.7.4 e depois supabase_v26_7_5_retencao_automatica.sql.</p></article>
+</section>
+</main>
+</body>
+</html>
