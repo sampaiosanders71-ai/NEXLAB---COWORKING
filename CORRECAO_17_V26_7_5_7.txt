@@ -1,8 +1,0 @@
-NEXLAB v26.7.5.7
-
-Correção 17:
-- PDF/XLSX carregados sob demanda.
-- Cache invalidado em eventos Realtime.
-- Respostas antigas não repovoam o cache.
-
-Sem SQL novo.
