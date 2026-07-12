@@ -1,0 +1,63 @@
+{
+  "name": "NEXLAB",
+  "version": "26.9.0",
+  "revision": "projetos-estabilizacao-correcoes-17-a-20-r9",
+  "channel": "stable",
+  "title": "Projetos — concorrência, exclusão segura e notificações completas",
+  "built_at": "2026-07-12T15:25:59Z",
+  "requires_sql": true,
+  "sql_migration": "supabase_v26_9_0_projetos_correcoes_17_a_20.sql",
+  "depends_on_migration": "supabase_v26_9_0_projetos_correcoes_13_a_16.sql",
+  "previous_revision": "projetos-estabilizacao-correcoes-13-a-16-r8",
+  "scope": "v26.9.0 — estabilização do módulo Projetos, correções 17 a 20 de 22",
+  "runtime": {
+    "project_agenda_deduplicated": true,
+    "project_task_management_rpc": "nexlab_manage_project_task_v2690",
+    "project_task_actions": [
+      "create",
+      "update",
+      "toggle",
+      "delete"
+    ],
+    "project_task_assignee_view": true,
+    "project_link_workspace_response": true,
+    "project_workspace_debounce_ms": 240,
+    "project_realtime_tables": [
+      "projects",
+      "project_tasks",
+      "project_history",
+      "project_links"
+    ],
+    "project_workspace_rpc": "nexlab_get_project_workspace_v2690",
+    "service_worker_cache": "nexlab-v26-9-0-shell-r9",
+    "project_move_scoped_rollback": true,
+    "project_delete_prepare_rpc": "nexlab_prepare_project_delete_v2690",
+    "project_delete_rpc": "nexlab_delete_project_v2690",
+    "project_attachment_storage_cleanup": true,
+    "project_notification_orphan_neutralization": true,
+    "project_notification_semantic_dedupe_minutes": 5,
+    "project_notification_preference_key": "project_updates",
+    "notification_channels": [
+      "internal",
+      "email",
+      "push"
+    ]
+  },
+  "publication": {
+    "replace_all_files": false,
+    "clear_service_worker": true,
+    "test_homologation": true
+  },
+  "remaining_project_corrections": 2,
+  "changes": [
+    "Falhas de movimentação reconciliam somente as colunas afetadas e preservam outros cards em processamento.",
+    "A exclusão de projetos remove primeiro os arquivos do bucket anexos e só então conclui a limpeza do banco.",
+    "Anexos e registros relacionados são removidos pela RPC segura de exclusão.",
+    "Notificações de projetos excluídos são arquivadas, neutralizadas e deixam de apontar para registros inexistentes.",
+    "Entregas externas ainda pendentes são marcadas como ignoradas quando o projeto é excluído.",
+    "A categoria Atualizações de projetos aparece nas preferências pessoais.",
+    "Preferências passam a controlar separadamente aviso interno, e-mail, Web Push e silêncio total.",
+    "Notificações semanticamente iguais são deduplicadas em janelas de cinco minutos.",
+    "Migration aplicada: supabase_v26_9_0_projetos_correcoes_17_a_20.sql."
+  ]
+}
