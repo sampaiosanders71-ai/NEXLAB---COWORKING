@@ -1,0 +1,42 @@
+{
+  "name": "NEXLAB",
+  "version": "26.9.0",
+  "revision": "projetos-estabilizacao-correcoes-5-a-8-r6",
+  "channel": "stable",
+  "title": "Projetos — vínculos íntegros, Kanban concorrente e permissões alinhadas",
+  "built_at": "2026-07-12T13:45:12Z",
+  "requires_sql": true,
+  "sql_migration": "supabase_v26_9_0_projetos_correcoes_5_a_8.sql",
+  "depends_on_migration": "supabase_v26_9_0_projetos_correcoes_1_a_4.sql",
+  "previous_revision": "projetos-estabilizacao-correcoes-1-a-4-r5",
+  "scope": "v26.9.0 — estabilização do módulo Projetos, correções 5 a 8 de 22",
+  "runtime": {
+    "project_link_integrity_trigger": "nexlab_validate_project_link_v2690",
+    "project_structure_constraints": true,
+    "project_kanban_deferred_unique": true,
+    "project_kanban_advisory_locks": true,
+    "project_secure_update_rpc": "nexlab_update_project_v2690",
+    "project_transfer_permission_rpc": "nexlab_can_transfer_project_v2690",
+    "project_team_change_permission_rpc": "nexlab_can_change_project_team_v2690",
+    "project_responsible_operational_edit": true,
+    "project_responsible_transfer": false,
+    "project_author_transfer": true,
+    "service_worker_cache": "nexlab-v26-9-0-shell-r6"
+  },
+  "publication": {
+    "replace_all_files": false,
+    "clear_service_worker": true,
+    "test_homologation": true
+  },
+  "remaining_project_corrections": 14,
+  "changes": [
+    "Vínculos diretos são validados no banco, inclusive em inserções fora da RPC.",
+    "Nome, status, prioridade, atualização e posição do Kanban possuem restrições estruturais.",
+    "Novos projetos entram no fim da coluna com lock transacional.",
+    "A combinação status + kanban_order passou a ser única e diferida.",
+    "Movimentações usam locks por coluna e não aceitam mudança direta de status ou posição.",
+    "A edição do projeto usa a RPC transacional nexlab_update_project_v2690.",
+    "Responsáveis podem editar o andamento, mas somente autor ou gestor global transferem responsável e equipe.",
+    "Migration aplicada: supabase_v26_9_0_projetos_correcoes_5_a_8.sql."
+  ]
+}
