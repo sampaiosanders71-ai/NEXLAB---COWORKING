@@ -1,0 +1,61 @@
+{
+  "name": "NEXLAB",
+  "version": "26.9.0",
+  "revision": "projetos-notificacoes-vinculos-indicadores-relatorios-etapa-4",
+  "channel": "stable",
+  "title": "Projetos — notificações, vínculos e inteligência gerencial",
+  "built_at": "2026-07-12T02:18:00Z",
+  "requires_sql": true,
+  "sql_migration": "supabase_v26_9_0_projetos_etapa_2_pontos_10_a_12.sql",
+  "depends_on_migration": "supabase_v26_9_0_projetos_etapa_2_pontos_7_a_9.sql",
+  "previous_revision": "projetos-detalhes-historico-permissoes-etapa-3",
+  "scope": "v26.9.0 — pontos 10, 11 e 12 concluídos",
+  "runtime": {
+    "project_kanban_board": true,
+    "project_table_view": true,
+    "project_drag_and_drop": true,
+    "project_status_persistence": true,
+    "project_position_persistence": true,
+    "project_advanced_search": true,
+    "project_complete_cards": true,
+    "project_details_panel": true,
+    "project_workspace_rpc": "nexlab_get_project_workspace_v2690",
+    "project_history": true,
+    "project_history_realtime": true,
+    "project_notifications": true,
+    "project_notification_preference_key": "project_updates",
+    "project_links": true,
+    "project_links_rpc": "nexlab_manage_project_link_v2690",
+    "project_links_realtime": true,
+    "project_team_assignment": true,
+    "project_indicators": true,
+    "project_consolidated_report_rpc": "nexlab_get_projects_report_v2690",
+    "project_consolidated_pdf": true,
+    "project_consolidated_xlsx": true,
+    "project_permissions": [
+      "projects_view_all",
+      "projects_manage_own",
+      "projects_manage_all"
+    ],
+    "export_vendor": "assets/nexlab-export-vendor-v26-7-5-7.js",
+    "export_vendor_preloaded": false,
+    "realtime_cache_invalidation": true
+  },
+  "publication": {
+    "replace_all_files": false,
+    "clear_service_worker": true,
+    "test_homologation": true
+  },
+  "deferred_stabilization": [
+    "As correções catalogadas na revisão de Dashboard, Equipes e Projetos permanecem adiadas para o fechamento da v26.9.0."
+  ],
+  "changes": [
+    "Notificações automáticas para atribuição, etapa, prazo, equipe, tarefas e vínculos dos projetos.",
+    "Vínculos diretos dos projetos com eventos e reuniões, com histórico, RLS e Realtime.",
+    "Seleção de equipe diretamente no formulário de criação e edição do projeto.",
+    "Indicadores clicáveis no topo do módulo Projetos para acompanhamento operacional.",
+    "Relatório consolidado de projetos em PDF e XLSX com equipe, tarefas, progresso, vínculos e última atividade.",
+    "Exportações continuam registradas no histórico com o escopo projetos.",
+    "As bibliotecas PDF/XLSX continuam carregadas somente no momento da exportação."
+  ]
+}
