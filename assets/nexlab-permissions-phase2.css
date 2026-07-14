@@ -1,0 +1,80 @@
+.nexlab-p2-status{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0}.nexlab-p2-metric{border:1px solid rgba(15,23,42,.09);border-radius:16px;background:#fff;padding:13px 14px;box-shadow:0 8px 24px rgba(15,23,42,.04)}.nexlab-p2-metric span{display:block;color:#64748b;font-size:.68rem;font-weight:750}.nexlab-p2-metric strong{display:block;margin-top:4px;color:#0e1f3d;font-size:.94rem;font-weight:950}.nexlab-p2-metric[data-tone="ok"] strong{color:#15803d}.nexlab-p2-metric[data-tone="warn"] strong{color:#b45309}.nexlab-p2-live{display:inline-flex;align-items:center;gap:6px}.nexlab-p2-live::before{content:"";width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.13)}.nexlab-p2-dependency{display:block;margin-top:7px;color:#0a6bff;font-size:.64rem;font-weight:750}.nexlab-p2-history{margin-top:16px;border:1px solid rgba(15,23,42,.09);border-radius:20px;background:#fff;padding:16px}.nexlab-p2-history-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.nexlab-p2-history-head h3{margin:0;color:#0e1f3d;font-size:.93rem;font-weight:950}.nexlab-p2-filters{display:flex;gap:8px;flex-wrap:wrap}.nexlab-p2-filters input,.nexlab-p2-filters select{min-height:38px;border:1px solid #dbe3ee;border-radius:11px;background:#fff;padding:0 10px;color:#334155;font-size:.72rem}.nexlab-p2-history-list{display:grid;gap:8px}.nexlab-p2-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:11px;border-radius:13px;background:#f8fafc}.nexlab-p2-row strong{display:block;color:#1e293b;font-size:.74rem}.nexlab-p2-row p{margin:3px 0;color:#64748b;font-size:.69rem;line-height:1.4}.nexlab-p2-row small,.nexlab-p2-row time{color:#94a3b8;font-size:.62rem}.nexlab-p2-pages{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:12px}.nexlab-p2-pages button{min-height:34px;border:0;border-radius:10px;padding:0 11px;background:#eef2f7;color:#334155;font-size:.68rem;font-weight:800;cursor:pointer}.nexlab-p2-pages button:disabled{opacity:.45;cursor:not-allowed}.nexlab-p2-conflict{position:fixed;z-index:2147482000;right:16px;bottom:16px;width:min(390px,calc(100vw - 32px));border:1px solid rgba(245,158,11,.3);border-radius:17px;background:#fffbeb;padding:14px;color:#92400e;box-shadow:0 22px 60px rgba(15,23,42,.18)}.nexlab-p2-conflict strong{display:block;margin-bottom:5px}.nexlab-p2-conflict button{margin-top:9px;border:0;border-radius:9px;background:#92400e;color:#fff;padding:8px 11px;font-size:.68rem;font-weight:850;cursor:pointer}@media(max-width:760px){.nexlab-p2-status{grid-template-columns:repeat(2,minmax(0,1fr))}.nexlab-p2-history-head{align-items:flex-start;flex-direction:column}.nexlab-p2-row{grid-template-columns:1fr}.nexlab-p2-filters{width:100%}.nexlab-p2-filters input,.nexlab-p2-filters select{flex:1;min-width:120px}}
+
+.nexlab-sensitive-password-backdrop{position:fixed;z-index:2147483200;inset:0;display:grid;place-items:center;padding:20px;background:rgba(8,18,36,.72);backdrop-filter:blur(10px)}
+.nexlab-sensitive-password-dialog{width:min(430px,100%);border:1px solid rgba(15,23,42,.12);border-radius:22px;background:#fff;padding:22px;box-shadow:0 32px 90px rgba(15,23,42,.34)}
+.nexlab-sensitive-password-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;background:#fff7ed;font-size:1.3rem}
+.nexlab-sensitive-password-copy{margin:13px 0 17px}.nexlab-sensitive-password-copy>span{color:#f97316;font-size:.64rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.nexlab-sensitive-password-copy h3{margin:5px 0 6px;color:#0e1f3d;font-size:1.05rem;font-weight:950}.nexlab-sensitive-password-copy p{margin:0;color:#64748b;font-size:.75rem;line-height:1.5}
+.nexlab-sensitive-password-dialog label{display:grid;gap:7px;color:#334155;font-size:.72rem;font-weight:850}.nexlab-sensitive-password-dialog input{width:100%;min-height:46px;border:1px solid #dbe3ee;border-radius:13px;background:#f8fafc;padding:0 13px;color:#0f172a;font-size:.8rem;outline:none}.nexlab-sensitive-password-dialog input:focus{border-color:#f97316;box-shadow:0 0 0 4px rgba(249,115,22,.12)}
+.nexlab-sensitive-password-error{min-height:18px;margin-top:6px;color:#dc2626;font-size:.67rem;font-weight:750}
+.nexlab-sensitive-password-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:8px}.nexlab-sensitive-password-actions button{min-height:42px;border:0;border-radius:12px;cursor:pointer;font-size:.72rem;font-weight:900}.nexlab-sensitive-password-actions [data-action="cancel"]{background:#eef2f7;color:#334155}.nexlab-sensitive-password-actions button[type="submit"]{background:linear-gradient(135deg,#0e1f3d,#f97316);color:#fff;box-shadow:0 10px 24px rgba(249,115,22,.2)}
+@media(max-width:520px){.nexlab-sensitive-password-dialog{padding:18px;border-radius:18px}.nexlab-sensitive-password-actions{grid-template-columns:1fr}}
+
+/* NEXLAB v26.26.2 — campo de senha administrativa visível */
+.nexlab-sensitive-password-inline{display:grid;gap:10px;margin:14px 0;padding:14px;border:1px solid #dbe3ee;border-radius:16px;background:linear-gradient(180deg,#fff,#f8fafc);box-shadow:0 8px 22px rgba(15,23,42,.05)}
+.nexlab-sensitive-password-inline[data-required="true"]{border-color:#f97316;background:#fff7ed;box-shadow:0 0 0 3px rgba(249,115,22,.1)}
+.nexlab-sensitive-password-inline-head{display:flex;align-items:flex-start;gap:10px}.nexlab-sensitive-password-inline-head>span{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:11px;background:#fff;color:#f97316;font-size:1rem;box-shadow:0 4px 14px rgba(15,23,42,.07)}
+.nexlab-sensitive-password-inline-head strong{display:block;color:#0e1f3d;font-size:.76rem;font-weight:950}.nexlab-sensitive-password-inline-head small{display:block;margin-top:3px;color:#64748b;font-size:.64rem;line-height:1.4}.nexlab-sensitive-password-inline[data-required="true"] .nexlab-sensitive-password-inline-head small{color:#9a3412;font-weight:750}
+.nexlab-sensitive-password-inline>label{color:#334155;font-size:.68rem;font-weight:850}.nexlab-sensitive-password-input-wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px}.nexlab-sensitive-password-input-wrap input{width:100%;min-width:0;min-height:42px;border:1px solid #cbd5e1;border-radius:11px;background:#fff;padding:0 11px;color:#0f172a;font-size:.76rem;outline:none}.nexlab-sensitive-password-input-wrap input:focus{border-color:#f97316;box-shadow:0 0 0 3px rgba(249,115,22,.12)}
+.nexlab-sensitive-password-toggle{min-height:42px;border:0;border-radius:11px;background:#e2e8f0;padding:0 11px;color:#334155;font-size:.65rem;font-weight:850;cursor:pointer}.nexlab-sensitive-password-inline-error{min-height:16px;color:#dc2626;font-size:.64rem;font-weight:800}.nexlab-sensitive-password-inline[data-filled="true"] .nexlab-sensitive-password-input-wrap input{border-color:#22c55e}
+@media(max-width:520px){.nexlab-sensitive-password-input-wrap{grid-template-columns:1fr}.nexlab-sensitive-password-toggle{width:100%}}
+
+/* NEXLAB v26.26.3 — campo de senha fora da árvore do React */
+.nexlab-sensitive-password-portal{
+  position:fixed!important;
+  z-index:2147482500!important;
+  display:grid!important;
+  gap:9px!important;
+  margin:0!important;
+  padding:14px!important;
+  border:1px solid rgba(249,115,22,.38)!important;
+  border-radius:16px!important;
+  background:rgba(255,255,255,.99)!important;
+  box-shadow:0 18px 48px rgba(15,23,42,.22)!important;
+  backdrop-filter:blur(16px)!important;
+}
+.nexlab-sensitive-password-portal[hidden]{display:none!important}
+.nexlab-sensitive-password-portal[data-required="true"]{
+  border-color:#f97316!important;
+  box-shadow:0 18px 48px rgba(15,23,42,.22),0 0 0 3px rgba(249,115,22,.12)!important;
+}
+.nexlab-sensitive-password-modal{
+  position:fixed;
+  z-index:2147483646;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:22px;
+  background:rgba(7,17,35,.72);
+  backdrop-filter:blur(10px);
+}
+.nexlab-sensitive-password-modal-card{
+  display:grid;
+  gap:11px;
+  width:min(430px,100%);
+  padding:22px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:22px;
+  background:#fff;
+  color:#0f172a;
+  box-shadow:0 28px 90px rgba(0,0,0,.35);
+}
+.nexlab-sensitive-password-modal-actions{
+  display:grid;
+  grid-template-columns:1fr 1.25fr;
+  gap:9px;
+  margin-top:3px;
+}
+.nexlab-sensitive-password-modal-actions button{
+  min-height:43px;
+  border:0;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:.72rem;
+  font-weight:850;
+}
+.nexlab-sensitive-password-modal-actions [data-action="cancel"]{background:#e2e8f0;color:#334155}
+.nexlab-sensitive-password-modal-actions [data-action="confirm"]{background:linear-gradient(135deg,#f97316,#ea580c);color:#fff}
+@media(max-width:620px){
+  .nexlab-sensitive-password-portal{left:12px!important;right:12px!important;bottom:12px!important;top:auto!important;width:auto!important}
+  .nexlab-sensitive-password-modal-actions{grid-template-columns:1fr}
+}
