@@ -1,0 +1,65 @@
+{
+  "version": "26.26.2",
+  "revision": "campo-senha-visivel-r48",
+  "channel": "stable",
+  "title": "Permissões — Campo de Senha Visível",
+  "built_at": "2026-07-14T20:03:57Z",
+  "scope": "Correção visual e funcional do campo de senha administrativa",
+  "deployment_mode": "incremental_overlay_on_r47",
+  "requires_full_r45_base": true,
+  "supabase_changes_applied": true,
+  "changes": [
+    "Campo de senha administrativa exibido diretamente no painel lateral de Permissões.",
+    "Campo destacado e obrigatório somente ao conceder a exportação sensível.",
+    "Botão Mostrar/Ocultar adicionado ao campo de senha.",
+    "Interceptação do salvamento corrigida para a estrutura atual da página.",
+    "Fluxo antigo de verificação em duas etapas impedido antes do salvamento original."
+  ],
+  "behavior": {
+    "password_field_always_visible": true,
+    "password_required_only_on_sensitive_grant": true,
+    "password_show_hide_control": true,
+    "mfa_prompt_removed": true,
+    "server_password_validation": true
+  },
+  "files": {
+    "permissions_js": {
+      "path": "assets/nexlab-permissions-phase2.js",
+      "sha256": "3296ae45d6ad9439e3867292432382a8eb3002fd13ca386242acafa596f09178",
+      "size_bytes": 20070
+    },
+    "permissions_css": {
+      "path": "assets/nexlab-permissions-phase2.css",
+      "sha256": "0c7b8b42eed1c04901fa0c2e213d5e2380f97b31a9d17814994008d4adb485af",
+      "size_bytes": 7038
+    },
+    "service_worker": {
+      "path": "nexlab-sw.js",
+      "sha256": "68e61e54d68328bdf6fe3211dae0b2741ca1dc8ca183991187f5c519d186e5b8",
+      "size_bytes": 6388
+    },
+    "sql_backup": {
+      "path": "NEXLAB_V26_26_2_CAMPO_SENHA_VISIVEL.sql",
+      "sha256": "1be16160830e5cd49f0eef659167453b8a56821e3e6e475b5b64f9a0d3ea46c9",
+      "size_bytes": 1284
+    }
+  },
+  "files_to_overlay": [
+    "release.json",
+    "nexlab-sw.js",
+    "assets/nexlab-permissions-phase2.js",
+    "assets/nexlab-permissions-phase2.css"
+  ],
+  "validation": {
+    "javascript_syntax": true,
+    "service_worker_syntax": true,
+    "visible_password_field_markup": true,
+    "old_page_selector_dependency_removed": true,
+    "database_version": "26.26.2",
+    "diagnostic_version": "26.26.2"
+  },
+  "known_blocker": {
+    "id": "push",
+    "message": "A chave privada VAPID continua pendente."
+  }
+}
