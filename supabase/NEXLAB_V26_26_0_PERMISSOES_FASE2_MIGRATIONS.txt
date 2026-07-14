@@ -1,0 +1,30 @@
+NEXLAB v26.26.0 — PERMISSÕES FASE 2
+
+As migrations abaixo já foram aplicadas no projeto Supabase atual. Este arquivo serve apenas como registro da publicação completa; não execute novamente.
+
+- nexlab_v26_26_0_permission_catalog_and_matrix_state
+- nexlab_v26_26_0_assignment_state_trigger
+- nexlab_v26_26_0_insert_missing_permission_pairs
+- nexlab_v26_26_0_normalize_permission_pairs
+- nexlab_v26_26_0_dependency_violation_function
+- nexlab_v26_26_0_dependency_aware_recalculation
+- nexlab_v26_26_0_dependency_function_grants
+- nexlab_v26_26_0_permission_revision_functions
+- nexlab_v26_26_0_permission_history_rpc
+- nexlab_v26_26_0_permission_matrix_rpc
+- nexlab_v26_26_0_role_permission_revision_rpc
+- nexlab_v26_26_0_user_permission_revision_rpc
+- nexlab_v26_26_0_restore_permission_revision_rpc
+- nexlab_v26_26_0_granular_communication_rls
+- nexlab_v26_26_0_granular_feedback_rls
+- nexlab_v26_26_0_granular_permission_helpers
+- nexlab_v26_26_0_feedback_permission_wrapper
+- nexlab_v26_26_0_reservation_create_permission_wrappers
+- nexlab_v26_26_0_reservation_manage_permission_wrappers
+- nexlab_v26_26_0_reservation_review_archive_wrappers
+- nexlab_v26_26_0_meeting_create_permission_wrappers
+- nexlab_v26_26_0_meeting_manage_permission_wrappers
+- nexlab_v26_26_0_permission_history_indexes_realtime
+- nexlab_v26_26_0_granular_security_audit
+- nexlab_v26_26_0_phase2_r45_compatibility_wrappers
+- nexlab_v26_26_0_readiness_alignment

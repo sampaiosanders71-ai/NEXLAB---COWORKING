@@ -1,0 +1,20 @@
+NEXLAB v26.26.3 — R49 COMPLETA
+
+Este ZIP contém toda a aplicação necessária para o GitHub Pages.
+Não é um patch incremental.
+
+PUBLICAÇÃO:
+1. Substitua integralmente os arquivos atuais do repositório.
+2. Preserve a estrutura das pastas.
+3. Não execute novamente os SQLs no Supabase atual; eles estão incluídos apenas como backup.
+4. Após a publicação, feche todas as abas do NEXLAB e abra novamente.
+5. Use Ctrl + F5 uma vez caso o navegador mantenha um cache antigo.
+
+ARQUIVOS PRINCIPAIS:
+- index.html
+- nexlab-sw.js
+- release.json
+- assets/index-R49v26263.js
+- assets/nexlab-permissions-phase2.js
+- assets/nexlab-permissions-phase2.css
+- assets/nexlab-update-manager.js
