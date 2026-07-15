@@ -1,6 +1,0 @@
-NEXLAB v26.30.7 — R55.4.3
-
-Correção definitiva da Central de Pendências.
-Não execute SQL.
-Substitua todos os arquivos do GitHub.
-Teste primeiro em janela anônima.
