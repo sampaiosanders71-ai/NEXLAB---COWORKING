@@ -1,9 +1,0 @@
-NEXLAB v26.29.3 — R54.3
-Mural Interno — Etapa 3: Dashboard, ordenação, Realtime e auditoria.
-
-PUBLICAÇÃO
-1. Extraia o ZIP.
-2. Substitua todos os arquivos da raiz do repositório pelo conteúdo extraído.
-3. Não envie o arquivo SQL ao GitHub.
-4. O SQL já foi aplicado no projeto atual e não deve ser executado novamente.
-5. Feche as abas antigas e abra o NEXLAB novamente após a publicação.
