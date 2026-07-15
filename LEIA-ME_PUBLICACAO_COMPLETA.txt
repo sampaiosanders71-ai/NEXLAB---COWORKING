@@ -1,5 +1,0 @@
-NEXLAB 26.30.10 — R55.4.6
-
-Pacote de recuperação da tela branca.
-Não executar SQL.
-Apagar os arquivos anteriores e publicar somente este pacote.
