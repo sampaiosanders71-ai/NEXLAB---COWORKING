@@ -1,0 +1,87 @@
+{
+  "version": "26.30.12",
+  "revision": "pending-contract-dom-telemetry-r5552",
+  "release": "R55.5.2",
+  "status": "candidate",
+  "title": "Pendências — correções 4 a 6: contrato, isolamento React e telemetria",
+  "generated_at": "2026-07-15T21:20:00-03:00",
+  "public_file_count": 33,
+  "files": {
+    "index_html": {
+      "path": "index.html",
+      "sha256": "581dcc7ea43654bca4b2f420626463f1ec1882d4f682c97766de1a51b03f58a4",
+      "size_bytes": 2988
+    },
+    "main_bundle": {
+      "path": "assets/index-R55v26312.js",
+      "sha256": "bd62f2e7e3d54d1e48554ec6d8fe34d91ddbe7c4305add6d211a1403f2ae7aa9",
+      "size_bytes": 1182797
+    },
+    "pending_realtime_hub": {
+      "path": "assets/nexlab-realtime-hub-r5552.js",
+      "sha256": "b1acf144c53d4fdef0db788273c103da422617feb13effaf753cc46269d7fbf5",
+      "size_bytes": 3406
+    },
+    "service_worker": {
+      "path": "nexlab-sw.js",
+      "sha256": "fa5154aa17f1820794c38736d8568eba733cc5ecc41115bff52a969e1bfc2100",
+      "size_bytes": 3445
+    },
+    "sw_register": {
+      "path": "assets/nexlab-sw-register-r5552.js",
+      "sha256": "ee280711d584281b591882cd290d6252087d74d07151586312b23e3bdebbc479",
+      "size_bytes": 427
+    },
+    "bootstrap": {
+      "path": "assets/nexlab-bootstrap.js",
+      "sha256": "b2e81bbc5f0a79bcdd4b23eb348980da2386155566ea5dc7910fca5a0827bbd7",
+      "size_bytes": 28924
+    },
+    "sql_record": {
+      "path": "SQL_R55_5_2_PENDENCIAS_CONTRATO.sql",
+      "sha256": "c309a34853253cfa61b0dc9d94d04719188e68dc945ec89604b2d765df5558c4",
+      "size_bytes": 14742
+    },
+    "technical_report": {
+      "path": "RELATORIO_NEXLAB_V26_30_12.html",
+      "sha256": "cdeeeaa3d550d11c466a96e8815075ae88358603319aba9f31a0611db0c5b645",
+      "size_bytes": 1513
+    }
+  },
+  "changes": [
+    "Separados profile_requests e responsibles no contrato da RPC de Pendências.",
+    "Campo legado profiles passa a conter somente solicitações de perfil realmente pendentes.",
+    "Frontend usa responsáveis somente como coleção auxiliar para nomes e atribuições.",
+    "Removidos patches externos que escondiam ou substituíam módulos controlados pelo React.",
+    "Versão única 26.30.12 aplicada à telemetria, desempenho, HTML, manifesto, Service Worker e metadados da release.",
+    "Source map técnico privado gerado fora do pacote público."
+  ],
+  "database": {
+    "sql_execution_required": false,
+    "migration_applied": true,
+    "migration_name": "nexlab_r55_5_2_pending_contract",
+    "edge_function_deploy_required": false
+  },
+  "publication": {
+    "replace_all_repository_files": true,
+    "active_bundle": "assets/index-R55v26312.js",
+    "asset_revision": "app-r26312-pending-contract-r5552",
+    "private_source_map_must_not_be_published": true
+  },
+  "validation": {
+    "javascript_syntax": true,
+    "json_syntax": true,
+    "local_references": true,
+    "rpc_contract_separated": true,
+    "rpc_anon_execute_revoked": true,
+    "react_replacement_scripts_removed": true,
+    "telemetry_version_single": true,
+    "private_source_map_generated": true,
+    "authenticated_ui_test": false,
+    "authenticated_rpc_test": true,
+    "authenticated_rpc_roles_tested": [
+      "admin",
+      "coworking_junior"
+    ]
+  }
+}

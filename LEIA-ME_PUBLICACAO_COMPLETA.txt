@@ -1,0 +1,17 @@
+NEXLAB 26.30.12 — R55.5.2
+
+CORREÇÕES 4, 5 E 6
+1. Contrato da RPC de Pendências separado entre profile_requests e responsibles.
+2. Removidos patches externos que ocultavam/substituíam módulos controlados pelo React.
+3. Versão única 26.30.12 aplicada à telemetria, desempenho, HTML, manifesto, SW e release.
+4. Source map técnico privado gerado em arquivo separado; não publicar no GitHub.
+
+SUPABASE
+- Migration aplicada: nexlab_r55_5_2_pending_contract.
+- anon não executa a RPC.
+- authenticated e service_role mantêm execução.
+- Não exige Edge Function.
+
+PUBLICAÇÃO
+- Apague os arquivos atuais e envie somente o conteúdo do ZIP público.
+- Bundle ativo: assets/index-R55v26312.js
