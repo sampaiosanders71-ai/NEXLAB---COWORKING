@@ -1,0 +1,106 @@
+{
+  "version": "26.29.5",
+  "revision": "activities-hotfix-r545",
+  "release": "R54.5",
+  "status": "stable",
+  "title": "Central de Atividades — Hotfix crítico de desempenho",
+  "generated_at": "2026-07-15T16:52:15.481568+00:00",
+  "public_file_count": 36,
+  "files": {
+    "index_html": {
+      "path": "index.html",
+      "sha256": "71934959dd25fa658da8bbe1189ae4ec087e3ef94296adcdd4e3e4eada3514d9",
+      "size_bytes": 3456
+    },
+    "nexlab_sw_js": {
+      "path": "nexlab-sw.js",
+      "sha256": "d1bbbda9178bad7fb2334d80edb9b33951698cee9a63cf0d905ef334b0a9d450",
+      "size_bytes": 8372
+    },
+    "manifest_webmanifest": {
+      "path": "manifest.webmanifest",
+      "sha256": "19c9432768648cf1594c94d4c30b3de4dbd506e92526241a90adeeaca29cee45",
+      "size_bytes": 1086
+    },
+    "main_bundle": {
+      "path": "assets/index-R54v26295.js",
+      "sha256": "8f83851aa1fbdb27c5ef3baca25bb6a1a8fc1e4ef2c013eda16f2a6ee4357305",
+      "size_bytes": 1196914
+    },
+    "activities_js": {
+      "path": "assets/nexlab-activities-phase4.js",
+      "sha256": "ab84d5cbf7e942534b1a5545bb5b12e9a1716d052191d7f6b6e19443e6cbb76d",
+      "size_bytes": 51278
+    },
+    "activities_css": {
+      "path": "assets/nexlab-activities-phase4.css",
+      "sha256": "1784498d7dd926f4a0c8023ef8f41b8c029d449a8743fb840cfea191e3baec43",
+      "size_bytes": 22864
+    },
+    "permissions_js": {
+      "path": "assets/nexlab-permissions-r544.js",
+      "sha256": "634c07b50806f6290dc31bdf19e5f7038c825d39b4c9d58e2786f06924f7b745",
+      "size_bytes": 25423
+    },
+    "mural_js": {
+      "path": "assets/nexlab-mural-sync-r544.js",
+      "sha256": "fa1c0a826b7f59c48313db2f26d0cef91235d750a34adcd07de8f1e3ce300ded",
+      "size_bytes": 22498
+    },
+    "vapid_rotation_js": {
+      "path": "assets/nexlab-vapid-rotation.js",
+      "sha256": "5db55905ed16bb2da57f3321417ad5f376f9d744a38cca267500658245255245",
+      "size_bytes": 4372
+    }
+  },
+  "changes": [
+    "Removido o MutationObserver global sobre document.documentElement.",
+    "Removido o verificador permanente executado a cada 1,2 segundo.",
+    "A rota é observada apenas pelo atributo data-nexlab-page e por eventos reais de navegação.",
+    "A montagem tornou-se idempotente e não reaplica hidden em ciclo.",
+    "Ao sair do módulo, interface complementar, canal Realtime, polling e timers são encerrados.",
+    "Respostas assíncronas obsoletas são descartadas por sequência e geração de ativação.",
+    "O fallback de 60 segundos existe somente dentro do módulo quando o Realtime está indisponível.",
+    "Correção R54.4 de Permissões e correções do Mural foram preservadas."
+  ],
+  "database": {
+    "migration_applied": true,
+    "version": "26.29.5",
+    "diagnostic_version": "26.29.5",
+    "activity_feed_rpc": "nexlab_list_activity_feed_v26280",
+    "activity_delete_rpc": "nexlab_admin_delete_activity_logs_v26270"
+  },
+  "publication": {
+    "replace_all_repository_files": true,
+    "active_bundle": "assets/index-R54v26295.js",
+    "activities_asset": "assets/nexlab-activities-phase4.js",
+    "service_worker_cache": "nexlab-v26-29-5-shell-r545",
+    "sql_execution_required": false,
+    "supabase_folder_included": false
+  },
+  "validation": {
+    "javascript_syntax": true,
+    "json_syntax": true,
+    "shell_references_checked": true,
+    "global_subtree_mutation_observer_removed": true,
+    "global_1200ms_interval_removed": true,
+    "matrix_requests_outside_permissions_preserved": 0,
+    "activity_rpc_outside_module": 0,
+    "activity_rpc_on_first_open": 1,
+    "dom_mutations_after_settle_4_seconds": 0,
+    "realtime_stopped_after_exit": true,
+    "legacy_interface_restored_after_exit": true,
+    "reopen_without_duplicate_root": true,
+    "desktop_mock_browser": true,
+    "mobile_mock_browser": true,
+    "browser_errors": 0,
+    "horizontal_overflow": false,
+    "authenticated_live_browser": false
+  },
+  "web_push": {
+    "active_subscriptions": 1,
+    "deliveries_sent": 3,
+    "provider_http_status": 201,
+    "device_visual_receipt_confirmed": false
+  }
+}
