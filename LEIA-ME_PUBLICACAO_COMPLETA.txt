@@ -1,0 +1,23 @@
+NEXLAB v26.30.4 — R55.4
+HOMOLOGAÇÃO INTEGRADA E CORREÇÕES FINAIS
+
+O QUE JÁ FOI EXECUTADO:
+- migração consolidada R55.0, R55.1 e R55.2 aplicada ao Supabase conectado;
+- permissões efetivas recalculadas;
+- RPC de prontidão R55.4 instalada;
+- validação dos acessos de Coordenador e dos poderes críticos;
+- correções finais em Permissões e Notificações.
+
+PUBLICAÇÃO:
+1. Substitua todos os arquivos do repositório pelo conteúdo deste pacote.
+2. Aguarde a publicação.
+3. Abra o NEXLAB com Ctrl + F5.
+4. Execute o roteiro de homologacao.html com contas reais.
+
+NÃO É NECESSÁRIO NO PROJETO CONECTADO:
+- executar novamente o SQL;
+- atualizar Edge Function;
+- alterar VAPID;
+- refazer inscrições Push.
+
+O SQL_R55_4_HOMOLOGACAO_CONSOLIDADA.sql permanece no pacote como backup.
