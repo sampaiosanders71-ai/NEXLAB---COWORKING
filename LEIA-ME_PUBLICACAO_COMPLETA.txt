@@ -1,5 +1,0 @@
-NEXLAB 26.30.6 — R55.4.2
-
-Correção: a tela Pendências não receberá mais a camada complementar de Permissões.
-SQL adicional: não necessário.
-Publicação: substituir todos os arquivos e forçar atualização do navegador.
