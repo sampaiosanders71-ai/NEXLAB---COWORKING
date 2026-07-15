@@ -1,0 +1,90 @@
+{
+  "version": "26.29.9",
+  "revision": "mutation-integrity-r549",
+  "release": "R54.9",
+  "status": "stable",
+  "title": "Integridade de cadastros, vínculos e exclusões",
+  "generated_at": "2026-07-15T18:55:39.055571+00:00",
+  "public_file_count": 36,
+  "files": {
+    "index_html": {
+      "path": "index.html",
+      "sha256": "622c4223ed689ad20f017eeb4c3bd358131218a42f5a8ac826c0b11934bf44b9",
+      "size_bytes": 3470
+    },
+    "nexlab_sw_js": {
+      "path": "nexlab-sw.js",
+      "sha256": "5a97a3c946e3275397bb1d66980c1cf20b26a49d0aed6d80ffeb36db246a4f11",
+      "size_bytes": 8374
+    },
+    "manifest_webmanifest": {
+      "path": "manifest.webmanifest",
+      "sha256": "ad3fa5d2236cea972894657f29acc4450f114591250538e95761fc1abcf183d4",
+      "size_bytes": 1123
+    },
+    "main_bundle": {
+      "path": "assets/index-R54v26299.js",
+      "sha256": "a635cb5ea3a5e45d30e5247fa8b1f70e1fcc68545e0cc22b805ca98e91e7f770",
+      "size_bytes": 1202919
+    },
+    "visual_js": {
+      "path": "assets/nexlab-visual.js",
+      "sha256": "9c42ade60f363f15ef1bbc68aaba911a826e030681ee863f640712bdadff2f25",
+      "size_bytes": 28783
+    },
+    "bootstrap_js": {
+      "path": "assets/nexlab-bootstrap.js",
+      "sha256": "8b1e53d83de006724c506588ede1e019648b834dbea866df8948eb9d3f0e0852",
+      "size_bytes": 28662
+    },
+    "permissions_js": {
+      "path": "assets/nexlab-permissions-r544.js",
+      "sha256": "2b2464ebe01772900f5f81e6201df547a318a210b4658f28cc450a44e365279c",
+      "size_bytes": 25589
+    },
+    "activities_js": {
+      "path": "assets/nexlab-activities-phase4.js",
+      "sha256": "35ecf5e1e352fedfe41346ba2aa7a08ceb9488dee3d11f232f20484827e180dd",
+      "size_bytes": 51278
+    },
+    "mural_js": {
+      "path": "assets/nexlab-mural-sync-r544.js",
+      "sha256": "329ac774d1f23d64b69a22398a848d2847cd50672d575626c32cde8fca9f378b",
+      "size_bytes": 22498
+    }
+  },
+  "changes": [
+    "Proteção imediata contra clique duplo nos cadastros de Equipes, Patrimônio, Estoque, Agenda, Mural e Feedback.",
+    "Exclusões de Patrimônio e Estoque agora exigem confirmação do retorno ou verificação direta de ausência no banco.",
+    "Cancelamento e arquivamento de reuniões e reservas agora são validados após a RPC.",
+    "Inclusão, alteração e remoção de integrantes e vínculos de equipes agora exigem confirmação efetiva.",
+    "Central de Atividades trata exclusões parciais e mantém selecionados os registros que não foram removidos.",
+    "Exclusão de projetos passou a preservar primeiro a consistência do banco e executar a limpeza do Storage com nova tentativa.",
+    "Cache, bundle e identificação pública renovados para v26.29.9."
+  ],
+  "database": {
+    "migration_applied": true,
+    "version": "26.29.7",
+    "diagnostic_version": "26.29.7",
+    "edge_function_admin_delete_user": 15,
+    "changes_required_for_this_release": false
+  },
+  "publication": {
+    "replace_all_repository_files": true,
+    "active_bundle": "assets/index-R54v26299.js",
+    "service_worker_cache": "nexlab-v26-29-9-shell-r549",
+    "sql_execution_required": false,
+    "edge_function_deploy_required": false,
+    "supabase_folder_included": false
+  },
+  "validation": {
+    "javascript_syntax": true,
+    "json_syntax": true,
+    "shell_references_checked": true,
+    "duplicate_submission_guards": true,
+    "delete_confirmation_checks": true,
+    "partial_activity_deletion_handled": true,
+    "project_storage_consistency_improved": true,
+    "authenticated_live_browser": false
+  }
+}

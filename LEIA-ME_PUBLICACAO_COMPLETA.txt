@@ -1,0 +1,22 @@
+NEXLAB v26.29.9 — R54.9
+
+PUBLICAÇÃO
+1. Extraia este ZIP.
+2. Substitua TODOS os arquivos da raiz do repositório pelo conteúdo extraído.
+3. Confirme index.html, nexlab-sw.js, release.json e assets/index-R54v26299.js.
+4. Não execute SQL e não altere Edge Functions: esta correção é apenas no pacote público.
+5. Feche todas as abas/PWA e abra novamente. Use Ctrl+F5 no computador se necessário.
+
+CORREÇÕES
+- Bloqueio de cliques duplicados em Equipes, Patrimônio, Estoque, Agenda, Mural e Feedback.
+- Confirmação real das exclusões de bens patrimoniais e itens de estoque.
+- Verificação de cancelamento e arquivamento de reuniões e reservas.
+- Confirmação das alterações de integrantes e vínculos de equipes.
+- Tratamento correto de exclusões parciais na Central de Atividades.
+- Exclusão de projetos com prioridade para consistência do banco e nova tentativa de limpeza dos anexos.
+
+PRESERVADO
+- Correção do carregamento infinito da Saúde do Sistema.
+- Exclusões permanentes de usuários e projetos.
+- Edge Function admin-delete-user v15.
+- SQL e políticas atuais do Supabase.
