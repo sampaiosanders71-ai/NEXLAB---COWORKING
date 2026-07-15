@@ -1,0 +1,82 @@
+{
+  "version": "26.30.8",
+  "revision": "pendencias-component-r5544",
+  "release": "R55.4.4",
+  "status": "stable",
+  "title": "Correção estrutural da Central de Pendências",
+  "generated_at": "2026-07-15T22:43:01.896005+00:00",
+  "public_file_count": 38,
+  "files": {
+    "index_html": {
+      "path": "index.html",
+      "sha256": "0accf6ade0cf3ed2656b1ad315b936cf71cdef4e77a43f3495a533f9cc60aa4f",
+      "size_bytes": 3540
+    },
+    "nexlab_sw_js": {
+      "path": "nexlab-sw.js",
+      "sha256": "a66c6971f05e5aa51eaf7c85c15e065ed574a0be6a38fd91fcabde35157322dd",
+      "size_bytes": 6327
+    },
+    "manifest_webmanifest": {
+      "path": "manifest.webmanifest",
+      "sha256": "6b2534499d4cd6363df11990f38f788fd970d5ed1bc5090c6b6618a3e5ea2936",
+      "size_bytes": 1116
+    },
+    "assets_index_r55v26308_js": {
+      "path": "assets/index-R55v26308.js",
+      "sha256": "42853d878234534043ab0e18785c7bd73d375f0293e6182137e1c6c79950e218",
+      "size_bytes": 1189080
+    },
+    "assets_nexlab_permissions_r5543_js": {
+      "path": "assets/nexlab-permissions-r5543.js",
+      "sha256": "39d464243101e88f49d8c9c22e8980fe58c49aae4b0ef6a0e272a66675d401db",
+      "size_bytes": 37572
+    },
+    "assets_nexlab_permissions_r550_css": {
+      "path": "assets/nexlab-permissions-r550.css",
+      "sha256": "0122cd7e92cc20f31c984e18e64f721649731e8b42eb3f8f89a34c64cbf5a353",
+      "size_bytes": 7851
+    },
+    "assets_nexlab_update_manager_js": {
+      "path": "assets/nexlab-update-manager.js",
+      "sha256": "400cdea6a73d578fa77c6215fda94b7e2ee4da4f1e97979b1e2d51d5afb664b5",
+      "size_bytes": 19604
+    },
+    "relatorio_nexlab_v26_30_8_html": {
+      "path": "RELATORIO_NEXLAB_V26_30_8.html",
+      "sha256": "ed921ba139354464739e8ad2f0b5f7ec978ed7d3f1b9c0f9edab785331f7b1c9",
+      "size_bytes": 1513
+    }
+  },
+  "changes": [
+    "Componente original de Pendências substituído por implementação segura.",
+    "Realtime específico de Pendências removido temporariamente.",
+    "Service Worker sem reescrita ou injeção de scripts.",
+    "Assets antigos de limpeza de rota removidos.",
+    "Push e VAPID preservados."
+  ],
+  "database": {
+    "sql_execution_required": false,
+    "edge_function_deploy_required": false,
+    "new_sql_in_hotfix": false
+  },
+  "publication": {
+    "replace_all_repository_files": true,
+    "active_bundle": "assets/index-R55v26308.js",
+    "service_worker_cache": "nexlab-v26-30-8-shell-r5544",
+    "asset_revision": "app-r26308-pendencias-component-r5544",
+    "sql_execution_required": false,
+    "edge_function_deploy_required": false
+  },
+  "validation": {
+    "javascript_module_syntax": true,
+    "javascript_auxiliary_syntax": true,
+    "json_syntax": true,
+    "local_references": true,
+    "service_worker_shell_files": true,
+    "critical_hashes": true,
+    "push_handler_preserved": true,
+    "zip_integrity": true,
+    "authenticated_ui_test": false
+  }
+}

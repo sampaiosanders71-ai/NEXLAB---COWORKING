@@ -1,0 +1,5 @@
+NEXLAB 26.30.8 — R55.4.4
+
+A Central de Pendências foi substituída por uma implementação estável.
+Não executar SQL.
+Apagar os arquivos antigos do repositório antes de publicar este pacote.
