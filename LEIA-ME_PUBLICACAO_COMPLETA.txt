@@ -1,0 +1,12 @@
+NEXLAB 26.30.19 — R55.6.6
+
+PACOTE PÚBLICO PARA GITHUB PAGES
+
+1. Apague todos os arquivos atuais do repositório.
+2. Extraia este ZIP.
+3. Envie somente os arquivos e pastas extraídos.
+4. Confirme o bundle assets/index-R55v26319.js.
+5. Não publique ZIPs, SQLs ou source maps no repositório.
+6. Não há SQL novo e não exige atualização de Edge Function.
+7. Aguarde o GitHub Pages concluir e abra homologacao.html.
+8. Faça um recarregamento forçado apenas na primeira abertura após substituir a versão anterior.
