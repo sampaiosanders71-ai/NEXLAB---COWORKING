@@ -1,0 +1,23 @@
+NEXLAB 26.30.30 — R55.6.18
+
+ALTERAÇÕES
+- Correção da criação e edição de publicações no Mural Interno.
+- O frontend agora respeita as permissões efetivas mural_publish e mural_moderate.
+- Perfis autorizados pela matriz podem publicar no módulo Mural da barra lateral.
+- O feed do Mural dentro do Dashboard continua somente para visualização.
+- Autores podem editar as próprias publicações; moderadores podem editar e fixar comunicados.
+- Exclusão permanente continua restrita ao Administrador.
+
+BANCO DE DADOS
+- Migrations já aplicadas no Supabase:
+  nexlab_r55_6_18_fix_board_post_writes
+  nexlab_r55_6_18_harden_board_post_writes
+- Não há Edge Function nova.
+- Não publique arquivos SQL no GitHub.
+
+PUBLICAÇÃO
+1. Apague os arquivos atuais do repositório.
+2. Extraia o ZIP.
+3. Envie somente o conteúdo extraído para a raiz.
+4. Não envie SQL ou source maps.
+5. Valide em HTTPS após o GitHub Pages concluir.
