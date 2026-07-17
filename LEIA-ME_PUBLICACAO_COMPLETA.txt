@@ -1,0 +1,17 @@
+NEXLAB 26.30.27 — R55.6.14
+
+ALTERAÇÕES
+- Um único acionador de busca no cabeçalho móvel.
+- Dashboard otimizado para montar somente a Visão geral ou o Mural interno.
+- Feed reutiliza o cache do Dashboard, sem consulta duplicada.
+- ResizeObserver de altura removido.
+
+PUBLICAÇÃO
+1. Apague os arquivos atuais do repositório.
+2. Extraia o ZIP.
+3. Envie somente o conteúdo extraído para a raiz.
+4. Não envie SQL ou source maps.
+5. Valide em HTTPS após o GitHub Pages concluir.
+
+SQL novo: não.
+Edge Function nova: não.

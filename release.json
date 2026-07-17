@@ -1,0 +1,130 @@
+{
+  "version": "26.30.27",
+  "revision": "mobile-search-swipe-r55614",
+  "release": "R55.6.14",
+  "status": "ready_for_publication",
+  "title": "Busca móvel única e Dashboard otimizado",
+  "generated_at": "2026-07-17T00:55:52+00:00",
+  "public_file_count": 31,
+  "files": {
+    "index_html": {
+      "path": "index.html",
+      "sha256": "47a8420e198071e99b6488451477398989655d65ffb05787dc98564be21b48b5",
+      "size_bytes": 2875
+    },
+    "main_bundle": {
+      "path": "assets/index-R55v26327.js",
+      "sha256": "6f99374970f638c543f39d603c093aae1d447fd5c06936977584c99285fd90ce",
+      "size_bytes": 1206550
+    },
+    "realtime_hub": {
+      "path": "assets/nexlab-realtime-hub-r55614.js",
+      "sha256": "a9424950f382d8cae227abccc87ca490f0831b8b0a6ed5d25764d373be286b72",
+      "size_bytes": 3426
+    },
+    "visual_css": {
+      "path": "assets/nexlab-visual.css",
+      "sha256": "8fb6b55b15d81e6a906a489a0be179ddb339d2931566580ac3c676a11b3ebe08",
+      "size_bytes": 142535
+    },
+    "service_worker": {
+      "path": "nexlab-sw.js",
+      "sha256": "0762d845e60470a79a19cc390ab06014fec246ea6035b19bb304b7a2290f2572",
+      "size_bytes": 7713
+    },
+    "bootstrap": {
+      "path": "assets/nexlab-bootstrap.js",
+      "sha256": "3a4687701e28b446e80ea98d7097a184c91d1d5c8b2f4ba7230ac735e9b4b7be",
+      "size_bytes": 30537
+    },
+    "update_manager": {
+      "path": "assets/nexlab-update-manager.js",
+      "sha256": "f9eb9645d9c3c6ab55995a2e03f97c57fe5385d22afa3aeca40c755b398e0ea7",
+      "size_bytes": 11828
+    },
+    "vapid_rotation": {
+      "path": "assets/nexlab-vapid-rotation.js",
+      "sha256": "ff934b007e90ca06e16b552da23e07292f0cc2329afb601cab877540994ac877",
+      "size_bytes": 4439
+    },
+    "manifest": {
+      "path": "manifest.webmanifest",
+      "sha256": "94436f91520165bd11655fce21d60a251585a2f80dad2c8ac93182f8d819d929",
+      "size_bytes": 1111
+    },
+    "technical_report": {
+      "path": "RELATORIO_NEXLAB_V26_30_27.html",
+      "sha256": "d4f7f00f4bc88475352eaa5c023b75ae3da817866eca34a547fc511dff26ee8e",
+      "size_bytes": 1593
+    }
+  },
+  "changes": [
+    "O cabeçalho móvel agora possui somente um acionador de busca global.",
+    "O Dashboard deixou de manter e movimentar duas páginas completas simultaneamente durante o gesto horizontal.",
+    "Somente a visualização ativa é montada, reduzindo layout, pintura e consumo de memória no celular.",
+    "O Mural reutiliza o cache da consulta já realizada pelo Dashboard, sem uma segunda requisição ao ser aberto.",
+    "O observador contínuo de altura foi removido e a troca usa uma animação curta com contenção de layout e pintura."
+  ],
+  "database": {
+    "migration": null,
+    "rpc": null,
+    "applied": false,
+    "edge_function_required": false
+  },
+  "publication": {
+    "replace_all_repository_files": true,
+    "active_bundle": "assets/index-R55v26327.js",
+    "asset_revision": "app-r26327-mobile-search-swipe-r55614",
+    "service_worker_registration": "single_registration_in_main_bundle",
+    "sql_files_public": false,
+    "source_maps_public": false,
+    "realtime_hub": "assets/nexlab-realtime-hub-r55614.js",
+    "cache_name": "nexlab-v26-30-27-shell-r55614"
+  },
+  "design": {
+    "global_light_background_base": "#F5F6F8",
+    "cards_background": "#FFFFFF",
+    "scope": "mobile_search_and_dashboard_swipe_performance"
+  },
+  "validation": {
+    "javascript_syntax": true,
+    "json_syntax": true,
+    "local_references": true,
+    "public_sql_removed": true,
+    "public_source_maps_removed": true,
+    "version_identifiers_aligned": true,
+    "single_service_worker_registration": true,
+    "package_file_count": 31,
+    "authenticated_ui_post_publish_required": true,
+    "actual_service_worker_control_cycle_post_publish_required": true,
+    "module_merge": {
+      "sidebar_single_entry": true,
+      "internal_tabs": [
+        "estoque",
+        "patrimonio"
+      ],
+      "legacy_routes_preserved": true,
+      "permissions_preserved": true
+    },
+    "browser_runtime": true,
+    "permission_variants": [
+      "both",
+      "stock_only",
+      "assets_only",
+      "neither"
+    ],
+    "console_errors": 0,
+    "page_errors": 0,
+    "service_worker_shell": true,
+    "http_status_all_files": true,
+    "zip_integrity": true,
+    "zip_exact_file_match": true,
+    "mobile_search_single_control": true,
+    "dashboard_active_slide_only": true,
+    "dashboard_resize_observer_removed": true,
+    "dashboard_shared_feed_cache": true,
+    "dashboard_feed_rpc_requests_in_test": 1,
+    "dashboard_vertical_swipe_preserved": true,
+    "dashboard_switch_detected_ms_synthetic": 9.15
+  }
+}
