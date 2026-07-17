@@ -1,2 +1,0 @@
-NEXLAB 26.30.35 — R55.6.23
-Correção da barra e do painel da busca global no computador.
