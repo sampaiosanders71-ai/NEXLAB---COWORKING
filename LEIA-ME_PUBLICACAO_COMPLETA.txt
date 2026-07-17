@@ -1,0 +1,9 @@
+NEXLAB 26.30.36 — R55.6.24
+
+Correção do fluxo de senha e ampliação do controle administrativo da Matriz de Permissões.
+
+- A senha não fica mais exposta permanentemente na tela.
+- Ela é solicitada somente após clicar em salvar ou restaurar.
+- Administradores podem editar todas as permissões de qualquer perfil ou usuário.
+- Dependências funcionais são normalizadas automaticamente.
+- Há SQL no chat e no arquivo de apoio, mas o SQL não integra o ZIP público.
