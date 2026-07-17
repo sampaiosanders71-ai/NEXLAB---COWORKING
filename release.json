@@ -1,0 +1,135 @@
+{
+  "version": "26.30.28",
+  "revision": "dashboard-switcher-mobile-r55615",
+  "release": "R55.6.15",
+  "status": "ready_for_publication",
+  "title": "Correção do seletor móvel do Dashboard",
+  "generated_at": "2026-07-17T01:20:06+00:00",
+  "public_file_count": 31,
+  "files": {
+    "index_html": {
+      "path": "index.html",
+      "sha256": "c629e01eb986bed129b44a393d387ac1c5b5961add58ddeceba2461ee9d19070",
+      "size_bytes": 2906
+    },
+    "main_bundle": {
+      "path": "assets/index-R55v26328.js",
+      "sha256": "a470aba189ee699234e9c037ce4f966edaf0437cfe04119321da7ec39649a57e",
+      "size_bytes": 1206550
+    },
+    "realtime_hub": {
+      "path": "assets/nexlab-realtime-hub-r55615.js",
+      "sha256": "b92f929f780dc51abf313d7c628861ee0447a0ac7aae70a0fdc593987b0f42ff",
+      "size_bytes": 3426
+    },
+    "visual_css": {
+      "path": "assets/nexlab-visual.css",
+      "sha256": "3294ce5494bf5b1f2ebe67a2cb25865820c1aae1853ce3b837793079fd76ed3d",
+      "size_bytes": 142572
+    },
+    "service_worker": {
+      "path": "nexlab-sw.js",
+      "sha256": "988ad2c446710b79e45c43f70785826bcfa1f4879e6e97b04feff6d07e6bb783",
+      "size_bytes": 7773
+    },
+    "bootstrap": {
+      "path": "assets/nexlab-bootstrap.js",
+      "sha256": "ca7a97da9a4c06328409e8450f85a6971c39c40185af7e3c11567a70aa312346",
+      "size_bytes": 30543
+    },
+    "update_manager": {
+      "path": "assets/nexlab-update-manager.js",
+      "sha256": "2a1619cfbd89dd0fe39ad147c900c8909f7d2c745b1be3a1827832fb6f096599",
+      "size_bytes": 11834
+    },
+    "vapid_rotation": {
+      "path": "assets/nexlab-vapid-rotation.js",
+      "sha256": "b6b7ba5768d7e725a73d2139bc8810bc8c8601b78c90bbe95cd24bfb00d7eff0",
+      "size_bytes": 4439
+    },
+    "manifest": {
+      "path": "manifest.webmanifest",
+      "sha256": "ec790d2c59ad13ec48e22ee00de6af9f9736a03663da300d9e41223d4d140ee7",
+      "size_bytes": 1082
+    },
+    "technical_report": {
+      "path": "RELATORIO_NEXLAB_V26_30_28.html",
+      "sha256": "9f56251e4d3d6f5ee65b98bc0e37010db5f1ef7894fa6f021e0439f6e22c51fc",
+      "size_bytes": 1268
+    }
+  },
+  "changes": [
+    "O seletor Visão geral / Mural interno deixou de usar posição sticky no celular.",
+    "O componente permanece no fluxo normal do Dashboard e não sobrepõe mais o cabeçalho durante a rolagem.",
+    "Gestos, feed, busca global e demais módulos foram preservados sem alterações funcionais."
+  ],
+  "database": {
+    "migration": null,
+    "rpc": null,
+    "applied": false,
+    "edge_function_required": false
+  },
+  "publication": {
+    "replace_all_repository_files": true,
+    "active_bundle": "assets/index-R55v26328.js",
+    "asset_revision": "app-r26328-dashboard-switcher-mobile-r55615",
+    "service_worker_registration": "single_registration_in_main_bundle",
+    "sql_files_public": false,
+    "source_maps_public": false,
+    "realtime_hub": "assets/nexlab-realtime-hub-r55615.js",
+    "cache_name": "nexlab-v26-30-28-shell-r55615"
+  },
+  "design": {
+    "global_light_background_base": "#F5F6F8",
+    "cards_background": "#FFFFFF",
+    "scope": "dashboard_mobile_switcher_position_only"
+  },
+  "validation": {
+    "javascript_syntax": true,
+    "json_syntax": true,
+    "local_references": true,
+    "public_sql_removed": true,
+    "public_source_maps_removed": true,
+    "version_identifiers_aligned": true,
+    "single_service_worker_registration": true,
+    "package_file_count": 31,
+    "authenticated_ui_post_publish_required": true,
+    "actual_service_worker_control_cycle_post_publish_required": true,
+    "module_merge": {
+      "sidebar_single_entry": true,
+      "internal_tabs": [
+        "estoque",
+        "patrimonio"
+      ],
+      "legacy_routes_preserved": true,
+      "permissions_preserved": true
+    },
+    "browser_runtime": true,
+    "permission_variants": [
+      "both",
+      "stock_only",
+      "assets_only",
+      "neither"
+    ],
+    "console_errors": 0,
+    "page_errors": 0,
+    "service_worker_shell": true,
+    "http_status_all_files": true,
+    "zip_integrity": true,
+    "zip_exact_file_match": true,
+    "mobile_search_single_control": true,
+    "dashboard_active_slide_only": true,
+    "dashboard_resize_observer_removed": true,
+    "dashboard_shared_feed_cache": true,
+    "dashboard_feed_rpc_requests_in_test": 1,
+    "dashboard_vertical_swipe_preserved": true,
+    "dashboard_switcher_mobile_not_sticky": true,
+    "dashboard_switcher_header_overlap_fixed": true,
+    "functional_scope_unchanged": true,
+    "mobile_switcher_computed_position": "relative",
+    "mobile_switcher_initial_header_overlap": false,
+    "mobile_switcher_scrolled_header_overlap": false,
+    "mobile_switcher_initial_top_px": 88,
+    "mobile_fixed_header_bottom_px": 74
+  }
+}

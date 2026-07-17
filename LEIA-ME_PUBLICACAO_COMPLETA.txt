@@ -1,0 +1,16 @@
+NEXLAB 26.30.28 — R55.6.15
+
+ALTERAÇÃO
+- Correção pontual do seletor Visão geral / Mural interno no Dashboard móvel.
+- O seletor não fica mais preso sobre o cabeçalho durante a rolagem.
+- Nenhuma outra função ou módulo foi alterado.
+
+PUBLICAÇÃO
+1. Apague os arquivos atuais do repositório.
+2. Extraia o ZIP.
+3. Envie somente o conteúdo extraído para a raiz.
+4. Não envie SQL ou source maps.
+5. Valide em HTTPS após o GitHub Pages concluir.
+
+SQL novo: não.
+Edge Function nova: não.
