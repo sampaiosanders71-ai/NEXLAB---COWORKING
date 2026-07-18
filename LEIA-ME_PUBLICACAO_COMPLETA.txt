@@ -1,9 +1,0 @@
-NEXLAB 26.30.42 — R55.6.30
-
-ETAPA 6 — AUTOMAÇÃO, REALTIME E RECONFIRMAÇÃO
-
-1. Substitua integralmente os arquivos públicos do repositório.
-2. As migrações da Etapa 6 já foram aplicadas no Supabase.
-3. Não publique arquivos SQL nem source maps.
-4. Valide o fluxo com contas autenticadas após a publicação HTTPS.
-5. Cache esperado: nexlab-v26-30-42-shell-r55630.
