@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NEXLAB 26.31.4 estável</title>
+  <style>body{font-family:system-ui,sans-serif;color:#172554;max-width:980px;margin:0 auto;padding:32px;line-height:1.55}h1,h2{color:#0b2a63}table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #cbd5e1;padding:9px;text-align:left}th{background:#eff6ff}.ok{color:#166534;font-weight:800}code{background:#f1f5f9;padding:2px 5px;border-radius:5px}</style>
+</head>
+<body><main>
+  <h1>NEXLAB 26.31.4 estável — R56.0.4</h1>
+  <h2>Limpeza controlada e publicação estável</h2>
+  <p class="ok">Resultado: 68/68 cenários aprovados, sem alteração persistente nos dados de produção.</p>
+  <table><thead><tr><th>Perfil</th><th>Cenários</th><th>Resultado</th></tr></thead><tbody>
+    <tr><td>Administrador</td><td>20</td><td class="ok">Aprovado</td></tr>
+    <tr><td>Coordenador</td><td>15</td><td class="ok">Aprovado</td></tr>
+    <tr><td>Bolsista</td><td>15</td><td class="ok">Aprovado</td></tr>
+    <tr><td>Coworking Júnior</td><td>15</td><td class="ok">Aprovado</td></tr>
+    <tr><td>Matriz e precondições</td><td>3</td><td class="ok">Aprovado</td></tr>
+  </tbody></table>
+  <h2>Cobertura</h2>
+  <ul>
+    <li>Matriz completa: 50 permissões ativas × 4 perfis = 200 associações.</li>
+    <li>Permissões efetivas equivalentes ao padrão de cada perfil.</li>
+    <li>Dashboard, perfis visíveis, <code>bookings</code> canônico, Agenda, Pendências, Notificações e Mural.</li>
+    <li>Criação de notificação testada para cada perfil e revertida ao final.</li>
+    <li>Matriz de permissões, Saúde do Sistema, Central de Atividades e notificações avançadas negadas aos três perfis não administrativos.</li>
+    <li>Administrador autorizado a alterar as 50 permissões de qualquer perfil e usuário, inclusive as críticas.</li>
+    <li>Senha inválida recusada; senha válida aceita; restauração de exceções confirmada.</li>
+    <li>97/97 RPCs do frontend encontradas, habilitadas para <code>authenticated</code> e bloqueadas para <code>anon</code>.</li>
+    <li>22/22 tabelas públicas do frontend encontradas com RLS ativa.</li>
+  </ul>
+  <h2>Integridade após os testes</h2>
+  <p>A revisão da matriz permaneceu em 3, os perfis voltaram aos papéis originais, nenhuma exceção individual foi mantida e nenhuma notificação de teste foi confirmada. A suíte completa usa <code>ROLLBACK</code>.</p>
+  <h2>Limpeza controlada</h2>
+  <p>A auditoria encontrou 2 metadados de anexos sem entidade principal e 3 objetos antigos do bucket <code>anexos</code> sem metadado correspondente. Os cinco itens foram preservados: a exclusão depende de confirmação explícita e, para os objetos, deve ocorrer pela API de Storage.</p>
+  <h2>Observações de publicação</h2>
+  <p>A pendência de segurança já conhecida — a view legada <code>nexlab_profiles_visible</code> — é encerrada pelo SQL pós-publicação. Esse SQL também remove o acesso autenticado direto a <code>meetings</code> e <code>reservations</code>. Execute-o somente depois de confirmar que o frontend estável está ativo.</p>
+</main></body></html>

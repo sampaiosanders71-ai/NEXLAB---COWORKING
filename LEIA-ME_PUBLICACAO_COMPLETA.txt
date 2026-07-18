@@ -1,0 +1,24 @@
+NEXLAB 26.31.4 ESTÁVEL — R56.0.4
+
+Entrega estável de limpeza controlada e publicação.
+
+- 68 de 68 cenários funcionais autenticados aprovados em transação com rollback.
+- Os quatro perfis fixos foram validados: Administrador, Coordenador, Bolsista e Coworking Júnior.
+- Dashboard, perfis visíveis, Reservas/Reuniões, Agenda, Pendências, Notificações e Mural responderam para todos os perfis conforme a matriz vigente.
+- Saúde do Sistema, Central de Atividades, matriz de permissões e notificações avançadas permanecem exclusivas do Administrador.
+- As 50 permissões ativas foram concedidas em lote, com sucesso, a um perfil e a um usuário de teste pelo fluxo administrativo.
+- Permissões críticas também foram aceitas; senha inválida foi recusada e senha válida confirmou as alterações.
+- A senha administrativa continua sendo solicitada somente depois do clique em Salvar.
+- Os 97 contratos RPC referenciados pelo frontend existem, são executáveis por authenticated e não são executáveis por anon.
+- As 22 tabelas públicas referenciadas diretamente pelo frontend existem e têm RLS habilitada.
+- Nenhuma notificação, exceção individual, mudança de perfil ou revisão de permissões do teste foi persistida.
+- JavaScript, JSON, referências locais, hashes, cache, Service Worker, modais com rolagem e fonte canônica foram revalidados.
+- Não há nova migration pré-publicação nem alteração de Edge Function nesta versão estável.
+- A auditoria de limpeza identificou 2 metadados de anexos sem entidade principal e 3 objetos antigos sem metadado. Eles foram preservados para exclusão apenas após confirmação explícita.
+
+ORDEM DE PUBLICAÇÃO:
+1. Substitua integralmente os arquivos públicos pelo conteúdo deste pacote estável.
+2. Confirme a ativação da versão 26.31.4 e faça o smoke test de login em navegador.
+3. Execute NEXLAB_SQL_R56_0_4_POS_PUBLICACAO_ESTAVEL.sql.
+4. Faça atualização forçada e repita o checklist pós-publicação.
+5. Inicie o acompanhamento pós-publicação por no mínimo 24 horas.
