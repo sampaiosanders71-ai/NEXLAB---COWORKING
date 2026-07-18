@@ -1,0 +1,12 @@
+NEXLAB 26.30.45 — R55.6.33
+
+Correção crítica de abertura do módulo Reservas e Reuniões.
+
+- O retorno promise-like do Supabase agora é convertido para Promise nativa antes de usar finally.
+- Caches globais são validados antes de uso.
+- O módulo possui uma barreira local de erro e não pode mais derrubar a tela inteira do app.
+- Não há SQL nem Edge Function nesta versão.
+- Substitua integralmente os arquivos públicos pelo conteúdo deste pacote.
+
+
+R55.6.33: substitua todos os arquivos. Esta revisão força a ativação do Service Worker após o precache para retirar a versão anterior responsável pelo ciclo visual.
