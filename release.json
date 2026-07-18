@@ -1,0 +1,123 @@
+{
+  "version": "26.30.44",
+  "revision": "meetings-module-open-recovery-r55632",
+  "release": "R55.6.32",
+  "status": "ready_for_publication",
+  "title": "Correção crítica de abertura de Reservas e Reuniões",
+  "generated_at": "2026-07-18T00:23:28+00:00",
+  "public_file_count": 31,
+  "files": {
+    "index_html": {
+      "path": "index.html",
+      "sha256": "928bf37edc3963b2dace956caacce4113cdb584ea38caf74af16e44e9dd1c202",
+      "size_bytes": 2972
+    },
+    "main_bundle": {
+      "path": "assets/index-R55v26344.js",
+      "sha256": "a9c3b917fdcbba5dce16e7cb0ba265408b7ab19ebb7de9eac58914cf0bba8af8",
+      "size_bytes": 1221787
+    },
+    "realtime_hub": {
+      "path": "assets/nexlab-realtime-hub-r55632.js",
+      "sha256": "ada4abffa1ffc25c3e124034e83467b1e39b52bfe67cd4e4ef261006716561bc",
+      "size_bytes": 3426
+    },
+    "visual_css": {
+      "path": "assets/nexlab-visual.css",
+      "sha256": "d10c848ccb772e37f5c708a46a5edb503b2e575fb07ecbb9f7461aa95acdf5b2",
+      "size_bytes": 162818
+    },
+    "visual_js": {
+      "path": "assets/nexlab-visual.js",
+      "sha256": "8a646ade27e344d831cf4ffac97e9bf8e1b028da5a189c469379c247e247df1b",
+      "size_bytes": 41189
+    },
+    "service_worker": {
+      "path": "nexlab-sw.js",
+      "sha256": "8efb31a8121f9aa1804ea7408df9ea0890c487c38910dbc25a1c3c8b83ebc046",
+      "size_bytes": 7813
+    },
+    "bootstrap": {
+      "path": "assets/nexlab-bootstrap.js",
+      "sha256": "84acaaea58a6becdf5340279a1ef5184ef03b133af1bbe4dafd340c5a40b7a84",
+      "size_bytes": 30547
+    },
+    "update_manager": {
+      "path": "assets/nexlab-update-manager.js",
+      "sha256": "ef4d723e6adf12ca0e1d824506917bf5ffc23446ab45bd7050c2f63327f1ba5e",
+      "size_bytes": 11838
+    },
+    "vapid_rotation": {
+      "path": "assets/nexlab-vapid-rotation.js",
+      "sha256": "60a7dda71ca264e126af62d054db2d1fc829786cad1b8c3d62421ac54af5b0e1",
+      "size_bytes": 4439
+    },
+    "manifest": {
+      "path": "manifest.webmanifest",
+      "sha256": "877d31c2c465b41502e423e2afd170dfaac382c46baa81c5f81acb683b118092",
+      "size_bytes": 1104
+    },
+    "technical_report": {
+      "path": "RELATORIO_NEXLAB_V26_30_44.html",
+      "sha256": "2e76f848cb84cad63dcbe0fa0f9f605b509f8909e083bd90d88ec4dcacb4a034",
+      "size_bytes": 1253
+    }
+  },
+  "changes": [
+    "Corrigido erro de runtime que impedia a abertura de Reservas e Reuniões.",
+    "O retorno promise-like do Supabase passa por Promise.resolve antes do uso de finally.",
+    "Caches globais são validados como Map antes de get, set ou clear.",
+    "Adicionada barreira local de erro para impedir tela branca ou queda global do aplicativo.",
+    "Proteções contra respostas fora de ordem, recargas concorrentes e flicker foram preservadas."
+  ],
+  "database": {
+    "new_migrations_in_this_release": false,
+    "migrations_applied": [],
+    "rpc_used": [
+      "nexlab_list_bookings_v263040",
+      "nexlab_get_meeting_responses_v263038",
+      "nexlab_respond_meeting_invitation_v263042"
+    ],
+    "rpc_changed": false,
+    "edge_function_required": false
+  },
+  "publication": {
+    "replace_all_repository_files": true,
+    "active_bundle": "assets/index-R55v26344.js",
+    "asset_revision": "app-r26344-meetings-module-open-recovery-r55632",
+    "service_worker_registration": "single_registration_in_main_bundle",
+    "sql_files_public": false,
+    "source_maps_public": false,
+    "realtime_hub": "assets/nexlab-realtime-hub-r55632.js",
+    "cache_name": "nexlab-v26-30-44-shell-r55632"
+  },
+  "scope": {
+    "frontend": [
+      "native_promise_normalization",
+      "validated_global_cache",
+      "local_module_error_boundary",
+      "query_sequence_guard",
+      "inflight_deduplication"
+    ],
+    "database": [],
+    "edge_functions": []
+  },
+  "validation": {
+    "javascript_syntax": true,
+    "json_syntax": true,
+    "local_references": true,
+    "public_sql_removed": true,
+    "public_source_maps_removed": true,
+    "version_identifiers_aligned": true,
+    "single_service_worker_registration": true,
+    "rpc_contracts_verified": true,
+    "promise_like_compatibility_test": true,
+    "module_error_boundary_present": true,
+    "package_file_count": 31,
+    "authenticated_module_browser_test_post_publish_required": true,
+    "http_all_public_files": true,
+    "http_success_count": 31,
+    "database_rpc_contracts_verified": true,
+    "chromium_authenticated_module_test_post_publish_required": true
+  }
+}
