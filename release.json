@@ -1,0 +1,117 @@
+{
+  "version": "26.30.43",
+  "revision": "bookings-loader-stability-r55631",
+  "release": "R55.6.31",
+  "status": "ready_for_publication",
+  "title": "Estabilidade do carregamento em Reservas e Reuniões",
+  "generated_at": "2026-07-18T00:05:56+00:00",
+  "changes": [
+    "Corrigida a alternância repetida entre Carregando agendamentos e Nenhum agendamento encontrado.",
+    "Somente a resposta da consulta mais recente pode atualizar a listagem.",
+    "Consultas simultâneas idênticas são deduplicadas entre renderizações e remontagens.",
+    "O último resultado válido é preservado durante atualizações e ao retornar ao módulo.",
+    "Eventos de booking_history deixaram de provocar recargas redundantes da listagem."
+  ],
+  "database": {
+    "new_migrations_in_this_release": false,
+    "migrations_applied": [],
+    "rpc_used": [
+      "nexlab_list_bookings_v263040"
+    ],
+    "rpc_changed": false,
+    "edge_function_required": false
+  },
+  "publication": {
+    "replace_all_repository_files": true,
+    "active_bundle": "assets/index-R55v26343.js",
+    "asset_revision": "app-r26343-bookings-loader-stability-r55631",
+    "service_worker_registration": "single_registration_in_main_bundle",
+    "sql_files_public": false,
+    "source_maps_public": false,
+    "realtime_hub": "assets/nexlab-realtime-hub-r55631.js",
+    "cache_name": "nexlab-v26-30-43-shell-r55631"
+  },
+  "scope": {
+    "frontend": [
+      "booking_query_sequence_guard",
+      "booking_query_cache_by_user_and_filters",
+      "booking_query_inflight_deduplication",
+      "stable_refresh_without_empty_state_flicker",
+      "reduced_realtime_reload_sources"
+    ],
+    "database": [],
+    "edge_functions": []
+  },
+  "validation": {
+    "javascript_syntax": true,
+    "json_syntax": true,
+    "local_references": true,
+    "public_sql_removed": true,
+    "public_source_maps_removed": true,
+    "version_identifiers_aligned": true,
+    "single_service_worker_registration": true,
+    "database_rpc_read_test": true,
+    "authenticated_module_browser_test_post_publish_required": true,
+    "package_file_count": 31,
+    "browser_open_test_attempted": true,
+    "browser_open_test_blocked_by_environment_policy": true
+  },
+  "files": {
+    "index_html": {
+      "path": "index.html",
+      "sha256": "d892fcb2a614d4ce45fac3e7882fc1418a28986deaae3219d54c4b3984ffa35d",
+      "size_bytes": 2971
+    },
+    "main_bundle": {
+      "path": "assets/index-R55v26343.js",
+      "sha256": "94b2bbc890031cb7e71bfe725e0b4c1fb0d836d79ea96e38ae0277f082b17f03",
+      "size_bytes": 1220330
+    },
+    "realtime_hub": {
+      "path": "assets/nexlab-realtime-hub-r55631.js",
+      "sha256": "193e6bbd0702d85e5a12a01814d5feeb6459a446bc9a1408a0791b8263177db6",
+      "size_bytes": 3426
+    },
+    "visual_css": {
+      "path": "assets/nexlab-visual.css",
+      "sha256": "279434fefa767bb7f12f035c130fee6919d7ca967fbe746257221f64d11aa683",
+      "size_bytes": 162818
+    },
+    "visual_js": {
+      "path": "assets/nexlab-visual.js",
+      "sha256": "4fd892ca441065fb78f73017c73b0f9fa46609557a0680e4d742e4b9a6e04b1d",
+      "size_bytes": 41189
+    },
+    "service_worker": {
+      "path": "nexlab-sw.js",
+      "sha256": "7b20ef4e384e446d191fa9c3cf0942d3811747793fc4970f526268553dd4224d",
+      "size_bytes": 7773
+    },
+    "bootstrap": {
+      "path": "assets/nexlab-bootstrap.js",
+      "sha256": "d22d81bd22690f819b4dc88270f951905c34fe85a977833cbc04a3df7c2fe27a",
+      "size_bytes": 30543
+    },
+    "update_manager": {
+      "path": "assets/nexlab-update-manager.js",
+      "sha256": "244f94f6f56ed183bda61816112c8dc80448814c72d202fa91aa9cb43f2b7285",
+      "size_bytes": 11834
+    },
+    "vapid_rotation": {
+      "path": "assets/nexlab-vapid-rotation.js",
+      "sha256": "7d28ef7e47f45223080841d33c6b245229d158a99cff4c0e3945806dd64bc58c",
+      "size_bytes": 4439
+    },
+    "manifest": {
+      "path": "manifest.webmanifest",
+      "sha256": "a8158f8a8684246207ef71b186211824cdf4ee67f556f85e36656e0124b6c781",
+      "size_bytes": 1128
+    },
+    "technical_report": {
+      "path": "RELATORIO_NEXLAB_V26_30_43.html",
+      "sha256": "67dfd741001e49e7605805cbca022ae13a6e9005d3a8266f442c23f3bf0085c2",
+      "size_bytes": 1511
+    }
+  },
+  "public_file_count": 31
+}

@@ -1,0 +1,10 @@
+NEXLAB 26.30.43 — R55.6.31
+
+CORREÇÃO DE ESTABILIDADE — RESERVAS E REUNIÕES
+
+1. Substitua todos os arquivos do repositório pelo conteúdo deste pacote.
+2. Não misture arquivos de versões anteriores.
+3. Não há SQL novo nem Edge Function nesta correção.
+4. O carregamento agora ignora respostas antigas, reutiliza o último resultado estável e deduplica consultas simultâneas.
+5. Cache esperado: nexlab-v26-30-43-shell-r55631.
+6. Execute o checklist de homologacao.html após publicar.
