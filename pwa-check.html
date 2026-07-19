@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#0E1F3D" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self';" />
+  <title>Diagnóstico PWA — NEXLAB</title>
+  <link rel="manifest" href="./manifest.webmanifest?v=app-beta-0-26-12-bookings-render-loop-recovery" />
+  <link rel="icon" href="./icons/nexlab-favicon-rounded.png?v=brand-r38" />
+  <style>
+    :root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#0e1f3d;background:#f5f6f8}
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;padding:24px} main{max-width:760px;margin:0 auto}
+    header,.summary,ul,.instructions{background:#fff;border:1px solid #dbe3ef;border-radius:22px;padding:20px;box-shadow:0 12px 30px rgba(14,31,61,.07)}
+    header{display:flex;gap:14px;align-items:center;margin-bottom:16px} header img{width:54px;height:54px;border-radius:14px} h1,h2{margin:0} header p,.summary p,.instructions p{color:#526176;line-height:1.5}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0} button,a{border:0;border-radius:12px;padding:12px 16px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer} button{background:#0e1f3d;color:#fff} button.secondary{background:#e8eef7;color:#0e1f3d} button:disabled{opacity:.65;cursor:wait} a{background:#fff;color:#0e1f3d;border:1px solid #cbd5e1}
+    .summary{margin-bottom:16px} .summary.ok{border-color:#86cfa6} .summary.pending{border-color:#e8be73}
+    ul{list-style:none;margin:0;padding:10px 20px} li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #edf1f6} li:last-child{border-bottom:0} li.ok span{color:#137441} li.pending span{color:#9a5a00} .timestamp{font-size:.85rem;color:#6b7280}
+    .instructions{margin-top:16px} code{background:#eef2f7;padding:2px 6px;border-radius:6px}.device-grid{display:grid;gap:10px;margin:14px 0}.device-check{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid #dbe3ef;border-radius:14px;background:#f8fafc}.device-check input{margin-top:3px;width:18px;height:18px}.device-status{font-size:.9rem;font-weight:800}.device-status.ok{color:#137441}.device-status.pending{color:#9a5a00}.evidence-pill{margin-left:auto;white-space:nowrap;font-size:.75rem;font-weight:900;padding:5px 9px;border-radius:999px}.evidence-pill.ok{background:#dcfce7;color:#137441}.evidence-pill.pending{background:#fff7ed;color:#9a5a00}
+  </style>
+  <script src="./assets/nexlab-release-identity.js?v=app-beta-0-26-12-bookings-render-loop-recovery"></script>
+  <script defer src="./assets/nexlab-pwa-readiness.js?v=app-beta-0-26-12-bookings-render-loop-recovery"></script>
+</head>
+<body>
+  <main>
+    <header><img src="./icons/nexlab-192.png?v=brand-r38" alt="Ícone do NEXLAB" /><div><h1>Diagnóstico PWA</h1><p>NEXLAB Beta 0.26.12 — homologação física objetiva com recibo persistente no Supabase.</p></div></header>
+    <div class="actions"><button id="nexlab-run-pwa-check" type="button">Executar novamente</button><button id="nexlab-warm-pwa-assets" class="secondary" type="button">Carregar módulos opcionais</button><a href="./index.html">Abrir o aplicativo</a></div>
+    <div id="nexlab-pwa-results" aria-live="polite"><section class="summary pending"><h2>Verificando...</h2><p>Aguarde a leitura do manifesto, Service Worker e cache.</p></section></div>
+    <section class="instructions"><h2>Procedimento no aparelho</h2><p>1. Publique a nova versão e confirme <strong>Atualizar agora</strong> no aplicativo já instalado. 2. Reabra pelo ícone e execute a verificação online. 3. Sem fechar esta tela, desligue a internet e toque em <strong>Validar navegação offline</strong>. 4. Reconecte e abra uma notificação Push de teste. 5. Volte a esta tela e registre a evidência no Supabase usando uma conta administradora. A homologação só será aprovada com o recibo persistente do servidor.</p></section>
+    <section class="instructions" id="nexlab-device-homologation"><h2>Evidências automáticas de homologação</h2><p>As evidências abaixo são coletadas pelo aplicativo. Não existem caixas manuais capazes de aprovar o teste.</p><div class="device-grid"><div class="device-check"><span><strong>Abertura pelo aplicativo instalado</strong><br />Detectada pelo modo standalone ou window-controls-overlay.</span><span class="evidence-pill pending" data-evidence-status="installedLaunch">Pendente</span></div><div class="device-check"><span><strong>Atualização confirmada e ativada</strong><br />Exige a transição real da versão anterior para esta revisão pelo botão Atualizar agora.</span><span class="evidence-pill pending" data-evidence-status="updateActivation">Pendente</span></div><div class="device-check"><span><strong>Navegação offline</strong><br />Exige o núcleo offline íntegro, Service Worker controlador, modo instalado e internet realmente desligada.</span><span class="evidence-pill pending" data-evidence-status="offlineNavigation">Pendente</span></div><div class="device-check"><span><strong>Clique em notificação Push</strong><br />O Service Worker registrou a abertura de uma notificação real.</span><span class="evidence-pill pending" data-evidence-status="pushDisplayed">Pendente</span></div><div class="device-check"><span><strong>Destino confirmado pelo aplicativo</strong><br />O módulo aceitou a navegação e devolveu confirmação ao Service Worker.</span><span class="evidence-pill pending" data-evidence-status="pushDestination">Pendente</span></div><div class="device-check"><span><strong>Recibo persistente no Supabase</strong><br />As cinco evidências foram validadas e registradas por uma conta administradora.</span><span class="evidence-pill pending" data-evidence-status="serverReceipt">Pendente</span></div></div><p id="nexlab-device-homologation-status" class="device-status pending">Aguardando evidências automáticas.</p><div class="actions"><button id="nexlab-verify-offline-navigation" type="button">Validar navegação offline</button><button id="nexlab-sync-device-evidence" type="button">Registrar no Supabase</button><button id="nexlab-export-device-evidence" type="button">Exportar evidência</button><button id="nexlab-reset-device-evidence" class="secondary" type="button">Limpar evidência</button></div></section>
+  </main>
+</body>
+</html>
