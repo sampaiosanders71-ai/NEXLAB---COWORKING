@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Changelog R56.0.22 RC17</title></head><body>
+<h1>NEXLAB 26.31.22 RC17 — R56.0.22</h1>
+<h2>RC16 — Desempenho e carregamento modular</h2><ul>
+<li>Bundle monolítico substituído por entrada mínima, vendor, núcleo compartilhado e chunk operacional sob demanda.</li>
+<li>JavaScript inicial reduzido em 38,9%: 1.334.700 → 815.336 bytes brutos.</li>
+<li>O chunk operacional de 528.657 bytes não integra o precache obrigatório nem o carregamento inicial.</li>
+<li>Invalidações do Dashboard são agrupadas por 1,2 segundo, registram tabelas alteradas e aguardam a aba voltar ao primeiro plano.</li>
+<li>Telemetria registra <code>initialTransferBytes</code>, <code>lazyFeatureTransferBytes</code> e <code>loadedChunkCount</code>.</li>
+</ul>
+<h2>RC17 — Hardening e limpeza</h2><ul>
+<li><code>__NEXLAB_TEST_API__</code> bloqueada em produção.</li>
+<li>Erros React repetidos e erro #185 recebem severidade crítica e identificação do chunk.</li>
+<li>Pacote privado de símbolos separado; nenhum <code>.map</code> público.</li>
+<li>Políticas permissivas duplicadas consolidadas.</li>
+<li>Nove RPCs legadas tiveram privilégios públicos revogados.</li>
+<li>Ciclo de incidentes ampliado com estado <code>verified</code> e reabertura automática.</li>
+<li>Correções cumulativas da RC1 à RC15 preservadas.</li>
+</ul></body></html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Homologação R56.0.22 RC17</title></head><body>
+<h1>Homologação NEXLAB 26.31.22 RC17</h1><ol>
+<li>Abra o app sem sessão e confirme que a tela de login aparece sem tela branca.</li>
+<li>Na aba Rede, confirme o carregamento inicial de <code>index-R56v263122rc17.js</code>, <code>nexlab-vendor-r56022rc17.js</code> e <code>nexlab-app-shared-r56022rc17.js</code>.</li>
+<li>Antes de abrir um módulo operacional, confirme que <code>nexlab-feature-modules-r56022rc17.js</code> ainda não foi baixado.</li>
+<li>Abra Projetos, Equipes ou Reservas e confirme que o chunk operacional é baixado uma única vez.</li>
+<li>Alterne entre Dashboard e módulos já abertos; confirme a ausência de novo download do chunk.</li>
+<li>Em duas abas, altere vários registros em sequência; confirme uma atualização consolidada do Dashboard, sem alternância infinita de carregamento.</li>
+<li>Deixe o Dashboard em segundo plano, altere dados em outra aba e volte; confirme uma atualização única ao recuperar visibilidade.</li>
+<li>No domínio de produção, confirme no console que <code>window.__NEXLAB_TEST_API__</code> está ausente.</li>
+<li>Em localhost ou homologação, confirme que a API de teste permanece disponível.</li>
+<li>Como ADM, marque um incidente como reconhecido, resolvido e depois “Verificar correção”.</li>
+<li>Registre novamente a mesma falha após a verificação e confirme a reabertura automática.</li>
+<li>Valide Marketing e a edição do perfil próprio; confirme que a consolidação das policies não alterou o acesso.</li>
+<li>Repita no PWA instalado e verifique a atualização atômica da RC12.</li>
+</ol></body></html>

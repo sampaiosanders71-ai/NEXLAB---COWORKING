@@ -1,0 +1,34 @@
+NEXLAB 26.31.22 RC17 — R56.0.22
+PACOTE CUMULATIVO RC16 + RC17
+
+PUBLICAÇÃO
+1. Apague os arquivos atuais do repositório de publicação.
+2. Envie integralmente o conteúdo deste pacote, preservando as pastas assets, brand e icons.
+3. Não misture arquivos de versões anteriores.
+4. Confirme o cache ativo: nexlab-v26-31-22-rc17-performance-hardening-r56022.
+5. O SQL SQL_R56_0_22_RC17_HARDENING_LIFECYCLE.sql já foi aplicado no Supabase conectado e permanece no pacote para auditoria.
+6. O pacote privado de símbolos é separado e NÃO deve ser enviado ao GitHub Pages.
+
+RC16 — DESEMPENHO
+- O bundle monolítico foi dividido em vendor, núcleo compartilhado, entrada mínima e módulos operacionais sob demanda.
+- O JavaScript inicial caiu de 1.334.700 para 815.336 bytes, redução bruta de 38,9%.
+- 528.657 bytes de módulos operacionais só são solicitados quando necessários.
+- Atualizações Realtime do Dashboard são agrupadas, adiadas quando a aba está oculta e executadas uma vez por lote.
+- A telemetria distingue transferência inicial, chunk operacional e quantidade de chunks carregados.
+
+RC17 — HARDENING E LIMPEZA
+- A API interna de testes não é exposta em produção; permanece disponível em localhost, homologação ou com ativação explícita.
+- Erros recuperáveis do React são agrupados em uma janela de 30 segundos; erro #185, recursão, removeChild e repetição são elevados.
+- Símbolos privados foram separados do pacote público; nenhum source map é publicado.
+- Políticas RLS duplicadas de marketing_dates e profiles foram consolidadas preservando a lógica anterior.
+- Nove RPCs legadas, sem dependências e fora do frontend atual, perderam EXECUTE para anon/authenticated.
+- Funções futuras no schema public não recebem EXECUTE de PUBLIC por padrão.
+- Incidentes agora podem seguir open → acknowledged → resolved → verified e reabrem automaticamente se voltarem a ocorrer.
+
+LIMITES CONSCIENTES
+- Índices marcados como não usados não foram removidos sem histórico representativo de produção.
+- pg_net não foi movida: a extensão está em public, possui 28 objetos e não é relocável.
+- A proteção contra senhas vazadas continua sendo uma configuração manual do painel de autenticação do Supabase.
+- O Chromium deste ambiente não conseguiu acessar a URL local; a validação visual autenticada deve ser feita na publicação de homologação.
+
+Consulte RELATORIO_NEXLAB_V26_31_22_RC17.html, homologacao.html e changelog.html.

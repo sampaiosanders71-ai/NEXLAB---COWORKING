@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Relatório NEXLAB 26.31.22 RC17</title>
+<style>body{font-family:Arial,sans-serif;max-width:1000px;margin:32px auto;padding:0 20px;color:#172033;line-height:1.55}h1,h2{color:#0b2a63}table{border-collapse:collapse;width:100%}th,td{border:1px solid #d9dee8;padding:8px;text-align:left}code{background:#f1f3f7;padding:2px 5px;border-radius:4px}.ok{color:#166534;font-weight:700}.warn{color:#92400e;font-weight:700}</style></head><body>
+<h1>Relatório técnico — NEXLAB 26.31.22 RC17 / R56.0.22</h1>
+<p>Pacote cumulativo das etapas RC16 e RC17, construído sobre a RC15.</p>
+<h2>1. RC16 — desempenho</h2>
+<table><tr><th>Métrica</th><th>RC15</th><th>RC17</th><th>Resultado</th></tr>
+<tr><td>JavaScript inicial total</td><td>1.334.700 bytes</td><td>815.336 bytes</td><td class="ok">−38,9%</td></tr>
+<tr><td>Bundle principal/núcleo ESM</td><td>1.228.994 bytes</td><td>706.983 bytes</td><td class="ok">−42,5%</td></tr>
+<tr><td>Módulos operacionais adiados</td><td>0</td><td>528.657 bytes</td><td class="ok">sob demanda</td></tr></table>
+<p>O Service Worker precacheia somente a entrada, o vendor e o núcleo compartilhado. O chunk operacional é armazenado pelo cache de ativos após o primeiro uso.</p>
+<p>Eventos Realtime do Dashboard são acumulados por tabela durante 1,2 segundo. Em abas ocultas, a atualização é postergada e executada uma vez ao retornar.</p>
+<h2>2. RC17 — observabilidade e produção</h2><ul>
+<li>API de teste limitada a localhost, homologação, staging ou ativação explícita.</li>
+<li>Telemetria de React mantém uma janela de repetição de 30 segundos, reconhece o erro #185 e registra o chunk associado.</li>
+<li>Pacote privado de símbolos separado do ZIP público.</li>
+<li>Ciclo de incidentes: open, acknowledged, resolved, verified e ignored; uma reincidência posterior reabre incidentes resolvidos ou verificados.</li>
+</ul>
+<h2>3. Supabase aplicado</h2><ul>
+<li>Migração: <code>nexlab_r56022_rc17_hardening_lifecycle</code>.</li>
+<li>Políticas duplicadas de <code>marketing_dates</code> e <code>profiles</code> consolidadas.</li>
+<li>EXECUTE removido de nove funções SECURITY DEFINER legadas sem dependências.</li>
+<li>Funções SECURITY DEFINER executáveis por authenticated: 176 → 167; anon permanece 0.</li>
+<li>Colunas <code>verified_at</code> e <code>verified_by</code> verificadas.</li>
+</ul>
+<h2>4. Decisões conservadoras</h2><ul>
+<li>Índices “unused” não foram excluídos porque a estatística pode não representar um ciclo real de produção.</li>
+<li><code>pg_net</code> não foi movida: <code>extrelocatable=false</code> e 28 objetos pertencem à extensão.</li>
+<li class="warn">A proteção de senhas vazadas exige ativação manual nas configurações de autenticação do Supabase.</li>
+</ul>
+<h2>5. Validações</h2><ul>
+<li>Sintaxe dos 11 arquivos JavaScript e grafo de imports ESM.</li>
+<li>JSON, manifesto, referências HTML e Service Worker.</li>
+<li>40 arquivos públicos servidos com HTTP 200.</li>
+<li>Ausência de source maps e símbolos privados no pacote público.</li>
+<li>Integridade e hashes do pacote.</li>
+<li>Verificação pós-migração no banco.</li>
+<li class="warn">O Chromium deste ambiente não acessou a URL local; a homologação visual autenticada permanece obrigatória.</li>
+</ul>
+</body></html>
