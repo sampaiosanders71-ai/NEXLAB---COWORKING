@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "NEXLAB Beta 0.26.16",
+  "name": "NEXLAB Beta 0.26.17",
   "short_name": "NEXLAB",
-  "description": "NEXLAB Beta 0.26.16 — atualização estável, recuperação de módulos e Reservas e Reuniões sem ciclo de carregamento.",
+  "description": "NEXLAB Beta 0.26.17 — redução de perfil com confirmação, recálculo imediato e remoção de permissões anteriores.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
