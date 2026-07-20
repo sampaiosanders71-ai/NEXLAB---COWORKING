@@ -1,7 +1,7 @@
-/* NEXLAB Beta 0.26.12 — navegação Push com confirmação explícita, deduplicação e fallback seguro. */
+/* NEXLAB Beta 0.26.13 — navegação Push com confirmação explícita, deduplicação e fallback seguro. */
 (()=>{
-  if(globalThis.__NEXLAB_PUSH_NAVIGATION__?.version==='0.26.12')return;
-  const VERSION='0.26.12';
+  if(globalThis.__NEXLAB_PUSH_NAVIGATION__?.version==='0.26.13')return;
+  const VERSION='0.26.13';
   const EVIDENCE_KEY='nexlab:device-homologation:'+VERSION;
   const ALLOWED_TABS=new Set(['dashboard','pendencias','agenda','notificacoes','participantes','permissoes','equipes','perfil','projetos','inventario','patrimonio','estoque','reserva','marketing','eventos','mural','feedback','relatorios','saude-sistema','logs']);
   const RECENT_TTL_MS=10000;
@@ -32,7 +32,7 @@
   const readEvidence=()=>{try{return JSON.parse(localStorage.getItem(EVIDENCE_KEY)||'{}')||{};}catch{return {};}};
   const writeEvidence=(patch)=>{
     const current=readEvidence();
-    const next={...current,version:VERSION,revision:'beta-0-26-12-bookings-render-loop-recovery',userAgent:navigator.userAgent,updatedAt:new Date().toISOString(),...patch};
+    const next={...current,version:VERSION,revision:'beta-0-26-13-update-cache-bookings-stability',userAgent:navigator.userAgent,updatedAt:new Date().toISOString(),...patch};
     try{localStorage.setItem(EVIDENCE_KEY,JSON.stringify(next));}catch{}
     globalThis.dispatchEvent(new CustomEvent('nexlab:push-navigation-evidence',{detail:next}));
     return next;

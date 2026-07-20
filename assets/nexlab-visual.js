@@ -2,7 +2,7 @@
   if (window.__NEXLAB_VISUAL_V26_7__) return;
   window.__NEXLAB_VISUAL_V26_7__ = true;
 
-  const VERSION = '0.26.12';
+  const VERSION = '0.26.13';
   let connectionBackdrop = null;
   let connectionDismissedUntil = 0;
   let activeActions = 0;
@@ -716,7 +716,7 @@
       }
 
       control.setAttribute('aria-label', fieldContextLabelBeta(control, index));
-      control.dataset.nexlabAccessibleName = 'beta-0-26-12';
+      control.dataset.nexlabAccessibleName = 'beta-0-26-13';
     });
   }
 

@@ -2,7 +2,7 @@
   if (window.__NEXLAB_BOOTSTRAP_V26_7__) return;
   window.__NEXLAB_BOOTSTRAP_V26_7__ = true;
 
-  const BUILD_IDENTITY = window.__NEXLAB_BUILD_IDENTITY__ || Object.freeze({version:'0.26.12',release:'Beta',revision:'beta-0-26-12-bookings-render-loop-recovery',assetRevision:'app-beta-0-26-12-bookings-render-loop-recovery',cacheName:'nexlab-beta-0-26-12-bookings-render-loop-recovery',generatedAt:'2026-07-19T19:39:27Z'});
+  const BUILD_IDENTITY = window.__NEXLAB_BUILD_IDENTITY__ || Object.freeze({version:'0.26.13',release:'Beta',revision:'beta-0-26-13-update-cache-bookings-stability',assetRevision:'app-beta-0-26-13-update-cache-bookings-stability',cacheName:'nexlab-beta-0-26-13-update-cache-bookings-stability',generatedAt:'2026-07-19T23:28:02Z'});
   const APP_VERSION = BUILD_IDENTITY.version;
   const APP_RELEASE = BUILD_IDENTITY.release;
   const APP_REVISION = BUILD_IDENTITY.revision;
@@ -244,8 +244,8 @@
 
 
   const OBSERVABILITY_VERSION = APP_VERSION;
-  const OBSERVABILITY_QUEUE_KEY = 'nexlab:observability:queue:v0.26.12';
-  const OBSERVABILITY_DEDUP_KEY = 'nexlab:observability:dedup:v0.26.12';
+  const OBSERVABILITY_QUEUE_KEY = 'nexlab:observability:queue:v0.26.13';
+  const OBSERVABILITY_DEDUP_KEY = 'nexlab:observability:dedup:v0.26.13';
   const OBSERVABILITY_RPC = 'nexlab_record_client_error_v26_7_4';
   const OBSERVABILITY_MAX_QUEUE = 20;
   const OBSERVABILITY_DEDUP_MS = 5 * 60 * 1000;
@@ -670,21 +670,68 @@
     });
   });
 
+  const PERFORMANCE_ALERT_STATE_KEY = 'nexlab:performance-alert-state:v0.26.13';
+  const PERFORMANCE_ALERT_MIN_INTERVAL_MS = 10 * 60 * 1000;
+  let performanceAlertState = observabilityReadJson(PERFORMANCE_ALERT_STATE_KEY, {
+    degraded: false,
+    lastAlertAt: 0,
+    categories: []
+  });
+  if (!performanceAlertState || typeof performanceAlertState !== 'object') {
+    performanceAlertState = { degraded: false, lastAlertAt: 0, categories: [] };
+  }
+
+  function persistPerformanceAlertState(){
+    try {
+      sessionStorage.setItem(PERFORMANCE_ALERT_STATE_KEY, JSON.stringify(performanceAlertState));
+    } catch {}
+  }
+
   window.addEventListener('nexlab:performance-metrics', (event) => {
     const metrics = event.detail || {};
-    const degraded =
-      Number(metrics.lcpMs || 0) > 4000 ||
-      Number(metrics.navigationMs || 0) > 6000 ||
-      Number(metrics.longestTaskMs || 0) > 1000 ||
-      Number(metrics.longTasks || 0) > 12;
+    const categories = [];
+    if (Number(metrics.lcpMs || 0) > 4000) categories.push('lcp');
+    if (Number(metrics.navigationMs || 0) > 6000) categories.push('navigation');
+    if (Number(metrics.longestTaskMs || 0) > 1000) categories.push('long-task-duration');
+    if (Number(metrics.longTasks || 0) > 12) categories.push('long-task-count');
 
-    if (!degraded) return;
+    if (!categories.length) {
+      performanceAlertState.degraded = false;
+      persistPerformanceAlertState();
+      return;
+    }
+
+    const now = Date.now();
+    const alreadyReported = new Set(Array.isArray(performanceAlertState.categories)
+      ? performanceAlertState.categories
+      : []);
+    const newCategories = categories.filter((category) => !alreadyReported.has(category));
+    const transitionedToDegraded = performanceAlertState.degraded !== true;
+    const intervalElapsed = now - Number(performanceAlertState.lastAlertAt || 0)
+      >= PERFORMANCE_ALERT_MIN_INTERVAL_MS;
+
+    performanceAlertState.degraded = true;
+    categories.forEach((category) => alreadyReported.add(category));
+    performanceAlertState.categories = Array.from(alreadyReported);
+
+    if (!transitionedToDegraded || !newCategories.length || !intervalElapsed) {
+      persistPerformanceAlertState();
+      return;
+    }
+
+    performanceAlertState.lastAlertAt = now;
+    persistPerformanceAlertState();
 
     observabilityQueueEvent({
       source: 'performance',
       severity: 'warning',
-      message: 'Degradação de desempenho detectada no cliente.',
+      module: 'global',
+      page: 'global',
+      fingerprint: `performance-global-${newCategories.sort().join('-')}`,
+      message: 'Degradação de desempenho global detectada no carregamento do aplicativo.',
       metadata: {
+        component: 'global-page-load',
+        failures: newCategories,
         lcpMs: Number(metrics.lcpMs || 0),
         navigationMs: Number(metrics.navigationMs || 0),
         domContentLoadedMs: Number(metrics.domContentLoadedMs || 0),
@@ -725,7 +772,7 @@
     performanceState.capturedAt = new Date().toISOString();
     window.__NEXLAB_PERFORMANCE__ = Object.freeze({ ...performanceState });
     try {
-      sessionStorage.setItem('nexlab:performance:v0.26.12', JSON.stringify(performanceState));
+      sessionStorage.setItem('nexlab:performance:v0.26.13', JSON.stringify(performanceState));
     } catch {}
     emit('nexlab:performance-metrics', { ...performanceState });
   }
@@ -739,8 +786,8 @@
       }
 
       const resources = performance.getEntriesByType('resource');
-      const initialPattern = /assets\/(?:index-beta-0-26-12|nexlab-vendor-beta-0-26-12|nexlab-app-shared-beta-0-26-12|nexlab-bootstrap|nexlab-realtime-core-beta-0-26-12|nexlab-realtime-hub-beta-0-26-12|nexlab-update-manager|nexlab-visual|nexlab-vapid-rotation)\.js/i;
-      const featurePattern = /assets\/nexlab-feature-modules-beta-0-26-12\.js/i;
+      const initialPattern = /assets\/(?:index-beta-0-26-13|nexlab-vendor-beta-0-26-13|nexlab-app-shared-beta-0-26-13|nexlab-bootstrap|nexlab-realtime-core-beta-0-26-13|nexlab-realtime-hub-beta-0-26-13|nexlab-update-manager|nexlab-visual|nexlab-vapid-rotation)\.js/i;
+      const featurePattern = /assets\/nexlab-feature-modules-beta-0-26-13\.js/i;
       const initial = resources.filter((entry) => initialPattern.test(entry.name));
       const feature = resources.filter((entry) => featurePattern.test(entry.name));
       performanceState.initialTransferBytes = Math.round(initial.reduce((sum, entry) => sum + Number(entry.transferSize || entry.encodedBodySize || 0), 0));
@@ -780,7 +827,7 @@
 
       try {
         new PerformanceObserver((list) => {
-          if (list.getEntries().some((entry) => /assets\/nexlab-feature-modules-beta-0-26-12\.js/i.test(entry.name))) {
+          if (list.getEntries().some((entry) => /assets\/nexlab-feature-modules-beta-0-26-13\.js/i.test(entry.name))) {
             collectStaticPerformanceMetrics();
           }
         }).observe({ type: 'resource', buffered: true });
