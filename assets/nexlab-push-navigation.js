@@ -1,10 +1,10 @@
 /* NEXLAB Beta 0.26.21 — navegação Push com confirmação explícita, deduplicação e fallback seguro. */
 (()=>{
   if(globalThis.__NEXLAB_PUSH_NAVIGATION__?.version==='0.26.21')return;
-  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.21',revision:'beta-0-26-21-feedback-external-evidence-picker-stability',homologationRevision:'beta-0-26-21-feedback-external-evidence-picker-stability'});
+  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.21',revision:'beta-0-26-21-feedback-external-evidence-upload-fix',homologationRevision:'beta-0-26-21-feedback-external-evidence-upload-fix'});
   const VERSION=BUILD.version;
   const BUILD_REVISION=BUILD.revision;
-  const HOMOLOGATION_REVISION=BUILD.homologationRevision||'beta-0-26-21-feedback-external-evidence-picker-stability';
+  const HOMOLOGATION_REVISION=BUILD.homologationRevision||'beta-0-26-21-feedback-external-evidence-upload-fix';
   const EVIDENCE_KEY='nexlab:device-homologation:'+VERSION+':'+BUILD_REVISION;
   const ALLOWED_TABS=new Set(['dashboard','pendencias','agenda','notificacoes','participantes','permissoes','equipes','perfil','projetos','inventario','patrimonio','estoque','reserva','marketing','eventos','mural','feedback','relatorios','saude-sistema','logs']);
   const RECENT_TTL_MS=10000;

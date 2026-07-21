@@ -3,7 +3,7 @@
   if(window.__NEXLAB_FEEDBACK_EVIDENCE_02621__)return;
   window.__NEXLAB_FEEDBACK_EVIDENCE_02621__=true;
 
-  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.21',revision:'beta-0-26-21-feedback-external-evidence-picker-stability'});
+  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.21',revision:'beta-0-26-21-feedback-external-evidence-upload-fix'});
   const FUNCTION_NAME='nexlab-feedback-evidence';
   const MAX_FILES=3;
   const MAX_ORIGINAL_BYTES=5*1024*1024;
@@ -199,13 +199,13 @@
       try{
         const reservation=await invoke({action:'reserve_upload',feedback_id:feedbackId,display_name:item.display_name,mime_type:item.mime_type,original_size_bytes:item.original_size_bytes,size_bytes:item.size_bytes,width:item.width,height:item.height,sha256:item.sha256});
         attachmentId=reservation.attachment_id;
-        const response=await fetch(reservation.upload_url,{method:'PUT',headers:{...reservation.upload_headers,'x-amz-meta-sha256':item.sha256,'x-amz-meta-feedback_id':feedbackId},body:item.blob,cache:'no-store',credentials:'omit',referrerPolicy:'no-referrer'});
+        const response=await fetch(reservation.upload_url,{method:'PUT',headers:{...reservation.upload_headers},body:item.blob,cache:'no-store',credentials:'omit',referrerPolicy:'no-referrer'});
         if(!response.ok)throw Object.assign(new Error('O armazenamento externo recusou a imagem.'),{code:`r2_put_${response.status}`});
         await invoke({action:'complete_upload',attachment_id:attachmentId});uploaded+=1;
       }catch(error){
         failed+=1;remaining.push(item);
         if(attachmentId){try{await invoke({action:'cancel_upload',attachment_id:attachmentId,reason:error.code||'client_upload_failed'});}catch{} }
-        console.error('Falha controlada ao enviar evidência externa:',error?.code||'unknown');
+        console.warn('Falha controlada ao enviar evidência externa:',error?.code||'unknown');
       }
     }
     state.pending=remaining;
@@ -238,7 +238,7 @@
     const cards=[...document.querySelectorAll('[data-nexlab-record-id]')];
     const ids=[...new Set(cards.map(card=>card.dataset.nexlabRecordId).filter(Boolean))];if(!ids.length)return;
     const missing=force?ids:ids.filter(id=>!state.listCache.has(id));
-    if(missing.length){state.listLoading=true;try{const sb=client();if(!sb)throw Object.assign(new Error('Cliente indisponível.'),{code:'client_unavailable'});const {data:items,error}=await sb.from('nexlab_feedback_attachments').select('id,feedback_id,display_name,mime_type,size_bytes,width,height,uploaded_at,available_at,created_at').in('feedback_id',missing).eq('status','available').order('created_at',{ascending:true});if(error)throw error;missing.forEach(id=>state.listCache.set(id,[]));(items||[]).forEach(item=>{const list=state.listCache.get(item.feedback_id)||[];list.push(item);state.listCache.set(item.feedback_id,list);});}catch(error){console.error('Consulta controlada de evidências:',error?.code||'unknown');}finally{state.listLoading=false;}}
+    if(missing.length){state.listLoading=true;try{const sb=client();if(!sb)throw Object.assign(new Error('Cliente indisponível.'),{code:'client_unavailable'});const {data:items,error}=await sb.from('nexlab_feedback_attachments').select('id,feedback_id,display_name,mime_type,size_bytes,width,height,uploaded_at,available_at,created_at').in('feedback_id',missing).eq('status','available').order('created_at',{ascending:true});if(error)throw error;missing.forEach(id=>state.listCache.set(id,[]));(items||[]).forEach(item=>{const list=state.listCache.get(item.feedback_id)||[];list.push(item);state.listCache.set(item.feedback_id,list);});}catch(error){console.warn('Consulta controlada de evidências:',error?.code||'unknown');}finally{state.listLoading=false;}}
     cards.forEach(card=>{
       const feedbackId=card.dataset.nexlabRecordId;if(!feedbackId)return;
       let section=card.querySelector('[data-nexlab-evidence-admin]');if(!section){section=document.createElement('section');section.className='nexlab-evidence-admin';section.dataset.nexlabEvidenceAdmin='true';card.appendChild(section);}

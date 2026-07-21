@@ -3,7 +3,7 @@
 
   const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({
     version:'0.26.21',
-    revision:'beta-0-26-21-feedback-external-evidence-picker-stability'
+    revision:'beta-0-26-21-feedback-external-evidence-upload-fix'
   });
   if(globalThis.__NEXLAB_PUSH_CONSENT__?.revision===BUILD.revision)return;
 
