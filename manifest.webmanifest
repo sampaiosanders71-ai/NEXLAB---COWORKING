@@ -2,7 +2,7 @@
   "id": "./",
   "name": "NEXLAB Beta 0.26.22",
   "short_name": "NEXLAB",
-  "description": "NEXLAB Beta 0.26.22 — interface mais objetiva, formulários consistentes e ajuda contextual por módulo.",
+  "description": "NEXLAB Beta 0.26.22 — campos consistentes, interface mais limpa e ajuda contextual detalhada.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

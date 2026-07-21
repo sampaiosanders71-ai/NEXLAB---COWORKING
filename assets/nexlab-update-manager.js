@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  const BUILD_IDENTITY = window.__NEXLAB_BUILD_IDENTITY__ || Object.freeze({version:'0.26.22',release:'Beta',revision:'beta-0-26-22-ui-clarity',generatedAt:'2026-07-21T14:36:20Z',cacheName:'nexlab-beta-0-26-22-ui-clarity'});
+  const BUILD_IDENTITY = window.__NEXLAB_BUILD_IDENTITY__ || Object.freeze({version:'0.26.22',release:'Beta',revision:'beta-0-26-22-help-detail-orange-outline',generatedAt:'2026-07-21T15:12:10Z',cacheName:'nexlab-beta-0-26-22-help-detail-orange-outline'});
   const CURRENT_VERSION = BUILD_IDENTITY.version;
   const CURRENT_RELEASE = BUILD_IDENTITY.release;
   const CURRENT_REVISION = BUILD_IDENTITY.revision;

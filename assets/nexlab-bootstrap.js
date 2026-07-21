@@ -2,7 +2,7 @@
   if (window.__NEXLAB_BOOTSTRAP_V26_7__) return;
   window.__NEXLAB_BOOTSTRAP_V26_7__ = true;
 
-  const BUILD_IDENTITY = window.__NEXLAB_BUILD_IDENTITY__ || Object.freeze({version:'0.26.22',release:'Beta',revision:'beta-0-26-22-ui-clarity',assetRevision:'app-beta-0-26-22-ui-clarity',cacheName:'nexlab-beta-0-26-22-ui-clarity',generatedAt:'2026-07-21T14:36:20Z'});
+  const BUILD_IDENTITY = window.__NEXLAB_BUILD_IDENTITY__ || Object.freeze({version:'0.26.22',release:'Beta',revision:'beta-0-26-22-help-detail-orange-outline',assetRevision:'app-beta-0-26-22-help-detail-orange-outline',cacheName:'nexlab-beta-0-26-22-help-detail-orange-outline',generatedAt:'2026-07-21T15:12:10Z'});
   const APP_VERSION = BUILD_IDENTITY.version;
   const APP_RELEASE = BUILD_IDENTITY.release;
   const APP_REVISION = BUILD_IDENTITY.revision;
