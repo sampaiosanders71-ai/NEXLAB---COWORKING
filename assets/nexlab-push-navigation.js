@@ -1,8 +1,11 @@
-/* NEXLAB Beta 0.26.19 — navegação Push com confirmação explícita, deduplicação e fallback seguro. */
+/* NEXLAB Beta 0.26.21 — navegação Push com confirmação explícita, deduplicação e fallback seguro. */
 (()=>{
-  if(globalThis.__NEXLAB_PUSH_NAVIGATION__?.version==='0.26.19')return;
-  const VERSION='0.26.19';
-  const EVIDENCE_KEY='nexlab:device-homologation:'+VERSION;
+  if(globalThis.__NEXLAB_PUSH_NAVIGATION__?.version==='0.26.21')return;
+  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.21',revision:'beta-0-26-21-feedback-external-evidence',homologationRevision:'beta-0-26-21-feedback-external-evidence'});
+  const VERSION=BUILD.version;
+  const BUILD_REVISION=BUILD.revision;
+  const HOMOLOGATION_REVISION=BUILD.homologationRevision||'beta-0-26-21-feedback-external-evidence';
+  const EVIDENCE_KEY='nexlab:device-homologation:'+VERSION+':'+BUILD_REVISION;
   const ALLOWED_TABS=new Set(['dashboard','pendencias','agenda','notificacoes','participantes','permissoes','equipes','perfil','projetos','inventario','patrimonio','estoque','reserva','marketing','eventos','mural','feedback','relatorios','saude-sistema','logs']);
   const RECENT_TTL_MS=10000;
   const CONFIRM_TIMEOUT_MS=4500;
@@ -32,7 +35,7 @@
   const readEvidence=()=>{try{return JSON.parse(localStorage.getItem(EVIDENCE_KEY)||'{}')||{};}catch{return {};}};
   const writeEvidence=(patch)=>{
     const current=readEvidence();
-    const next={...current,version:VERSION,revision:'beta-0-26-19-global-error-feedback-assist',userAgent:navigator.userAgent,updatedAt:new Date().toISOString(),...patch};
+    const next={...current,version:VERSION,revision:HOMOLOGATION_REVISION,buildRevision:BUILD_REVISION,userAgent:navigator.userAgent,updatedAt:new Date().toISOString(),...patch};
     try{localStorage.setItem(EVIDENCE_KEY,JSON.stringify(next));}catch{}
     globalThis.dispatchEvent(new CustomEvent('nexlab:push-navigation-evidence',{detail:next}));
     return next;

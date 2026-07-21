@@ -1,5 +1,5 @@
 importScripts('./assets/nexlab-release-identity.js');
-const BUILD_IDENTITY=self.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.19',release:'Beta',revision:'beta-0-26-19-global-error-feedback-assist',assetRevision:'app-beta-0-26-19-global-error-feedback-assist',cacheName:'nexlab-beta-0-26-19-global-error-feedback-assist',generatedAt:'2026-07-20T14:54:35Z'});
+const BUILD_IDENTITY=self.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.21',release:'Beta',revision:'beta-0-26-21-feedback-external-evidence',assetRevision:'app-beta-0-26-21-feedback-external-evidence',cacheName:'nexlab-beta-0-26-21-feedback-external-evidence',generatedAt:'2026-07-21T03:06:39Z'});
 const APP_VERSION=BUILD_IDENTITY.version;
 const APP_RELEASE=BUILD_IDENTITY.release;
 const APP_REVISION=BUILD_IDENTITY.revision;
@@ -45,7 +45,10 @@ const MANDATORY_SHELL=[
   `./assets/nexlab-realtime-hub-beta-0-26-12.js?v=${ASSET_REVISION}`,
   `./assets/nexlab-visual.css?v=${ASSET_REVISION}`,
   `./assets/nexlab-visual.js?v=${ASSET_REVISION}`,
+  `./assets/nexlab-auth-security.js?v=${ASSET_REVISION}`,
   `./assets/nexlab-vapid-rotation.js?v=${ASSET_REVISION}`,
+  `./assets/nexlab-push-consent.js?v=${ASSET_REVISION}`,
+  `./assets/nexlab-feedback-evidence.js?v=${ASSET_REVISION}`,
   `./assets/nexlab-push-navigation.js?v=${ASSET_REVISION}`,
   `./assets/nexlab-device-homologation.js?v=${ASSET_REVISION}`,
   './icons/nexlab-favicon-rounded.png?v=brand-r38','./icons/apple-touch-icon.png?v=brand-r38',

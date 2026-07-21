@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "NEXLAB Beta 0.26.19",
+  "name": "NEXLAB Beta 0.26.21",
   "short_name": "NEXLAB",
-  "description": "NEXLAB Beta 0.26.19 — tratamento global de erros, tentativa de recuperação e Feedback assistido com código de referência.",
+  "description": "NEXLAB Beta 0.26.21 — evidências visuais privadas no Feedback, autenticação segura e homologação técnica.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

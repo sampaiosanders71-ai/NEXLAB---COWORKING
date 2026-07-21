@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   if(window.__NEXLAB_VAPID_ROTATION_BETA_0264__) return;
-  window.__NEXLAB_VAPID_ROTATION_BETA_0264__={version:'0.26.19',status:'idle'};
+  window.__NEXLAB_VAPID_ROTATION_BETA_0264__={version:'0.26.21',status:'idle'};
   const PROJECT_REF='eahldhabwulnwhuwrhvc';
   const EXPECTED_KEY='BIwuvqKRH2PipAjpAMTwmVM6kUgN0XycoLCD99uuKJQcO3e0rXWZWBNBaMZaqFxGHBL90aKQrTbMZaNLb_xblLE';
   const API=(window.__NEXLAB_CONFIG__?.supabaseUrl||`https://${PROJECT_REF}.supabase.co`).replace(/\/$/,'');
@@ -30,7 +30,7 @@
     }catch{return 'anonymous'}
   }
   function markerKey(){return `${MARKER}:${subject()}`}
-  function markerValue(subscription){return `0.26.19:${subscription?.endpoint||''}`}
+  function markerValue(subscription){return `0.26.21:${subscription?.endpoint||''}`}
   async function rpc(name,body){
     const access=token();if(!access)throw new Error('Sessão não localizada.');
     const response=await fetch(`${API}/rest/v1/rpc/${name}`,{method:'POST',cache:'no-store',headers:{apikey:ANON,Authorization:`Bearer ${access}`,'Content-Type':'application/json'},body:JSON.stringify(body||{})});
@@ -41,6 +41,7 @@
     const json=subscription.toJSON();
     return rpc('save_push_subscription',{p_endpoint:subscription.endpoint,p_p256dh:json.keys?.p256dh||'',p_auth:json.keys?.auth||'',p_expiration_time:subscription.expirationTime||null,p_user_agent:navigator.userAgent||null,p_platform:navigator.userAgentData?.platform||navigator.platform||null});
   }
+  let activeSync=null;
   async function rotate(){
     const state=window.__NEXLAB_VAPID_ROTATION_BETA_0264__;state.status='checking';
     if(location.protocol!=='https:'||!('serviceWorker'in navigator)||!('PushManager'in window)||!('Notification'in window)){state.status='unsupported';return}
@@ -67,9 +68,20 @@
       state.status=changed?'rotated':'refreshed';
     }else state.status='current';
     state.endpoint=subscription.endpoint;state.completedAt=new Date().toISOString();
-    window.dispatchEvent(new CustomEvent('nexlab:vapid-rotated',{detail:{status:state.status,version:'0.26.19'}}));
+    window.dispatchEvent(new CustomEvent('nexlab:vapid-rotated',{detail:{status:state.status,version:'0.26.21'}}));
   }
-  const start=()=>rotate().catch(error=>{window.__NEXLAB_VAPID_ROTATION_BETA_0264__.status='error';window.__NEXLAB_VAPID_ROTATION_BETA_0264__.error=String(error?.message||error)});
+  const sync=()=>{
+    if(activeSync)return activeSync;
+    activeSync=rotate().catch(error=>{
+      const state=window.__NEXLAB_VAPID_ROTATION_BETA_0264__;
+      state.status='error';state.error=String(error?.message||error);
+      throw error;
+    }).finally(()=>{activeSync=null});
+    return activeSync;
+  };
+  window.__NEXLAB_VAPID_ROTATION_BETA_0264__.sync=sync;
+  const start=()=>sync().catch(()=>{});
   if(document.readyState==='complete')setTimeout(start,1200);else window.addEventListener('load',()=>setTimeout(start,1200),{once:true});
-  document.addEventListener('visibilitychange',()=>{const state=window.__NEXLAB_VAPID_ROTATION_BETA_0264__;if(document.visibilityState==='visible'&&['error','no-session'].includes(state.status))start()});
+  window.addEventListener('nexlab:push-permission-granted',start);
+  document.addEventListener('visibilitychange',()=>{const state=window.__NEXLAB_VAPID_ROTATION_BETA_0264__;if(document.visibilityState==='visible'&&['error','no-session','default'].includes(state.status))start()});
 })();

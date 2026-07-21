@@ -1,19 +1,20 @@
 (function(){
   'use strict';
-  const BUILD_IDENTITY=window.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.19',release:'Beta',revision:'beta-0-26-19-global-error-feedback-assist',assetRevision:'app-beta-0-26-19-global-error-feedback-assist',cacheName:'nexlab-beta-0-26-19-global-error-feedback-assist'});
+  const BUILD_IDENTITY=window.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.21',release:'Beta',revision:'beta-0-26-21-feedback-external-evidence',assetRevision:'app-beta-0-26-21-feedback-external-evidence',cacheName:'nexlab-beta-0-26-21-feedback-external-evidence'});
   if (window.__NEXLAB_PWA_READINESS__?.revision === BUILD_IDENTITY.revision) return;
 
   const VERSION=BUILD_IDENTITY.version;
   const RELEASE=BUILD_IDENTITY.release;
   const REVISION=BUILD_IDENTITY.revision;
+  const HOMOLOGATION_REVISION=BUILD_IDENTITY.homologationRevision||'beta-0-26-21-feedback-external-evidence';
   const ASSET_REVISION=BUILD_IDENTITY.assetRevision;
   const CACHE_NAME=BUILD_IDENTITY.cacheName;
   const STORAGE_KEY='nexlab:pwa-readiness:'+VERSION;
-  const DEVICE_EVIDENCE_KEY='nexlab:device-homologation:'+VERSION;
-  const EXPECTED_CORE=['index.html','offline.html','manifest.webmanifest','assets/nexlab-release-identity.js','assets/index-beta-0-26-12.js','assets/nexlab-vendor-beta-0-26-12.js','assets/nexlab-app-shared-beta-0-26-12.js','assets/nexlab-dialogs.js','assets/nexlab-push-navigation.js','assets/nexlab-device-homologation.js'];
+  const DEVICE_EVIDENCE_KEY='nexlab:device-homologation:'+VERSION+':'+REVISION;
+  const EXPECTED_CORE=['index.html','offline.html','manifest.webmanifest','assets/nexlab-release-identity.js','assets/index-beta-0-26-12.js','assets/nexlab-vendor-beta-0-26-12.js','assets/nexlab-app-shared-beta-0-26-12.js','assets/nexlab-dialogs.js','assets/nexlab-push-navigation.js','assets/nexlab-device-homologation.js','assets/nexlab-auth-security.js','assets/nexlab-push-consent.js'];
   const EXPECTED_OPTIONAL=['assets/nexlab-feature-modules-beta-0-26-12.js','assets/nexlab-export-vendor-beta-0-26-12.js','assets/nexlab-pwa-readiness.js','pwa-check.html'];
   const OPTIONAL_WARM=['assets/nexlab-feature-modules-beta-0-26-12.js','assets/nexlab-export-vendor-beta-0-26-12.js'];
-  const OFFLINE_PROBE=['index.html','offline.html','assets/nexlab-release-identity.js','assets/index-beta-0-26-12.js','assets/nexlab-push-navigation.js','assets/nexlab-device-homologation.js'];
+  const OFFLINE_PROBE=['index.html','offline.html','assets/nexlab-release-identity.js','assets/index-beta-0-26-12.js','assets/nexlab-push-navigation.js','assets/nexlab-device-homologation.js','assets/nexlab-auth-security.js','assets/nexlab-push-consent.js'];
 
   const absolute=(value)=>new URL(value,document.baseURI).href;
   const timeout=(ms)=>new Promise((_,reject)=>setTimeout(()=>reject(new Error('Tempo excedido.')),ms));
@@ -42,7 +43,7 @@
   function writeDeviceEvidence(value){
     const current=readDeviceEvidence();
     const deviceSessionId=current.deviceSessionId||(globalThis.crypto?.randomUUID?.()||('device-'+Date.now()+'-'+Math.random().toString(16).slice(2)));
-    const next={...current,deviceSessionId,version:VERSION,revision:REVISION,userAgent:navigator.userAgent,updatedAt:new Date().toISOString(),...value};
+    const next={...current,deviceSessionId,version:VERSION,revision:HOMOLOGATION_REVISION,buildRevision:REVISION,userAgent:navigator.userAgent,updatedAt:new Date().toISOString(),...value};
     try{localStorage.setItem(DEVICE_EVIDENCE_KEY,JSON.stringify(next));}catch{}
     return next;
   }
@@ -155,14 +156,14 @@
     return {installed,standalone:installed,standaloneMedia,windowControlsOverlay:overlay,iosStandalone,mode:overlay?'window-controls-overlay':standaloneMedia||iosStandalone?'standalone':'browser'};
   }
   function objectiveEvidence(evidence){
-    const sameRevision=evidence?.revision===REVISION;
+    const sameRevision=evidence?.revision===HOMOLOGATION_REVISION&&evidence?.buildRevision===REVISION;
     return {
       installedLaunch:sameRevision&&Boolean(evidence?.automaticInstalledLaunchAt),
       offlineNavigation:sameRevision&&Boolean(evidence?.automaticOfflineNavigationAt),
       pushDisplayed:sameRevision&&Boolean(evidence?.automaticPushDisplayedAt),
       pushDestination:sameRevision&&Boolean(evidence?.automaticPushDestinationAt),
       updateActivation:sameRevision&&Boolean(evidence?.automaticUpdateActivationAt),
-      serverReceipt:sameRevision&&evidence?.serverReceiptRevision===REVISION&&evidence?.serverReceiptComplete===true&&Boolean(evidence?.serverReceiptId)
+      serverReceipt:sameRevision&&evidence?.serverReceiptRevision===HOMOLOGATION_REVISION&&evidence?.serverReceiptComplete===true&&Boolean(evidence?.serverReceiptId)
     };
   }
   async function run(){

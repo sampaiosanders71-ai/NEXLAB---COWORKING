@@ -1,11 +1,12 @@
 (function(){
   'use strict';
-  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.19',revision:'beta-0-26-19-global-error-feedback-assist'});
+  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.21',revision:'beta-0-26-21-feedback-external-evidence',homologationRevision:'beta-0-26-21-feedback-external-evidence'});
   const VERSION=BUILD.version;
-  const REVISION=BUILD.revision;
+  const BUILD_REVISION=BUILD.revision;
+  const REVISION=BUILD.homologationRevision||'beta-0-26-21-feedback-external-evidence';
   if(globalThis.__NEXLAB_DEVICE_HOMOLOGATION__?.revision===REVISION)return;
-  const EVIDENCE_KEY='nexlab:device-homologation:'+VERSION;
-  const RPC='nexlab_record_device_homologation_v02619';
+  const EVIDENCE_KEY='nexlab:device-homologation:'+VERSION+':'+BUILD_REVISION;
+  const RPC='nexlab_record_device_homologation_v02621';
   const flag=(name)=>{try{return new URL(location.href).searchParams.get(name)==='1';}catch{return false;}};
   const syncRequested=()=>flag('nexlabHomologationSync');
   const pushTestRequested=()=>flag('nexlabPushTest');
@@ -13,11 +14,11 @@
   const read=()=>{try{return JSON.parse(localStorage.getItem(EVIDENCE_KEY)||'{}')||{};}catch{return {};}};
   const write=(patch)=>{
     const current=read();
-    const next={...current,...patch,version:VERSION,revision:REVISION,updatedAt:new Date().toISOString()};
+    const next={...current,...patch,version:VERSION,revision:REVISION,buildRevision:BUILD_REVISION,updatedAt:new Date().toISOString()};
     try{localStorage.setItem(EVIDENCE_KEY,JSON.stringify(next));}catch{}
     return next;
   };
-  const localComplete=(evidence)=>evidence?.revision===REVISION
+  const localComplete=(evidence)=>evidence?.revision===REVISION&&evidence?.buildRevision===BUILD_REVISION
     && Boolean(evidence?.deviceSessionId)
     && Boolean(evidence?.automaticInstalledLaunchAt)
     && Boolean(evidence?.automaticUpdateActivationAt)
@@ -99,37 +100,58 @@
     return activePushTest;
   }
   let activeSync=null;
-  async function sync({redirect=syncRequested()}={}){
+  async function sync({redirect=syncRequested(),silent=false}={}){
     if(activeSync)return activeSync;
     activeSync=(async()=>{
       const evidence=read();
       if(!localComplete(evidence))throw new Error('As cinco evidências automáticas locais ainda não estão completas.');
       if(navigator.onLine===false)throw new Error('Reconecte a internet para registrar a homologação.');
-      banner('Aguardando autenticação administrativa...');
+      if(!silent)banner('Aguardando autenticação administrativa...');
       const client=await waitForClient();
       const session=await waitForSession(client);
-      banner('Registrando evidência física no Supabase...');
+      const profileResult=await client.from('profiles').select('role').eq('id',session.user.id).maybeSingle();
+      if(profileResult?.error)throw profileResult.error;
+      const role=String(profileResult?.data?.role||'').toLowerCase();
+      if(!['admin','administrador'].includes(role)){
+        if(silent)return {ok:false,skipped:'administrator_required'};
+        throw new Error('Entre com uma conta Administradora para registrar a homologação.');
+      }
+      if(!silent)banner('Registrando evidência física no Supabase...');
       const {data,error}=await client.rpc(RPC,{p_evidence:evidence});
       if(error)throw error;
       if(!data?.ok||data?.complete!==true||!data?.homologation_id)throw new Error(String(data?.error||'O Supabase não confirmou a homologação.'));
       const next=write({serverReceiptId:String(data.homologation_id),serverReceiptAt:String(data.completed_at||new Date().toISOString()),serverReceiptHash:String(data.evidence_hash||''),serverReceiptRevision:REVISION,serverReceiptComplete:true,serverReceiptUserId:String(session.user?.id||'')});
       globalThis.dispatchEvent(new CustomEvent('nexlab:device-homologation-synced',{detail:{receipt:data,evidence:next}}));
       clearRequestParams();
-      banner('Homologação física registrada. Abrindo o diagnóstico final...','ok');
+      if(!silent)banner('Homologação física registrada. Abrindo o diagnóstico final...','ok');
       if(redirect)setTimeout(()=>location.replace('./pwa-check.html?nexlabHomologationSynced=1'),900);
       return {ok:true,receipt:data,evidence:next};
     })().catch(error=>{
       clearRequestParams();
-      banner(String(error?.message||error),'error');
+      if(!silent)banner(String(error?.message||error),'error');
       globalThis.dispatchEvent(new CustomEvent('nexlab:device-homologation-sync-error',{detail:{error:String(error?.message||error)}}));
       return {ok:false,error:String(error?.message||error)};
     }).finally(()=>{activeSync=null;});
     return activeSync;
   }
   globalThis.__NEXLAB_DEVICE_HOMOLOGATION__=Object.freeze({version:VERSION,revision:REVISION,read,localComplete,sync,requestPushTest});
+  let silentSyncTimer=0;
+  const attemptSilentSync=()=>{
+    clearTimeout(silentSyncTimer);
+    silentSyncTimer=setTimeout(()=>{
+      const evidence=read();
+      if(navigator.onLine!==false&&localComplete(evidence)&&(!evidence.serverReceiptComplete||evidence.serverReceiptRevision!==REVISION)){
+        void sync({redirect:false,silent:true});
+      }
+    },2200);
+  };
   const boot=()=>{
     if(pushTestRequested()){banner('Preparando Push real de homologação...');void requestPushTest();return;}
-    if(syncRequested()){banner('Preparando registro da homologação...');void sync();}
+    if(syncRequested()){banner('Preparando registro da homologação...');void sync();return;}
+    attemptSilentSync();
+    globalThis.addEventListener('online',attemptSilentSync);
+    globalThis.addEventListener('nexlab:pwa-readiness-complete',attemptSilentSync);
+    globalThis.addEventListener('nexlab:push-navigation-evidence',attemptSilentSync);
   };
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
