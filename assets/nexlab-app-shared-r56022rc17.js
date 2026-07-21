@@ -2,4 +2,4 @@
 const __nexlabCompatibilityDetail=Object.freeze({group:"legacy-26-31-22",sourceVersion:"26.31.22",targetVersion:"0.26.21",assetPath:"assets/nexlab-app-shared-r56022rc17.js",mode:'lightweight-bridge',usedAt:new Date().toISOString()});
 try{sessionStorage.setItem('nexlab:compatibility-asset:last',JSON.stringify(__nexlabCompatibilityDetail));}catch{}
 try{globalThis.dispatchEvent(new CustomEvent('nexlab:compatibility-asset-used',{detail:__nexlabCompatibilityDetail}));}catch{}
-export * from './nexlab-app-shared-beta-0-26-12.js?v=app-beta-0-26-21-feedback-external-evidence';
+export * from './nexlab-app-shared-beta-0-26-12.js?v=app-beta-0-26-21-feedback-external-evidence-r2-ready';
