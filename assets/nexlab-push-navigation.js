@@ -1,7 +1,7 @@
 /* NEXLAB Beta 0.26.22 — navegação Push com confirmação explícita, deduplicação e fallback seguro. */
 (()=>{
   if(globalThis.__NEXLAB_PUSH_NAVIGATION__?.version==='0.26.22')return;
-  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.22',revision:'beta-0-26-22-help-detail-orange-outline',homologationRevision:'beta-0-26-22-feedback-resolved-bulk-delete'});
+  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.22',revision:'beta-0-26-22-help-icon-compact-corner',homologationRevision:'beta-0-26-22-feedback-resolved-bulk-delete'});
   const VERSION=BUILD.version;
   const BUILD_REVISION=BUILD.revision;
   const HOMOLOGATION_REVISION=BUILD.homologationRevision||'beta-0-26-22-feedback-resolved-bulk-delete';

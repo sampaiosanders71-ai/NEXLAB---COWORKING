@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  const BUILD_IDENTITY=window.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.22',release:'Beta',revision:'beta-0-26-22-help-detail-orange-outline',assetRevision:'app-beta-0-26-22-help-detail-orange-outline',cacheName:'nexlab-beta-0-26-22-help-detail-orange-outline'});
+  const BUILD_IDENTITY=window.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.22',release:'Beta',revision:'beta-0-26-22-help-icon-compact-corner',assetRevision:'app-beta-0-26-22-help-icon-compact-corner',cacheName:'nexlab-beta-0-26-22-help-icon-compact-corner'});
   if (window.__NEXLAB_PWA_READINESS__?.revision === BUILD_IDENTITY.revision) return;
 
   const VERSION=BUILD_IDENTITY.version;

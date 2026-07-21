@@ -1,5 +1,5 @@
 importScripts('./assets/nexlab-release-identity.js');
-const BUILD_IDENTITY=self.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.22',release:'Beta',revision:'beta-0-26-22-help-detail-orange-outline',assetRevision:'app-beta-0-26-22-help-detail-orange-outline',cacheName:'nexlab-beta-0-26-22-help-detail-orange-outline',generatedAt:'2026-07-21T15:12:10Z'});
+const BUILD_IDENTITY=self.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.22',release:'Beta',revision:'beta-0-26-22-help-icon-compact-corner',assetRevision:'app-beta-0-26-22-help-icon-compact-corner',cacheName:'nexlab-beta-0-26-22-help-icon-compact-corner',generatedAt:'2026-07-21T15:34:00Z'});
 const APP_VERSION=BUILD_IDENTITY.version;
 const APP_RELEASE=BUILD_IDENTITY.release;
 const APP_REVISION=BUILD_IDENTITY.revision;

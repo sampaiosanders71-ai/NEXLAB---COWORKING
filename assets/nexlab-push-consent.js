@@ -3,7 +3,7 @@
 
   const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({
     version:'0.26.22',
-    revision:'beta-0-26-22-help-detail-orange-outline'
+    revision:'beta-0-26-22-help-icon-compact-corner'
   });
   if(globalThis.__NEXLAB_PUSH_CONSENT__?.revision===BUILD.revision)return;
 

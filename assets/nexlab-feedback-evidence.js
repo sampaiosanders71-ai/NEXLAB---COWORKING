@@ -3,7 +3,7 @@
   if(window.__NEXLAB_FEEDBACK_EVIDENCE_02622__)return;
   window.__NEXLAB_FEEDBACK_EVIDENCE_02622__=true;
 
-  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.22',revision:'beta-0-26-22-help-detail-orange-outline'});
+  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.22',revision:'beta-0-26-22-help-icon-compact-corner'});
   const FUNCTION_NAME='nexlab-feedback-evidence';
   const MAX_FILES=3;
   const MAX_ORIGINAL_BYTES=5*1024*1024;

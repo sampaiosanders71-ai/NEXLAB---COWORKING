@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.22',revision:'beta-0-26-22-help-detail-orange-outline',homologationRevision:'beta-0-26-22-feedback-resolved-bulk-delete'});
+  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.22',revision:'beta-0-26-22-help-icon-compact-corner',homologationRevision:'beta-0-26-22-feedback-resolved-bulk-delete'});
   const VERSION=BUILD.version;
   const BUILD_REVISION=BUILD.revision;
   const REVISION=BUILD.homologationRevision||'beta-0-26-22-feedback-resolved-bulk-delete';
