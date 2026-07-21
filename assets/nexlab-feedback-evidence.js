@@ -1,16 +1,16 @@
 (function(){
   'use strict';
-  if(window.__NEXLAB_FEEDBACK_EVIDENCE_02621__)return;
-  window.__NEXLAB_FEEDBACK_EVIDENCE_02621__=true;
+  if(window.__NEXLAB_FEEDBACK_EVIDENCE_02622__)return;
+  window.__NEXLAB_FEEDBACK_EVIDENCE_02622__=true;
 
-  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.21',revision:'beta-0-26-21-feedback-external-evidence-upload-fix'});
+  const BUILD=globalThis.__NEXLAB_BUILD_IDENTITY__||Object.freeze({version:'0.26.22',revision:'beta-0-26-22-feedback-resolved-bulk-delete'});
   const FUNCTION_NAME='nexlab-feedback-evidence';
   const MAX_FILES=3;
   const MAX_ORIGINAL_BYTES=5*1024*1024;
   const MAX_PROCESSED_BYTES=Math.floor(1.5*1024*1024);
   const MAX_DIMENSION=1920;
   const ALLOWED_TYPES=new Set(['image/png','image/jpeg','image/webp']);
-  const DRAFT_KEY='nexlab:feedback-draft:v0.26.21';
+  const DRAFT_KEY='nexlab:feedback-draft:v0.26.22';
   const state={configured:null,statusCheckedAt:0,pending:[],processing:Promise.resolve(),processingActive:false,pickerActive:false,pickerReleaseTimer:null,role:null,userId:null,listCache:new Map(),listLoading:false};
 
   function client(){return globalThis.__NEXLAB_SUPABASE__||null;}
@@ -189,6 +189,46 @@
     status.dataset.type=configured?'ready':'unavailable';
   }
 
+  async function deleteResolvedAll(feedbackIds){
+    const ids=[...new Set((Array.isArray(feedbackIds)?feedbackIds:[]).map(value=>String(value||'').trim()).filter(value=>/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value)))];
+    if(!ids.length)return {ok:true,deleted_count:0,deleted_attachment_count:0,feedback_ids:[]};
+    const sb=client();
+    if(!sb?.from||!sb?.rpc)throw Object.assign(new Error('Integração administrativa indisponível.'),{code:'client_unavailable'});
+
+    const attachments=[];
+    for(let index=0;index<ids.length;index+=100){
+      const batch=ids.slice(index,index+100);
+      const {data,error}=await sb.from('nexlab_feedback_attachments').select('id,feedback_id,status').in('feedback_id',batch).order('created_at',{ascending:true});
+      if(error)throw Object.assign(new Error('Não foi possível preparar a limpeza das imagens anexadas.'),{code:error.code||'attachment_lookup_failed',error});
+      attachments.push(...(data||[]));
+    }
+
+    const removable=attachments.filter(item=>item?.id&&!['deleted','cancelled'].includes(String(item.status||'')));
+    const failures=[];
+    let cursor=0;
+    const worker=async()=>{
+      while(cursor<removable.length){
+        const item=removable[cursor++];
+        try{await invoke({action:'delete',attachment_id:item.id});}
+        catch(error){failures.push({attachment_id:item.id,code:error?.code||'external_delete_failed'});}
+      }
+    };
+    await Promise.all(Array.from({length:Math.min(4,removable.length)},worker));
+    if(failures.length){
+      throw Object.assign(new Error('Não foi possível remover todas as imagens anexadas. Nenhum Feedback foi excluído do banco. Tente novamente.'),{code:'external_cleanup_failed',failures});
+    }
+
+    const {data,error}=await sb.rpc('nexlab_admin_delete_resolved_feedback_v02622',{p_feedback_ids:ids});
+    if(error||!data?.ok)throw Object.assign(new Error(data?.message||'Não foi possível excluir os Feedbacks resolvidos.'),{code:data?.code||error?.code||'bulk_delete_failed',data,error});
+    state.listCache.clear();
+    return {
+      ok:true,
+      deleted_count:Number(data.deleted_count||0),
+      deleted_attachment_count:Number(data.deleted_attachment_count||attachments.length||0),
+      feedback_ids:Array.isArray(data.feedback_ids)?data.feedback_ids:ids
+    };
+  }
+
   async function uploadPending(feedbackId){
     await state.processing;
     if(!state.pending.length)return {ok:true,uploaded:0,failed:0};
@@ -261,6 +301,6 @@
   window.addEventListener('nexlab:navigate-record',schedule);
   window.addEventListener('focus',()=>{if(state.pickerActive)endPicker(1200);else schedule();});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden){if(state.pickerActive)endPicker(1200);else schedule();}});
-  window.NexLabFeedbackEvidence=Object.freeze({version:BUILD.version,uploadPending,refresh:()=>refreshAdminEvidence(true),status:()=>checkStatus(true),clearDraft,persistDraft:()=>persistDraft(findFeedbackForm())});
+  window.NexLabFeedbackEvidence=Object.freeze({version:BUILD.version,uploadPending,deleteResolvedAll,refresh:()=>refreshAdminEvidence(true),status:()=>checkStatus(true),clearDraft,persistDraft:()=>persistDraft(findFeedbackForm())});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});else schedule();
 })();

@@ -1,5 +1,5 @@
-/* NEXLAB Beta 0.26.21 — ativo clássico protegido por compatibilidade. */
-const __nexlabCompatibilityDetail=Object.freeze({group:"legacy-26-31-22",sourceVersion:"26.31.22",targetVersion:"0.26.21",assetPath:"assets/nexlab-realtime-hub-r56022rc17.js",mode:'lightweight-bridge',usedAt:new Date().toISOString()});
+/* NEXLAB Beta 0.26.22 — ativo clássico protegido por compatibilidade. */
+const __nexlabCompatibilityDetail=Object.freeze({group:"legacy-26-31-22",sourceVersion:"26.31.22",targetVersion:"0.26.22",assetPath:"assets/nexlab-realtime-hub-r56022rc17.js",mode:'lightweight-bridge',usedAt:new Date().toISOString()});
 try{sessionStorage.setItem('nexlab:compatibility-asset:last',JSON.stringify(__nexlabCompatibilityDetail));}catch{}
 try{globalThis.dispatchEvent(new CustomEvent('nexlab:compatibility-asset-used',{detail:__nexlabCompatibilityDetail}));}catch{}
 /* Compatibilidade temporária da Beta 0.26.12 para clientes ainda presos no shell 26.31.22. */

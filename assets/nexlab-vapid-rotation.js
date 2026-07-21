@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   if(window.__NEXLAB_VAPID_ROTATION_BETA_0264__) return;
-  window.__NEXLAB_VAPID_ROTATION_BETA_0264__={version:'0.26.21',status:'idle'};
+  window.__NEXLAB_VAPID_ROTATION_BETA_0264__={version:'0.26.22',status:'idle'};
   const PROJECT_REF='eahldhabwulnwhuwrhvc';
   const EXPECTED_KEY='BIwuvqKRH2PipAjpAMTwmVM6kUgN0XycoLCD99uuKJQcO3e0rXWZWBNBaMZaqFxGHBL90aKQrTbMZaNLb_xblLE';
   const API=(window.__NEXLAB_CONFIG__?.supabaseUrl||`https://${PROJECT_REF}.supabase.co`).replace(/\/$/,'');
@@ -30,7 +30,7 @@
     }catch{return 'anonymous'}
   }
   function markerKey(){return `${MARKER}:${subject()}`}
-  function markerValue(subscription){return `0.26.21:${subscription?.endpoint||''}`}
+  function markerValue(subscription){return `0.26.22:${subscription?.endpoint||''}`}
   async function rpc(name,body){
     const access=token();if(!access)throw new Error('Sessão não localizada.');
     const response=await fetch(`${API}/rest/v1/rpc/${name}`,{method:'POST',cache:'no-store',headers:{apikey:ANON,Authorization:`Bearer ${access}`,'Content-Type':'application/json'},body:JSON.stringify(body||{})});
@@ -68,7 +68,7 @@
       state.status=changed?'rotated':'refreshed';
     }else state.status='current';
     state.endpoint=subscription.endpoint;state.completedAt=new Date().toISOString();
-    window.dispatchEvent(new CustomEvent('nexlab:vapid-rotated',{detail:{status:state.status,version:'0.26.21'}}));
+    window.dispatchEvent(new CustomEvent('nexlab:vapid-rotated',{detail:{status:state.status,version:'0.26.22'}}));
   }
   const sync=()=>{
     if(activeSync)return activeSync;

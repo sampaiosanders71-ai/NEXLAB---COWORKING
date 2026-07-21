@@ -6146,7 +6146,7 @@ input[type="datetime-local"].nexlab-form-control-v263033{
 .nexlab-prompt-field[data-mode="code"]{font-size:22px;font-weight:900;letter-spacing:.35em;text-align:center;font-variant-numeric:tabular-nums;}
 
 
-/* Beta 0.26.21 — aviso global de erro e Feedback assistido */
+/* Beta 0.26.22 — aviso global de erro e Feedback assistido */
 .nexlab-user-error-backdrop{
   position:fixed;inset:0;z-index:2147483100;display:flex;align-items:center;justify-content:center;
   padding:18px;background:rgba(2,8,23,.62);backdrop-filter:blur(10px);
@@ -6184,7 +6184,7 @@ input[type="datetime-local"].nexlab-form-control-v263033{
   .nexlab-v261-partial-actions{width:100%;display:grid;grid-template-columns:1fr 1fr;}
 }
 
-/* Beta 0.26.21 — consentimento guiado de notificações Push */
+/* Beta 0.26.22 — consentimento guiado de notificações Push */
 html.nexlab-push-consent-open,
 html.nexlab-push-consent-open body{overflow:hidden}
 .nexlab-push-consent-overlay{position:fixed;inset:0;z-index:2147483300;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(2,12,27,.66);backdrop-filter:blur(8px)}
@@ -6204,7 +6204,7 @@ html.nexlab-push-consent-open body{overflow:hidden}
 @media(max-width:520px){.nexlab-push-consent-overlay{align-items:flex-end;padding:12px}.nexlab-push-consent-dialog{padding:23px 20px;border-radius:24px}.nexlab-push-consent-actions{display:grid;grid-template-columns:1fr}.nexlab-push-consent-actions button{width:100%}.nexlab-push-consent-primary{grid-row:1}.nexlab-push-consent-secondary{grid-row:2}}
 @media(prefers-reduced-motion:reduce){.nexlab-push-consent-actions button{transition:none}}
 
-/* Beta 0.26.21 — evidências visuais privadas do Feedback */
+/* Beta 0.26.22 — evidências visuais privadas do Feedback */
 .nexlab-evidence-uploader{border:1px solid #dbe3ef;border-radius:18px;padding:16px;background:#f8fafc;display:grid;gap:12px}
 .nexlab-evidence-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
 .nexlab-evidence-heading h4{margin:0;color:#0e1f3d;font-size:.85rem;font-weight:850}

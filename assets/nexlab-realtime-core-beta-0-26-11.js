@@ -1,5 +1,5 @@
-/* NEXLAB Beta 0.26.21 — ativo clássico protegido por compatibilidade. */
-const __nexlabCompatibilityDetail=Object.freeze({group:"beta-0-26-11",sourceVersion:"0.26.11",targetVersion:"0.26.21",assetPath:"assets/nexlab-realtime-core-beta-0-26-11.js",mode:'lightweight-bridge',usedAt:new Date().toISOString()});
+/* NEXLAB Beta 0.26.22 — ativo clássico protegido por compatibilidade. */
+const __nexlabCompatibilityDetail=Object.freeze({group:"beta-0-26-11",sourceVersion:"0.26.11",targetVersion:"0.26.22",assetPath:"assets/nexlab-realtime-core-beta-0-26-11.js",mode:'lightweight-bridge',usedAt:new Date().toISOString()});
 try{sessionStorage.setItem('nexlab:compatibility-asset:last',JSON.stringify(__nexlabCompatibilityDetail));}catch{}
 try{globalThis.dispatchEvent(new CustomEvent('nexlab:compatibility-asset-used',{detail:__nexlabCompatibilityDetail}));}catch{}
 (function(){

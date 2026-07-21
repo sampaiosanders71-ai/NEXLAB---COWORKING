@@ -2,7 +2,7 @@
   if (window.__NEXLAB_VISUAL_V26_7__) return;
   window.__NEXLAB_VISUAL_V26_7__ = true;
 
-  const VERSION = '0.26.21';
+  const VERSION = '0.26.22';
   let connectionBackdrop = null;
   let userErrorBackdrop = null;
   let connectionDismissedUntil = 0;
@@ -120,7 +120,7 @@
   }
 
 
-  const FEEDBACK_ASSIST_CONTEXT_KEY = 'nexlab:feedback-assist:context:v0.26.21';
+  const FEEDBACK_ASSIST_CONTEXT_KEY = 'nexlab:feedback-assist:context:v0.26.22';
 
   function moduleDisplayName(moduleName){
     const labels = {
